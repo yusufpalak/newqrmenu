@@ -1,34 +1,32 @@
-﻿import {  Injectable, CanActivate, ExecutionContext, ForbiddenException, BadRequestException  } from '@nestjs/common';
-import {  Reflector  } from '@nestjs/core';
+import {
+  Injectable,
+  CanActivate,
+  ExecutionContext,
+  ForbiddenException,
+} from '@nestjs/common';
+import { Role } from '../../common/enums/role.enum';
+import { IAuthenticatedRequest } from '../../common/interfaces/authenticated-request.interface';
 
-@Injectable()export class TenantIsolationGuard implements CanActivate {
-  constructor(private reflector: Reflector) {}
-
-  canActivate(context) {
-    const request = context.switchToHttp().getRequest();
+@Injectable()
+export class TenantIsolationGuard implements CanActivate {
+  canActivate(context: ExecutionContext): boolean {
+    const request = context.switchToHttp().getRequest<IAuthenticatedRequest>();
     const user = request.user;
+    if (!user) throw new ForbiddenException('User not authenticated');
+    if (user.role === Role.SUPERADMIN) return true;
 
-    // Superadmin has access to all tenants
-    if (user.role === 'SUPERADMIN') {
-      return true;
+    const params = (request.params || {}) as Record<string, string>;
+    const body = (request.body || {}) as Record<string, unknown>;
+    const query = (request.query || {}) as Record<string, unknown>;
+
+    const requestedTenantId =
+      params.tenantId ||
+      (typeof body.tenantId === 'string' ? body.tenantId : undefined) ||
+      (typeof query.tenantId === 'string' ? query.tenantId : undefined);
+
+    if (requestedTenantId && requestedTenantId !== user.tenantId) {
+      throw new ForbiddenException('Tenant access denied');
     }
-
-    // Check if tenantId is in params, query, or body
-    const paramTenantId = request.params.tenantId;
-    const bodyTenantId = request.body?.tenantId;
-
-    // If accessing a specific tenant, verify it matches user's tenant
-    if (paramTenantId && paramTenantId !== user.tenantId) {
-      throw new ForbiddenException('Access denied: You can only access your own tenant data');
-    }
-
-    if (bodyTenantId && bodyTenantId !== user.tenantId) {
-      throw new ForbiddenException('Access denied: You can only modify your own tenant data');
-    }
-
-    // Inject tenantId into request for service layer to use
-    request.userTenantId = user.tenantId;
-
     return true;
   }
 }

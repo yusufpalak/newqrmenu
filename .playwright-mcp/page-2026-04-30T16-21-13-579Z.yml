@@ -1,0 +1,6 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e12]:
+      - paragraph [ref=e15]: Digital Menu
+      - heading "Restoran" [level=1] [ref=e16]
+  - paragraph [ref=e21]: Loading menu...

@@ -1,0 +1,1871 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - button "Geri dön" [ref=e7] [cursor=pointer]:
+        - img [ref=e8]
+      - generic [ref=e10]:
+        - heading "Ürünler" [level=1] [ref=e11]
+        - paragraph [ref=e12]: Menü ürünlerini ekle, düzenle veya sil.
+    - button "Ürün Ekle" [ref=e14] [cursor=pointer]:
+      - img [ref=e15]
+      - text: Ürün Ekle
+  - generic [ref=e2473]:
+    - generic [ref=e2474]:
+      - generic [ref=e2475] [cursor=pointer]:
+        - img [ref=e2477]
+        - generic [ref=e2479]: Aktif
+      - generic [ref=e2480]:
+        - heading "Test Hamsi Tava" [level=3] [ref=e2481]
+        - paragraph [ref=e2482]: Mezeler
+        - generic [ref=e2484]: ₺120.00
+        - generic [ref=e2485]:
+          - button "Düzenle" [ref=e2486] [cursor=pointer]
+          - button "Sil" [ref=e2487] [cursor=pointer]
+    - generic [ref=e2488]:
+      - generic [ref=e2489] [cursor=pointer]:
+        - img [ref=e2491]
+        - generic [ref=e2493]: Aktif
+      - generic [ref=e2494]:
+        - heading "Çikolatalı Kurabiye (2 adet)" [level=3] [ref=e2495]
+        - paragraph [ref=e2496]: Atıştırmalıklar & Bowl
+        - generic [ref=e2498]: ₺70.00
+        - generic [ref=e2499]:
+          - button "Düzenle" [ref=e2500] [cursor=pointer]
+          - button "Sil" [ref=e2501] [cursor=pointer]
+    - generic [ref=e2502]:
+      - generic [ref=e2503] [cursor=pointer]:
+        - img [ref=e2505]
+        - generic [ref=e2507]: Aktif
+      - generic [ref=e2508]:
+        - heading "New York Cheesecake" [level=3] [ref=e2509]
+        - paragraph [ref=e2510]: Pastalar & Kekler
+        - generic [ref=e2512]: ₺130.00
+        - generic [ref=e2513]:
+          - button "Düzenle" [ref=e2514] [cursor=pointer]
+          - button "Sil" [ref=e2515] [cursor=pointer]
+    - generic [ref=e2516]:
+      - generic [ref=e2517] [cursor=pointer]:
+        - img [ref=e2519]
+        - generic [ref=e2521]: Aktif
+      - generic [ref=e2522]:
+        - heading "Klasik Tost" [level=3] [ref=e2523]
+        - paragraph [ref=e2524]: Sandviç & Tostlar
+        - generic [ref=e2526]: ₺90.00
+        - generic [ref=e2527]:
+          - button "Düzenle" [ref=e2528] [cursor=pointer]
+          - button "Sil" [ref=e2529] [cursor=pointer]
+    - generic [ref=e2530]:
+      - generic [ref=e2531] [cursor=pointer]:
+        - img [ref=e2533]
+        - generic [ref=e2535]: Aktif
+      - generic [ref=e2536]:
+        - heading "Cold Brew" [level=3] [ref=e2537]
+        - paragraph [ref=e2538]: Soğuk İçecekler
+        - generic [ref=e2540]: ₺90.00
+        - generic [ref=e2541]:
+          - button "Düzenle" [ref=e2542] [cursor=pointer]
+          - button "Sil" [ref=e2543] [cursor=pointer]
+    - generic [ref=e2544]:
+      - generic [ref=e2545] [cursor=pointer]:
+        - img [ref=e2547]
+        - generic [ref=e2549]: Aktif
+      - generic [ref=e2550]:
+        - heading "Filtre Kahve" [level=3] [ref=e2551]
+        - paragraph [ref=e2552]: Sıcak İçecekler
+        - generic [ref=e2554]: ₺65.00
+        - generic [ref=e2555]:
+          - button "Düzenle" [ref=e2556] [cursor=pointer]
+          - button "Sil" [ref=e2557] [cursor=pointer]
+    - generic [ref=e2558]:
+      - generic [ref=e2559] [cursor=pointer]:
+        - img [ref=e2561]
+        - generic [ref=e2563]: Aktif
+      - generic [ref=e2564]:
+        - heading "Serpme Kahvaltı (2 Kişilik)" [level=3] [ref=e2565]
+        - paragraph [ref=e2566]: Kahvaltı Tabakları
+        - generic [ref=e2568]: ₺450.00
+        - generic [ref=e2569]:
+          - button "Düzenle" [ref=e2570] [cursor=pointer]
+          - button "Sil" [ref=e2571] [cursor=pointer]
+    - generic [ref=e2572]:
+      - generic [ref=e2573] [cursor=pointer]:
+        - img [ref=e2575]
+        - generic [ref=e2577]: Aktif
+      - generic [ref=e2578]:
+        - heading "Limonata" [level=3] [ref=e2579]
+        - paragraph [ref=e2580]: İçecekler
+        - generic [ref=e2582]: ₺65.00
+        - generic [ref=e2583]:
+          - button "Düzenle" [ref=e2584] [cursor=pointer]
+          - button "Sil" [ref=e2585] [cursor=pointer]
+    - generic [ref=e2586]:
+      - generic [ref=e2587] [cursor=pointer]:
+        - img [ref=e2589]
+        - generic [ref=e2591]: Aktif
+      - generic [ref=e2592]:
+        - heading "Tiramisù" [level=3] [ref=e2593]
+        - paragraph [ref=e2594]: Tatlılar
+        - generic [ref=e2596]: ₺150.00
+        - generic [ref=e2597]:
+          - button "Düzenle" [ref=e2598] [cursor=pointer]
+          - button "Sil" [ref=e2599] [cursor=pointer]
+    - generic [ref=e2600]:
+      - generic [ref=e2601] [cursor=pointer]:
+        - img [ref=e2603]
+        - generic [ref=e2605]: Aktif
+      - generic [ref=e2606]:
+        - heading "Risotto ai Funghi Porcini" [level=3] [ref=e2607]
+        - paragraph [ref=e2608]: Risottolar
+        - generic [ref=e2610]: ₺210.00
+        - generic [ref=e2611]:
+          - button "Düzenle" [ref=e2612] [cursor=pointer]
+          - button "Sil" [ref=e2613] [cursor=pointer]
+    - generic [ref=e2614]:
+      - generic [ref=e2615] [cursor=pointer]:
+        - img [ref=e2617]
+        - generic [ref=e2619]: Aktif
+      - generic [ref=e2620]:
+        - heading "Spaghetti Bolognese" [level=3] [ref=e2621]
+        - paragraph [ref=e2622]: Makarnalar
+        - generic [ref=e2624]: ₺175.00
+        - generic [ref=e2625]:
+          - button "Düzenle" [ref=e2626] [cursor=pointer]
+          - button "Sil" [ref=e2627] [cursor=pointer]
+    - generic [ref=e2628]:
+      - generic [ref=e2629] [cursor=pointer]:
+        - img [ref=e2631]
+        - generic [ref=e2633]: Aktif
+      - generic [ref=e2634]:
+        - heading "Margherita" [level=3] [ref=e2635]
+        - paragraph [ref=e2636]: Pizzalar
+        - generic [ref=e2638]: ₺180.00
+        - generic [ref=e2639]:
+          - button "Düzenle" [ref=e2640] [cursor=pointer]
+          - button "Sil" [ref=e2641] [cursor=pointer]
+    - generic [ref=e2642]:
+      - generic [ref=e2643] [cursor=pointer]:
+        - img [ref=e2645]
+        - generic [ref=e2647]: Aktif
+      - generic [ref=e2648]:
+        - heading "Bruschetta al Pomodoro" [level=3] [ref=e2649]
+        - paragraph [ref=e2650]: Antipasti
+        - generic [ref=e2652]: ₺120.00
+        - generic [ref=e2653]:
+          - button "Düzenle" [ref=e2654] [cursor=pointer]
+          - button "Sil" [ref=e2655] [cursor=pointer]
+    - generic [ref=e2656]:
+      - generic [ref=e2657] [cursor=pointer]:
+        - img [ref=e2659]
+        - generic [ref=e2661]: Aktif
+      - generic [ref=e2662]:
+        - heading "Ayran" [level=3] [ref=e2663]
+        - paragraph [ref=e2664]: İçecekler
+        - generic [ref=e2666]: ₺30.00
+        - generic [ref=e2667]:
+          - button "Düzenle" [ref=e2668] [cursor=pointer]
+          - button "Sil" [ref=e2669] [cursor=pointer]
+    - generic [ref=e2670]:
+      - generic [ref=e2671] [cursor=pointer]:
+        - img [ref=e2673]
+        - generic [ref=e2675]: Aktif
+      - generic [ref=e2676]:
+        - heading "Baklava (Porsiyon)" [level=3] [ref=e2677]
+        - paragraph [ref=e2678]: Tatlılar
+        - generic [ref=e2680]: ₺150.00
+        - generic [ref=e2681]:
+          - button "Düzenle" [ref=e2682] [cursor=pointer]
+          - button "Sil" [ref=e2683] [cursor=pointer]
+    - generic [ref=e2684]:
+      - generic [ref=e2685] [cursor=pointer]:
+        - img [ref=e2687]
+        - generic [ref=e2689]: Aktif
+      - generic [ref=e2690]:
+        - heading "Lahmacun" [level=3] [ref=e2691]
+        - paragraph [ref=e2692]: Pide & Lahmacun
+        - generic [ref=e2694]: ₺80.00
+        - generic [ref=e2695]:
+          - button "Düzenle" [ref=e2696] [cursor=pointer]
+          - button "Sil" [ref=e2697] [cursor=pointer]
+    - generic [ref=e2698]:
+      - generic [ref=e2699] [cursor=pointer]:
+        - img [ref=e2701]
+        - generic [ref=e2703]: Aktif
+      - generic [ref=e2704]:
+        - heading "Bonfile" [level=3] [ref=e2705]
+        - paragraph [ref=e2706]: Izgara
+        - generic [ref=e2708]: ₺320.00
+        - generic [ref=e2709]:
+          - button "Düzenle" [ref=e2710] [cursor=pointer]
+          - button "Sil" [ref=e2711] [cursor=pointer]
+    - generic [ref=e2712]:
+      - generic [ref=e2713] [cursor=pointer]:
+        - img [ref=e2715]
+        - generic [ref=e2717]: Aktif
+      - generic [ref=e2718]:
+        - heading "Adana Kebap" [level=3] [ref=e2719]
+        - paragraph [ref=e2720]: Kebaplar
+        - generic [ref=e2722]: ₺220.00
+        - generic [ref=e2723]:
+          - button "Düzenle" [ref=e2724] [cursor=pointer]
+          - button "Sil" [ref=e2725] [cursor=pointer]
+    - generic [ref=e2726]:
+      - generic [ref=e2727] [cursor=pointer]:
+        - img [ref=e2729]
+        - generic [ref=e2731]: Aktif
+      - generic [ref=e2732]:
+        - heading "Sigara Böreği (5 adet)" [level=3] [ref=e2733]
+        - paragraph [ref=e2734]: Başlangıçlar
+        - generic [ref=e2736]: ₺90.00
+        - generic [ref=e2737]:
+          - button "Düzenle" [ref=e2738] [cursor=pointer]
+          - button "Sil" [ref=e2739] [cursor=pointer]
+    - generic [ref=e2740]:
+      - generic [ref=e2741] [cursor=pointer]:
+        - img [ref=e2743]
+        - generic [ref=e2745]: Aktif
+      - generic [ref=e2746]:
+        - heading "Mercimek Çorbası" [level=3] [ref=e2747]
+        - paragraph [ref=e2748]: Çorbalar
+        - generic [ref=e2750]: ₺75.00
+        - generic [ref=e2751]:
+          - button "Düzenle" [ref=e2752] [cursor=pointer]
+          - button "Sil" [ref=e2753] [cursor=pointer]
+    - generic [ref=e2754]:
+      - generic [ref=e2755] [cursor=pointer]:
+        - img [ref=e2757]
+        - generic [ref=e2759]: Aktif
+      - generic [ref=e2760]:
+        - heading "Rakı (Tekil)" [level=3] [ref=e2761]
+        - paragraph [ref=e2762]: İçecekler
+        - generic [ref=e2764]: ₺180.00
+        - generic [ref=e2765]:
+          - button "Düzenle" [ref=e2766] [cursor=pointer]
+          - button "Sil" [ref=e2767] [cursor=pointer]
+    - generic [ref=e2768]:
+      - generic [ref=e2769] [cursor=pointer]:
+        - img [ref=e2771]
+        - generic [ref=e2773]: Aktif
+      - generic [ref=e2774]:
+        - heading "Künefe" [level=3] [ref=e2775]
+        - paragraph [ref=e2776]: Tatlılar
+        - generic [ref=e2778]: ₺130.00
+        - generic [ref=e2779]:
+          - button "Düzenle" [ref=e2780] [cursor=pointer]
+          - button "Sil" [ref=e2781] [cursor=pointer]
+    - generic [ref=e2782]:
+      - generic [ref=e2783] [cursor=pointer]:
+        - img [ref=e2785]
+        - generic [ref=e2787]: Aktif
+      - generic [ref=e2788]:
+        - heading "Yeşil Salata" [level=3] [ref=e2789]
+        - paragraph [ref=e2790]: Salatalar
+        - generic [ref=e2792]: ₺75.00
+        - generic [ref=e2793]:
+          - button "Düzenle" [ref=e2794] [cursor=pointer]
+          - button "Sil" [ref=e2795] [cursor=pointer]
+    - generic [ref=e2796]:
+      - generic [ref=e2797] [cursor=pointer]:
+        - img [ref=e2799]
+        - generic [ref=e2801]: Aktif
+      - generic [ref=e2802]:
+        - heading "Levrek Izgara" [level=3] [ref=e2803]
+        - paragraph [ref=e2804]: Balık & Deniz Ürünleri
+        - generic [ref=e2806]: ₺320.00
+        - generic [ref=e2807]:
+          - button "Düzenle" [ref=e2808] [cursor=pointer]
+          - button "Sil" [ref=e2809] [cursor=pointer]
+    - generic [ref=e2810]:
+      - generic [ref=e2811] [cursor=pointer]:
+        - img [ref=e2813]
+        - generic [ref=e2815]: Aktif
+      - generic [ref=e2816]:
+        - heading "Balık Çorbası" [level=3] [ref=e2817]
+        - paragraph [ref=e2818]: Çorbalar
+        - generic [ref=e2820]: ₺95.00
+        - generic [ref=e2821]:
+          - button "Düzenle" [ref=e2822] [cursor=pointer]
+          - button "Sil" [ref=e2823] [cursor=pointer]
+    - generic [ref=e2824]:
+      - generic [ref=e2825] [cursor=pointer]:
+        - img [ref=e2827]
+        - generic [ref=e2829]: Aktif
+      - generic [ref=e2830]:
+        - heading "Közlenmiş Patlıcan Salatası" [level=3] [ref=e2831]
+        - paragraph [ref=e2832]: Mezeler
+        - generic [ref=e2834]: ₺85.00
+        - generic [ref=e2835]:
+          - button "Düzenle" [ref=e2836] [cursor=pointer]
+          - button "Sil" [ref=e2837] [cursor=pointer]
+    - generic [ref=e2838]:
+      - generic [ref=e2839] [cursor=pointer]:
+        - img [ref=e2841]
+        - generic [ref=e2843]: Aktif
+      - generic [ref=e2844]:
+        - heading "Mercimek Çorbası" [level=3] [ref=e2845]
+        - paragraph [ref=e2846]: Başlangıçlar
+        - generic [ref=e2848]: ₺85.00
+        - generic [ref=e2849]:
+          - button "Düzenle" [ref=e2850] [cursor=pointer]
+          - button "Sil" [ref=e2851] [cursor=pointer]
+    - generic [ref=e2852]:
+      - generic [ref=e2853] [cursor=pointer]:
+        - img [ref=e2855]
+        - generic [ref=e2857]: Aktif
+      - generic [ref=e2858]:
+        - heading "Waffle" [level=3] [ref=e2859]
+        - paragraph [ref=e2860]: Atıştırmalıklar & Bowl
+        - generic [ref=e2862]: ₺140.00
+        - generic [ref=e2863]:
+          - button "Düzenle" [ref=e2864] [cursor=pointer]
+          - button "Sil" [ref=e2865] [cursor=pointer]
+    - generic [ref=e2866]:
+      - generic [ref=e2867] [cursor=pointer]:
+        - img [ref=e2869]
+        - generic [ref=e2871]: Aktif
+      - generic [ref=e2872]:
+        - heading "Çikolatalı Kek" [level=3] [ref=e2873]
+        - paragraph [ref=e2874]: Pastalar & Kekler
+        - generic [ref=e2876]: ₺110.00
+        - generic [ref=e2877]:
+          - button "Düzenle" [ref=e2878] [cursor=pointer]
+          - button "Sil" [ref=e2879] [cursor=pointer]
+    - generic [ref=e2880]:
+      - generic [ref=e2881] [cursor=pointer]:
+        - img [ref=e2883]
+        - generic [ref=e2885]: Aktif
+      - generic [ref=e2886]:
+        - heading "Club Sandwich" [level=3] [ref=e2887]
+        - paragraph [ref=e2888]: Sandviç & Tostlar
+        - generic [ref=e2890]: ₺160.00
+        - generic [ref=e2891]:
+          - button "Düzenle" [ref=e2892] [cursor=pointer]
+          - button "Sil" [ref=e2893] [cursor=pointer]
+    - generic [ref=e2894]:
+      - generic [ref=e2895] [cursor=pointer]:
+        - img [ref=e2897]
+        - generic [ref=e2899]: Aktif
+      - generic [ref=e2900]:
+        - heading "Iced Latte" [level=3] [ref=e2901]
+        - paragraph [ref=e2902]: Soğuk İçecekler
+        - generic [ref=e2904]: ₺95.00
+        - generic [ref=e2905]:
+          - button "Düzenle" [ref=e2906] [cursor=pointer]
+          - button "Sil" [ref=e2907] [cursor=pointer]
+    - generic [ref=e2908]:
+      - generic [ref=e2909] [cursor=pointer]:
+        - img [ref=e2911]
+        - generic [ref=e2913]: Aktif
+      - generic [ref=e2914]:
+        - heading "Espresso" [level=3] [ref=e2915]
+        - paragraph [ref=e2916]: Sıcak İçecekler
+        - generic [ref=e2918]: ₺60.00
+        - generic [ref=e2919]:
+          - button "Düzenle" [ref=e2920] [cursor=pointer]
+          - button "Sil" [ref=e2921] [cursor=pointer]
+    - generic [ref=e2922]:
+      - generic [ref=e2923] [cursor=pointer]:
+        - img [ref=e2925]
+        - generic [ref=e2927]: Aktif
+      - generic [ref=e2928]:
+        - heading "Sahanda Yumurta" [level=3] [ref=e2929]
+        - paragraph [ref=e2930]: Kahvaltı Tabakları
+        - generic [ref=e2932]: ₺90.00
+        - generic [ref=e2933]:
+          - button "Düzenle" [ref=e2934] [cursor=pointer]
+          - button "Sil" [ref=e2935] [cursor=pointer]
+    - generic [ref=e2936]:
+      - generic [ref=e2937] [cursor=pointer]:
+        - img [ref=e2939]
+        - generic [ref=e2941]: Aktif
+      - generic [ref=e2942]:
+        - heading "San Pellegrino" [level=3] [ref=e2943]
+        - paragraph [ref=e2944]: İçecekler
+        - generic [ref=e2946]: ₺45.00
+        - generic [ref=e2947]:
+          - button "Düzenle" [ref=e2948] [cursor=pointer]
+          - button "Sil" [ref=e2949] [cursor=pointer]
+    - generic [ref=e2950]:
+      - generic [ref=e2951] [cursor=pointer]:
+        - img [ref=e2953]
+        - generic [ref=e2955]: Aktif
+      - generic [ref=e2956]:
+        - heading "Panna Cotta" [level=3] [ref=e2957]
+        - paragraph [ref=e2958]: Tatlılar
+        - generic [ref=e2960]: ₺130.00
+        - generic [ref=e2961]:
+          - button "Düzenle" [ref=e2962] [cursor=pointer]
+          - button "Sil" [ref=e2963] [cursor=pointer]
+    - generic [ref=e2964]:
+      - generic [ref=e2965] [cursor=pointer]:
+        - img [ref=e2967]
+        - generic [ref=e2969]: Aktif
+      - generic [ref=e2970]:
+        - heading "Risotto alla Marinara" [level=3] [ref=e2971]
+        - paragraph [ref=e2972]: Risottolar
+        - generic [ref=e2974]: ₺240.00
+        - generic [ref=e2975]:
+          - button "Düzenle" [ref=e2976] [cursor=pointer]
+          - button "Sil" [ref=e2977] [cursor=pointer]
+    - generic [ref=e2978]:
+      - generic [ref=e2979] [cursor=pointer]:
+        - img [ref=e2981]
+        - generic [ref=e2983]: Aktif
+      - generic [ref=e2984]:
+        - heading "Spaghetti Carbonara" [level=3] [ref=e2985]
+        - paragraph [ref=e2986]: Makarnalar
+        - generic [ref=e2988]: ₺185.00
+        - generic [ref=e2989]:
+          - button "Düzenle" [ref=e2990] [cursor=pointer]
+          - button "Sil" [ref=e2991] [cursor=pointer]
+    - generic [ref=e2992]:
+      - generic [ref=e2993] [cursor=pointer]:
+        - img [ref=e2995]
+        - generic [ref=e2997]: Aktif
+      - generic [ref=e2998]:
+        - heading "Quattro Formaggi" [level=3] [ref=e2999]
+        - paragraph [ref=e3000]: Pizzalar
+        - generic [ref=e3002]: ₺220.00
+        - generic [ref=e3003]:
+          - button "Düzenle" [ref=e3004] [cursor=pointer]
+          - button "Sil" [ref=e3005] [cursor=pointer]
+    - generic [ref=e3006]:
+      - generic [ref=e3007] [cursor=pointer]:
+        - img [ref=e3009]
+        - generic [ref=e3011]: Aktif
+      - generic [ref=e3012]:
+        - heading "Burrata con Prosciutto" [level=3] [ref=e3013]
+        - paragraph [ref=e3014]: Antipasti
+        - generic [ref=e3016]: ₺250.00
+        - generic [ref=e3017]:
+          - button "Düzenle" [ref=e3018] [cursor=pointer]
+          - button "Sil" [ref=e3019] [cursor=pointer]
+    - generic [ref=e3020]:
+      - generic [ref=e3021] [cursor=pointer]:
+        - img [ref=e3023]
+        - generic [ref=e3025]: Aktif
+      - generic [ref=e3026]:
+        - heading "Şalgam" [level=3] [ref=e3027]
+        - paragraph [ref=e3028]: İçecekler
+        - generic [ref=e3030]: ₺35.00
+        - generic [ref=e3031]:
+          - button "Düzenle" [ref=e3032] [cursor=pointer]
+          - button "Sil" [ref=e3033] [cursor=pointer]
+    - generic [ref=e3034]:
+      - generic [ref=e3035] [cursor=pointer]:
+        - img [ref=e3037]
+        - generic [ref=e3039]: Aktif
+      - generic [ref=e3040]:
+        - heading "Sütlaç" [level=3] [ref=e3041]
+        - paragraph [ref=e3042]: Tatlılar
+        - generic [ref=e3044]: ₺90.00
+        - generic [ref=e3045]:
+          - button "Düzenle" [ref=e3046] [cursor=pointer]
+          - button "Sil" [ref=e3047] [cursor=pointer]
+    - generic [ref=e3048]:
+      - generic [ref=e3049] [cursor=pointer]:
+        - img [ref=e3051]
+        - generic [ref=e3053]: Aktif
+      - generic [ref=e3054]:
+        - heading "Kıymalı Pide" [level=3] [ref=e3055]
+        - paragraph [ref=e3056]: Pide & Lahmacun
+        - generic [ref=e3058]: ₺120.00
+        - generic [ref=e3059]:
+          - button "Düzenle" [ref=e3060] [cursor=pointer]
+          - button "Sil" [ref=e3061] [cursor=pointer]
+    - generic [ref=e3062]:
+      - generic [ref=e3063] [cursor=pointer]:
+        - img [ref=e3065]
+        - generic [ref=e3067]: Aktif
+      - generic [ref=e3068]:
+        - heading "Antrikot" [level=3] [ref=e3069]
+        - paragraph [ref=e3070]: Izgara
+        - generic [ref=e3072]: ₺290.00
+        - generic [ref=e3073]:
+          - button "Düzenle" [ref=e3074] [cursor=pointer]
+          - button "Sil" [ref=e3075] [cursor=pointer]
+    - generic [ref=e3076]:
+      - generic [ref=e3077] [cursor=pointer]:
+        - img [ref=e3079]
+        - generic [ref=e3081]: Aktif
+      - generic [ref=e3082]:
+        - heading "Urfa Kebap" [level=3] [ref=e3083]
+        - paragraph [ref=e3084]: Kebaplar
+        - generic [ref=e3086]: ₺210.00
+        - generic [ref=e3087]:
+          - button "Düzenle" [ref=e3088] [cursor=pointer]
+          - button "Sil" [ref=e3089] [cursor=pointer]
+    - generic [ref=e3090]:
+      - generic [ref=e3091] [cursor=pointer]:
+        - img [ref=e3093]
+        - generic [ref=e3095]: Aktif
+      - generic [ref=e3096]:
+        - heading "Patlıcan Ezmesi" [level=3] [ref=e3097]
+        - paragraph [ref=e3098]: Başlangıçlar
+        - generic [ref=e3100]: ₺85.00
+        - generic [ref=e3101]:
+          - button "Düzenle" [ref=e3102] [cursor=pointer]
+          - button "Sil" [ref=e3103] [cursor=pointer]
+    - generic [ref=e3104]:
+      - generic [ref=e3105] [cursor=pointer]:
+        - img [ref=e3107]
+        - generic [ref=e3109]: Aktif
+      - generic [ref=e3110]:
+        - heading "Domates Çorbası" [level=3] [ref=e3111]
+        - paragraph [ref=e3112]: Çorbalar
+        - generic [ref=e3114]: ₺70.00
+        - generic [ref=e3115]:
+          - button "Düzenle" [ref=e3116] [cursor=pointer]
+          - button "Sil" [ref=e3117] [cursor=pointer]
+    - generic [ref=e3118]:
+      - generic [ref=e3119] [cursor=pointer]:
+        - img [ref=e3121]
+        - generic [ref=e3123]: Aktif
+      - generic [ref=e3124]:
+        - heading "Şarap (Kadeh)" [level=3] [ref=e3125]
+        - paragraph [ref=e3126]: İçecekler
+        - generic [ref=e3128]: ₺120.00
+        - generic [ref=e3129]:
+          - button "Düzenle" [ref=e3130] [cursor=pointer]
+          - button "Sil" [ref=e3131] [cursor=pointer]
+    - generic [ref=e3132]:
+      - generic [ref=e3133] [cursor=pointer]:
+        - img [ref=e3135]
+        - generic [ref=e3137]: Aktif
+      - generic [ref=e3138]:
+        - heading "Muhallebi" [level=3] [ref=e3139]
+        - paragraph [ref=e3140]: Tatlılar
+        - generic [ref=e3142]: ₺80.00
+        - generic [ref=e3143]:
+          - button "Düzenle" [ref=e3144] [cursor=pointer]
+          - button "Sil" [ref=e3145] [cursor=pointer]
+    - generic [ref=e3146]:
+      - generic [ref=e3147] [cursor=pointer]:
+        - img [ref=e3149]
+        - generic [ref=e3151]: Aktif
+      - generic [ref=e3152]:
+        - heading "Roka Parmesan" [level=3] [ref=e3153]
+        - paragraph [ref=e3154]: Salatalar
+        - generic [ref=e3156]: ₺110.00
+        - generic [ref=e3157]:
+          - button "Düzenle" [ref=e3158] [cursor=pointer]
+          - button "Sil" [ref=e3159] [cursor=pointer]
+    - generic [ref=e3160]:
+      - generic [ref=e3161] [cursor=pointer]:
+        - img [ref=e3163]
+        - generic [ref=e3165]: Aktif
+      - generic [ref=e3166]:
+        - heading "Çupra Izgara" [level=3] [ref=e3167]
+        - paragraph [ref=e3168]: Balık & Deniz Ürünleri
+        - generic [ref=e3170]: ₺290.00
+        - generic [ref=e3171]:
+          - button "Düzenle" [ref=e3172] [cursor=pointer]
+          - button "Sil" [ref=e3173] [cursor=pointer]
+    - generic [ref=e3174]:
+      - generic [ref=e3175] [cursor=pointer]:
+        - img [ref=e3177]
+        - generic [ref=e3179]: Aktif
+      - generic [ref=e3180]:
+        - heading "İskorpit Çorbası" [level=3] [ref=e3181]
+        - paragraph [ref=e3182]: Çorbalar
+        - generic [ref=e3184]: ₺110.00
+        - generic [ref=e3185]:
+          - button "Düzenle" [ref=e3186] [cursor=pointer]
+          - button "Sil" [ref=e3187] [cursor=pointer]
+    - generic [ref=e3188]:
+      - generic [ref=e3189] [cursor=pointer]:
+        - img [ref=e3191]
+        - generic [ref=e3193]: Aktif
+      - generic [ref=e3194]:
+        - heading "Haydari" [level=3] [ref=e3195]
+        - paragraph [ref=e3196]: Mezeler
+        - generic [ref=e3198]: ₺75.00
+        - generic [ref=e3199]:
+          - button "Düzenle" [ref=e3200] [cursor=pointer]
+          - button "Sil" [ref=e3201] [cursor=pointer]
+    - generic [ref=e3202]:
+      - generic [ref=e3203] [cursor=pointer]:
+        - img [ref=e3205]
+        - generic [ref=e3207]: Aktif
+      - generic [ref=e3208]:
+        - heading "Pancake (3 adet)" [level=3] [ref=e3209]
+        - paragraph [ref=e3210]: Atıştırmalıklar & Bowl
+        - generic [ref=e3212]: ₺130.00
+        - generic [ref=e3213]:
+          - button "Düzenle" [ref=e3214] [cursor=pointer]
+          - button "Sil" [ref=e3215] [cursor=pointer]
+    - generic [ref=e3216]:
+      - generic [ref=e3217] [cursor=pointer]:
+        - img [ref=e3219]
+        - generic [ref=e3221]: Aktif
+      - generic [ref=e3222]:
+        - heading "Red Velvet" [level=3] [ref=e3223]
+        - paragraph [ref=e3224]: Pastalar & Kekler
+        - generic [ref=e3226]: ₺120.00
+        - generic [ref=e3227]:
+          - button "Düzenle" [ref=e3228] [cursor=pointer]
+          - button "Sil" [ref=e3229] [cursor=pointer]
+    - generic [ref=e3230]:
+      - generic [ref=e3231] [cursor=pointer]:
+        - img [ref=e3233]
+        - generic [ref=e3235]: Aktif
+      - generic [ref=e3236]:
+        - heading "Avokado Toast" [level=3] [ref=e3237]
+        - paragraph [ref=e3238]: Sandviç & Tostlar
+        - generic [ref=e3240]: ₺140.00
+        - generic [ref=e3241]:
+          - button "Düzenle" [ref=e3242] [cursor=pointer]
+          - button "Sil" [ref=e3243] [cursor=pointer]
+    - generic [ref=e3244]:
+      - generic [ref=e3245] [cursor=pointer]:
+        - img [ref=e3247]
+        - generic [ref=e3249]: Aktif
+      - generic [ref=e3250]:
+        - heading "Frappuccino" [level=3] [ref=e3251]
+        - paragraph [ref=e3252]: Soğuk İçecekler
+        - generic [ref=e3254]: ₺100.00
+        - generic [ref=e3255]:
+          - button "Düzenle" [ref=e3256] [cursor=pointer]
+          - button "Sil" [ref=e3257] [cursor=pointer]
+    - generic [ref=e3258]:
+      - generic [ref=e3259] [cursor=pointer]:
+        - img [ref=e3261]
+        - generic [ref=e3263]: Aktif
+      - generic [ref=e3264]:
+        - heading "Americano" [level=3] [ref=e3265]
+        - paragraph [ref=e3266]: Sıcak İçecekler
+        - generic [ref=e3268]: ₺65.00
+        - generic [ref=e3269]:
+          - button "Düzenle" [ref=e3270] [cursor=pointer]
+          - button "Sil" [ref=e3271] [cursor=pointer]
+    - generic [ref=e3272]:
+      - generic [ref=e3273] [cursor=pointer]:
+        - img [ref=e3275]
+        - generic [ref=e3277]: Aktif
+      - generic [ref=e3278]:
+        - heading "Menemen" [level=3] [ref=e3279]
+        - paragraph [ref=e3280]: Kahvaltı Tabakları
+        - generic [ref=e3282]: ₺110.00
+        - generic [ref=e3283]:
+          - button "Düzenle" [ref=e3284] [cursor=pointer]
+          - button "Sil" [ref=e3285] [cursor=pointer]
+    - generic [ref=e3286]:
+      - generic [ref=e3287] [cursor=pointer]:
+        - img [ref=e3289]
+        - generic [ref=e3291]: Aktif
+      - generic [ref=e3292]:
+        - heading "Prosecco (Kadeh)" [level=3] [ref=e3293]
+        - paragraph [ref=e3294]: İçecekler
+        - generic [ref=e3296]: ₺150.00
+        - generic [ref=e3297]:
+          - button "Düzenle" [ref=e3298] [cursor=pointer]
+          - button "Sil" [ref=e3299] [cursor=pointer]
+    - generic [ref=e3300]:
+      - generic [ref=e3301] [cursor=pointer]:
+        - img [ref=e3303]
+        - generic [ref=e3305]: Aktif
+      - generic [ref=e3306]:
+        - heading "Cannoli Siciliani" [level=3] [ref=e3307]
+        - paragraph [ref=e3308]: Tatlılar
+        - generic [ref=e3310]: ₺140.00
+        - generic [ref=e3311]:
+          - button "Düzenle" [ref=e3312] [cursor=pointer]
+          - button "Sil" [ref=e3313] [cursor=pointer]
+    - generic [ref=e3314]:
+      - generic [ref=e3315] [cursor=pointer]:
+        - img [ref=e3317]
+        - generic [ref=e3319]: Aktif
+      - generic [ref=e3320]:
+        - heading "Risotto al Tartufo" [level=3] [ref=e3321]
+        - paragraph [ref=e3322]: Risottolar
+        - generic [ref=e3324]: ₺320.00
+        - generic [ref=e3325]:
+          - button "Düzenle" [ref=e3326] [cursor=pointer]
+          - button "Sil" [ref=e3327] [cursor=pointer]
+    - generic [ref=e3328]:
+      - generic [ref=e3329] [cursor=pointer]:
+        - img [ref=e3331]
+        - generic [ref=e3333]: Aktif
+      - generic [ref=e3334]:
+        - heading "Penne all'Arrabbiata" [level=3] [ref=e3335]
+        - paragraph [ref=e3336]: Makarnalar
+        - generic [ref=e3338]: ₺160.00
+        - generic [ref=e3339]:
+          - button "Düzenle" [ref=e3340] [cursor=pointer]
+          - button "Sil" [ref=e3341] [cursor=pointer]
+    - generic [ref=e3342]:
+      - generic [ref=e3343] [cursor=pointer]:
+        - img [ref=e3345]
+        - generic [ref=e3347]: Aktif
+      - generic [ref=e3348]:
+        - heading "Diavola" [level=3] [ref=e3349]
+        - paragraph [ref=e3350]: Pizzalar
+        - generic [ref=e3352]: ₺200.00
+        - generic [ref=e3353]:
+          - button "Düzenle" [ref=e3354] [cursor=pointer]
+          - button "Sil" [ref=e3355] [cursor=pointer]
+    - generic [ref=e3356]:
+      - generic [ref=e3357] [cursor=pointer]:
+        - img [ref=e3359]
+        - generic [ref=e3361]: Aktif
+      - generic [ref=e3362]:
+        - heading "Caprese Salatası" [level=3] [ref=e3363]
+        - paragraph [ref=e3364]: Antipasti
+        - generic [ref=e3366]: ₺180.00
+        - generic [ref=e3367]:
+          - button "Düzenle" [ref=e3368] [cursor=pointer]
+          - button "Sil" [ref=e3369] [cursor=pointer]
+    - generic [ref=e3370]:
+      - generic [ref=e3371] [cursor=pointer]:
+        - img [ref=e3373]
+        - generic [ref=e3375]: Aktif
+      - generic [ref=e3376]:
+        - heading "Türk Çayı" [level=3] [ref=e3377]
+        - paragraph [ref=e3378]: İçecekler
+        - generic [ref=e3380]: ₺25.00
+        - generic [ref=e3381]:
+          - button "Düzenle" [ref=e3382] [cursor=pointer]
+          - button "Sil" [ref=e3383] [cursor=pointer]
+    - generic [ref=e3384]:
+      - generic [ref=e3385] [cursor=pointer]:
+        - img [ref=e3387]
+        - generic [ref=e3389]: Aktif
+      - generic [ref=e3390]:
+        - heading "Kadayıf" [level=3] [ref=e3391]
+        - paragraph [ref=e3392]: Tatlılar
+        - generic [ref=e3394]: ₺120.00
+        - generic [ref=e3395]:
+          - button "Düzenle" [ref=e3396] [cursor=pointer]
+          - button "Sil" [ref=e3397] [cursor=pointer]
+    - generic [ref=e3398]:
+      - generic [ref=e3399] [cursor=pointer]:
+        - img [ref=e3401]
+        - generic [ref=e3403]: Aktif
+      - generic [ref=e3404]:
+        - heading "Kaşarlı Pide" [level=3] [ref=e3405]
+        - paragraph [ref=e3406]: Pide & Lahmacun
+        - generic [ref=e3408]: ₺110.00
+        - generic [ref=e3409]:
+          - button "Düzenle" [ref=e3410] [cursor=pointer]
+          - button "Sil" [ref=e3411] [cursor=pointer]
+    - generic [ref=e3412]:
+      - generic [ref=e3413] [cursor=pointer]:
+        - img [ref=e3415]
+        - generic [ref=e3417]: Aktif
+      - generic [ref=e3418]:
+        - heading "T-Bone Steak" [level=3] [ref=e3419]
+        - paragraph [ref=e3420]: Izgara
+        - generic [ref=e3422]: ₺450.00
+        - generic [ref=e3423]:
+          - button "Düzenle" [ref=e3424] [cursor=pointer]
+          - button "Sil" [ref=e3425] [cursor=pointer]
+    - generic [ref=e3426]:
+      - generic [ref=e3427] [cursor=pointer]:
+        - img [ref=e3429]
+        - generic [ref=e3431]: Aktif
+      - generic [ref=e3432]:
+        - heading "Beyti Kebap" [level=3] [ref=e3433]
+        - paragraph [ref=e3434]: Kebaplar
+        - generic [ref=e3436]: ₺230.00
+        - generic [ref=e3437]:
+          - button "Düzenle" [ref=e3438] [cursor=pointer]
+          - button "Sil" [ref=e3439] [cursor=pointer]
+    - generic [ref=e3440]:
+      - generic [ref=e3441] [cursor=pointer]:
+        - img [ref=e3443]
+        - generic [ref=e3445]: Aktif
+      - generic [ref=e3446]:
+        - heading "Acılı Ezme" [level=3] [ref=e3447]
+        - paragraph [ref=e3448]: Başlangıçlar
+        - generic [ref=e3450]: ₺75.00
+        - generic [ref=e3451]:
+          - button "Düzenle" [ref=e3452] [cursor=pointer]
+          - button "Sil" [ref=e3453] [cursor=pointer]
+    - generic [ref=e3454]:
+      - generic [ref=e3455] [cursor=pointer]:
+        - img [ref=e3457]
+        - generic [ref=e3459]: Aktif
+      - generic [ref=e3460]:
+        - heading "Ezogelin Çorbası" [level=3] [ref=e3461]
+        - paragraph [ref=e3462]: Çorbalar
+        - generic [ref=e3464]: ₺80.00
+        - generic [ref=e3465]:
+          - button "Düzenle" [ref=e3466] [cursor=pointer]
+          - button "Sil" [ref=e3467] [cursor=pointer]
+    - generic [ref=e3468]:
+      - generic [ref=e3469] [cursor=pointer]:
+        - img [ref=e3471]
+        - generic [ref=e3473]: Aktif
+      - generic [ref=e3474]:
+        - heading "Ayran" [level=3] [ref=e3475]
+        - paragraph [ref=e3476]: İçecekler
+        - generic [ref=e3478]: ₺35.00
+        - generic [ref=e3479]:
+          - button "Düzenle" [ref=e3480] [cursor=pointer]
+          - button "Sil" [ref=e3481] [cursor=pointer]
+    - generic [ref=e3482]:
+      - generic [ref=e3483] [cursor=pointer]:
+        - img [ref=e3485]
+        - generic [ref=e3487]: Aktif
+      - generic [ref=e3488]:
+        - heading "Dondurma (2 Top)" [level=3] [ref=e3489]
+        - paragraph [ref=e3490]: Tatlılar
+        - generic [ref=e3492]: ₺90.00
+        - generic [ref=e3493]:
+          - button "Düzenle" [ref=e3494] [cursor=pointer]
+          - button "Sil" [ref=e3495] [cursor=pointer]
+    - generic [ref=e3496]:
+      - generic [ref=e3497] [cursor=pointer]:
+        - img [ref=e3499]
+        - generic [ref=e3501]: Aktif
+      - generic [ref=e3502]:
+        - heading "Ton Balıklı Salata" [level=3] [ref=e3503]
+        - paragraph [ref=e3504]: Salatalar
+        - generic [ref=e3506]: ₺140.00
+        - generic [ref=e3507]:
+          - button "Düzenle" [ref=e3508] [cursor=pointer]
+          - button "Sil" [ref=e3509] [cursor=pointer]
+    - generic [ref=e3510]:
+      - generic [ref=e3511] [cursor=pointer]:
+        - img [ref=e3513]
+        - generic [ref=e3515]: Aktif
+      - generic [ref=e3516]:
+        - heading "Alabalık Izgara" [level=3] [ref=e3517]
+        - paragraph [ref=e3518]: Balık & Deniz Ürünleri
+        - generic [ref=e3520]: ₺220.00
+        - generic [ref=e3521]:
+          - button "Düzenle" [ref=e3522] [cursor=pointer]
+          - button "Sil" [ref=e3523] [cursor=pointer]
+    - generic [ref=e3524]:
+      - generic [ref=e3525] [cursor=pointer]:
+        - img [ref=e3527]
+        - generic [ref=e3529]: Aktif
+      - generic [ref=e3530]:
+        - heading "Midye Çorbası" [level=3] [ref=e3531]
+        - paragraph [ref=e3532]: Çorbalar
+        - generic [ref=e3534]: ₺100.00
+        - generic [ref=e3535]:
+          - button "Düzenle" [ref=e3536] [cursor=pointer]
+          - button "Sil" [ref=e3537] [cursor=pointer]
+    - generic [ref=e3538]:
+      - generic [ref=e3539] [cursor=pointer]:
+        - img [ref=e3541]
+        - generic [ref=e3543]: Aktif
+      - generic [ref=e3544]:
+        - heading "Tarama" [level=3] [ref=e3545]
+        - paragraph [ref=e3546]: Mezeler
+        - generic [ref=e3548]: ₺90.00
+        - generic [ref=e3549]:
+          - button "Düzenle" [ref=e3550] [cursor=pointer]
+          - button "Sil" [ref=e3551] [cursor=pointer]
+    - generic [ref=e3552]:
+      - generic [ref=e3553] [cursor=pointer]:
+        - img [ref=e3555]
+        - generic [ref=e3557]: Aktif
+      - generic [ref=e3558]:
+        - heading "Granola Bowl" [level=3] [ref=e3559]
+        - paragraph [ref=e3560]: Atıştırmalıklar & Bowl
+        - generic [ref=e3562]: ₺120.00
+        - generic [ref=e3563]:
+          - button "Düzenle" [ref=e3564] [cursor=pointer]
+          - button "Sil" [ref=e3565] [cursor=pointer]
+    - generic [ref=e3566]:
+      - generic [ref=e3567] [cursor=pointer]:
+        - img [ref=e3569]
+        - generic [ref=e3571]: Aktif
+      - generic [ref=e3572]:
+        - heading "Tiramisu" [level=3] [ref=e3573]
+        - paragraph [ref=e3574]: Pastalar & Kekler
+        - generic [ref=e3576]: ₺140.00
+        - generic [ref=e3577]:
+          - button "Düzenle" [ref=e3578] [cursor=pointer]
+          - button "Sil" [ref=e3579] [cursor=pointer]
+    - generic [ref=e3580]:
+      - generic [ref=e3581] [cursor=pointer]:
+        - img [ref=e3583]
+        - generic [ref=e3585]: Aktif
+      - generic [ref=e3586]:
+        - heading "Kaşar Tost" [level=3] [ref=e3587]
+        - paragraph [ref=e3588]: Sandviç & Tostlar
+        - generic [ref=e3590]: ₺100.00
+        - generic [ref=e3591]:
+          - button "Düzenle" [ref=e3592] [cursor=pointer]
+          - button "Sil" [ref=e3593] [cursor=pointer]
+    - generic [ref=e3594]:
+      - generic [ref=e3595] [cursor=pointer]:
+        - img [ref=e3597]
+        - generic [ref=e3599]: Aktif
+      - generic [ref=e3600]:
+        - heading "Limonata" [level=3] [ref=e3601]
+        - paragraph [ref=e3602]: Soğuk İçecekler
+        - generic [ref=e3604]: ₺70.00
+        - generic [ref=e3605]:
+          - button "Düzenle" [ref=e3606] [cursor=pointer]
+          - button "Sil" [ref=e3607] [cursor=pointer]
+    - generic [ref=e3608]:
+      - generic [ref=e3609] [cursor=pointer]:
+        - img [ref=e3611]
+        - generic [ref=e3613]: Aktif
+      - generic [ref=e3614]:
+        - heading "Cappuccino" [level=3] [ref=e3615]
+        - paragraph [ref=e3616]: Sıcak İçecekler
+        - generic [ref=e3618]: ₺80.00
+        - generic [ref=e3619]:
+          - button "Düzenle" [ref=e3620] [cursor=pointer]
+          - button "Sil" [ref=e3621] [cursor=pointer]
+    - generic [ref=e3622]:
+      - generic [ref=e3623] [cursor=pointer]:
+        - img [ref=e3625]
+        - generic [ref=e3627]: Aktif
+      - generic [ref=e3628]:
+        - heading "Kavurmalı Yumurta" [level=3] [ref=e3629]
+        - paragraph [ref=e3630]: Kahvaltı Tabakları
+        - generic [ref=e3632]: ₺130.00
+        - generic [ref=e3633]:
+          - button "Düzenle" [ref=e3634] [cursor=pointer]
+          - button "Sil" [ref=e3635] [cursor=pointer]
+    - generic [ref=e3636]:
+      - generic [ref=e3637] [cursor=pointer]:
+        - img [ref=e3639]
+        - generic [ref=e3641]: Aktif
+      - generic [ref=e3642]:
+        - heading "Caffè Espresso" [level=3] [ref=e3643]
+        - paragraph [ref=e3644]: İçecekler
+        - generic [ref=e3646]: ₺55.00
+        - generic [ref=e3647]:
+          - button "Düzenle" [ref=e3648] [cursor=pointer]
+          - button "Sil" [ref=e3649] [cursor=pointer]
+    - generic [ref=e3650]:
+      - generic [ref=e3651] [cursor=pointer]:
+        - img [ref=e3653]
+        - generic [ref=e3655]: Aktif
+      - generic [ref=e3656]:
+        - heading "Gelato (2 Top)" [level=3] [ref=e3657]
+        - paragraph [ref=e3658]: Tatlılar
+        - generic [ref=e3660]: ₺110.00
+        - generic [ref=e3661]:
+          - button "Düzenle" [ref=e3662] [cursor=pointer]
+          - button "Sil" [ref=e3663] [cursor=pointer]
+    - generic [ref=e3664]:
+      - generic [ref=e3665] [cursor=pointer]:
+        - img [ref=e3667]
+        - generic [ref=e3669]: Aktif
+      - generic [ref=e3670]:
+        - heading "Risotto al Limone" [level=3] [ref=e3671]
+        - paragraph [ref=e3672]: Risottolar
+        - generic [ref=e3674]: ₺195.00
+        - generic [ref=e3675]:
+          - button "Düzenle" [ref=e3676] [cursor=pointer]
+          - button "Sil" [ref=e3677] [cursor=pointer]
+    - generic [ref=e3678]:
+      - generic [ref=e3679] [cursor=pointer]:
+        - img [ref=e3681]
+        - generic [ref=e3683]: Aktif
+      - generic [ref=e3684]:
+        - heading "Fettuccine Alfredo" [level=3] [ref=e3685]
+        - paragraph [ref=e3686]: Makarnalar
+        - generic [ref=e3688]: ₺180.00
+        - generic [ref=e3689]:
+          - button "Düzenle" [ref=e3690] [cursor=pointer]
+          - button "Sil" [ref=e3691] [cursor=pointer]
+    - generic [ref=e3692]:
+      - generic [ref=e3693] [cursor=pointer]:
+        - img [ref=e3695]
+        - generic [ref=e3697]: Aktif
+      - generic [ref=e3698]:
+        - heading "Pepperoni" [level=3] [ref=e3699]
+        - paragraph [ref=e3700]: Pizzalar
+        - generic [ref=e3702]: ₺210.00
+        - generic [ref=e3703]:
+          - button "Düzenle" [ref=e3704] [cursor=pointer]
+          - button "Sil" [ref=e3705] [cursor=pointer]
+    - generic [ref=e3706]:
+      - generic [ref=e3707] [cursor=pointer]:
+        - img [ref=e3709]
+        - generic [ref=e3711]: Aktif
+      - generic [ref=e3712]:
+        - heading "Funghi Trifolati" [level=3] [ref=e3713]
+        - paragraph [ref=e3714]: Antipasti
+        - generic [ref=e3716]: ₺150.00
+        - generic [ref=e3717]:
+          - button "Düzenle" [ref=e3718] [cursor=pointer]
+          - button "Sil" [ref=e3719] [cursor=pointer]
+    - generic [ref=e3720]:
+      - generic [ref=e3721] [cursor=pointer]:
+        - img [ref=e3723]
+        - generic [ref=e3725]: Aktif
+      - generic [ref=e3726]:
+        - heading "Türk Kahvesi" [level=3] [ref=e3727]
+        - paragraph [ref=e3728]: İçecekler
+        - generic [ref=e3730]: ₺45.00
+        - generic [ref=e3731]:
+          - button "Düzenle" [ref=e3732] [cursor=pointer]
+          - button "Sil" [ref=e3733] [cursor=pointer]
+    - generic [ref=e3734]:
+      - generic [ref=e3735] [cursor=pointer]:
+        - img [ref=e3737]
+        - generic [ref=e3739]: Aktif
+      - generic [ref=e3740]:
+        - heading "Dondurma" [level=3] [ref=e3741]
+        - paragraph [ref=e3742]: Tatlılar
+        - generic [ref=e3744]: ₺80.00
+        - generic [ref=e3745]:
+          - button "Düzenle" [ref=e3746] [cursor=pointer]
+          - button "Sil" [ref=e3747] [cursor=pointer]
+    - generic [ref=e3748]:
+      - generic [ref=e3749] [cursor=pointer]:
+        - img [ref=e3751]
+        - generic [ref=e3753]: Aktif
+      - generic [ref=e3754]:
+        - heading "Kuşbaşılı Pide" [level=3] [ref=e3755]
+        - paragraph [ref=e3756]: Pide & Lahmacun
+        - generic [ref=e3758]: ₺150.00
+        - generic [ref=e3759]:
+          - button "Düzenle" [ref=e3760] [cursor=pointer]
+          - button "Sil" [ref=e3761] [cursor=pointer]
+    - generic [ref=e3762]:
+      - generic [ref=e3763] [cursor=pointer]:
+        - img [ref=e3765]
+        - generic [ref=e3767]: Aktif
+      - generic [ref=e3768]:
+        - heading "Karışık Izgara" [level=3] [ref=e3769]
+        - paragraph [ref=e3770]: Izgara
+        - generic [ref=e3772]: ₺380.00
+        - generic [ref=e3773]:
+          - button "Düzenle" [ref=e3774] [cursor=pointer]
+          - button "Sil" [ref=e3775] [cursor=pointer]
+    - generic [ref=e3776]:
+      - generic [ref=e3777] [cursor=pointer]:
+        - img [ref=e3779]
+        - generic [ref=e3781]: Aktif
+      - generic [ref=e3782]:
+        - heading "Tavuk Şiş" [level=3] [ref=e3783]
+        - paragraph [ref=e3784]: Kebaplar
+        - generic [ref=e3786]: ₺180.00
+        - generic [ref=e3787]:
+          - button "Düzenle" [ref=e3788] [cursor=pointer]
+          - button "Sil" [ref=e3789] [cursor=pointer]
+    - generic [ref=e3790]:
+      - generic [ref=e3791] [cursor=pointer]:
+        - img [ref=e3793]
+        - generic [ref=e3795]: Aktif
+      - generic [ref=e3796]:
+        - heading "Cevizli Biber" [level=3] [ref=e3797]
+        - paragraph [ref=e3798]: Başlangıçlar
+        - generic [ref=e3800]: ₺80.00
+        - generic [ref=e3801]:
+          - button "Düzenle" [ref=e3802] [cursor=pointer]
+          - button "Sil" [ref=e3803] [cursor=pointer]
+    - generic [ref=e3804]:
+      - generic [ref=e3805] [cursor=pointer]:
+        - img [ref=e3807]
+        - generic [ref=e3809]: Aktif
+      - generic [ref=e3810]:
+        - heading "Paça Çorbası" [level=3] [ref=e3811]
+        - paragraph [ref=e3812]: Çorbalar
+        - generic [ref=e3814]: ₺95.00
+        - generic [ref=e3815]:
+          - button "Düzenle" [ref=e3816] [cursor=pointer]
+          - button "Sil" [ref=e3817] [cursor=pointer]
+    - generic [ref=e3818]:
+      - generic [ref=e3819] [cursor=pointer]:
+        - img [ref=e3821]
+        - generic [ref=e3823]: Aktif
+      - generic [ref=e3824]:
+        - heading "Su (500ml)" [level=3] [ref=e3825]
+        - paragraph [ref=e3826]: İçecekler
+        - generic [ref=e3828]: ₺20.00
+        - generic [ref=e3829]:
+          - button "Düzenle" [ref=e3830] [cursor=pointer]
+          - button "Sil" [ref=e3831] [cursor=pointer]
+    - generic [ref=e3832]:
+      - generic [ref=e3833] [cursor=pointer]:
+        - img [ref=e3835]
+        - generic [ref=e3837]: Aktif
+      - generic [ref=e3838]:
+        - heading "Mevsim Salatası" [level=3] [ref=e3839]
+        - paragraph [ref=e3840]: Salatalar
+        - generic [ref=e3842]: ₺85.00
+        - generic [ref=e3843]:
+          - button "Düzenle" [ref=e3844] [cursor=pointer]
+          - button "Sil" [ref=e3845] [cursor=pointer]
+    - generic [ref=e3846]:
+      - generic [ref=e3847] [cursor=pointer]:
+        - img [ref=e3849]
+        - generic [ref=e3851]: Aktif
+      - generic [ref=e3852]:
+        - heading "Hamsi Tava" [level=3] [ref=e3853]
+        - paragraph [ref=e3854]: Balık & Deniz Ürünleri
+        - generic [ref=e3856]: ₺180.00
+        - generic [ref=e3857]:
+          - button "Düzenle" [ref=e3858] [cursor=pointer]
+          - button "Sil" [ref=e3859] [cursor=pointer]
+    - generic [ref=e3860]:
+      - generic [ref=e3861] [cursor=pointer]:
+        - img [ref=e3863]
+        - generic [ref=e3865]: Aktif
+      - generic [ref=e3866]:
+        - heading "Deniz Mahsulleri Çorbası" [level=3] [ref=e3867]
+        - paragraph [ref=e3868]: Çorbalar
+        - generic [ref=e3870]: ₺120.00
+        - generic [ref=e3871]:
+          - button "Düzenle" [ref=e3872] [cursor=pointer]
+          - button "Sil" [ref=e3873] [cursor=pointer]
+    - generic [ref=e3874]:
+      - generic [ref=e3875] [cursor=pointer]:
+        - img [ref=e3877]
+        - generic [ref=e3879]: Aktif
+      - generic [ref=e3880]:
+        - heading "Midye Dolma (6 adet)" [level=3] [ref=e3881]
+        - paragraph [ref=e3882]: Mezeler
+        - generic [ref=e3884]: ₺120.00
+        - generic [ref=e3885]:
+          - button "Düzenle" [ref=e3886] [cursor=pointer]
+          - button "Sil" [ref=e3887] [cursor=pointer]
+    - generic [ref=e3888]:
+      - generic [ref=e3889] [cursor=pointer]:
+        - img [ref=e3891]
+        - generic [ref=e3893]: Aktif
+      - generic [ref=e3894]:
+        - heading "Acai Bowl" [level=3] [ref=e3895]
+        - paragraph [ref=e3896]: Atıştırmalıklar & Bowl
+        - generic [ref=e3898]: ₺150.00
+        - generic [ref=e3899]:
+          - button "Düzenle" [ref=e3900] [cursor=pointer]
+          - button "Sil" [ref=e3901] [cursor=pointer]
+    - generic [ref=e3902]:
+      - generic [ref=e3903] [cursor=pointer]:
+        - img [ref=e3905]
+        - generic [ref=e3907]: Aktif
+      - generic [ref=e3908]:
+        - heading "Limonlu Tart" [level=3] [ref=e3909]
+        - paragraph [ref=e3910]: Pastalar & Kekler
+        - generic [ref=e3912]: ₺115.00
+        - generic [ref=e3913]:
+          - button "Düzenle" [ref=e3914] [cursor=pointer]
+          - button "Sil" [ref=e3915] [cursor=pointer]
+    - generic [ref=e3916]:
+      - generic [ref=e3917] [cursor=pointer]:
+        - img [ref=e3919]
+        - generic [ref=e3921]: Aktif
+      - generic [ref=e3922]:
+        - heading "Focaccia Sandviç" [level=3] [ref=e3923]
+        - paragraph [ref=e3924]: Sandviç & Tostlar
+        - generic [ref=e3926]: ₺150.00
+        - generic [ref=e3927]:
+          - button "Düzenle" [ref=e3928] [cursor=pointer]
+          - button "Sil" [ref=e3929] [cursor=pointer]
+    - generic [ref=e3930]:
+      - generic [ref=e3931] [cursor=pointer]:
+        - img [ref=e3933]
+        - generic [ref=e3935]: Aktif
+      - generic [ref=e3936]:
+        - heading "Taze Portakal Suyu" [level=3] [ref=e3937]
+        - paragraph [ref=e3938]: Soğuk İçecekler
+        - generic [ref=e3940]: ₺85.00
+        - generic [ref=e3941]:
+          - button "Düzenle" [ref=e3942] [cursor=pointer]
+          - button "Sil" [ref=e3943] [cursor=pointer]
+    - generic [ref=e3944]:
+      - generic [ref=e3945] [cursor=pointer]:
+        - img [ref=e3947]
+        - generic [ref=e3949]: Aktif
+      - generic [ref=e3950]:
+        - heading "Latte" [level=3] [ref=e3951]
+        - paragraph [ref=e3952]: Sıcak İçecekler
+        - generic [ref=e3954]: ₺85.00
+        - generic [ref=e3955]:
+          - button "Düzenle" [ref=e3956] [cursor=pointer]
+          - button "Sil" [ref=e3957] [cursor=pointer]
+    - generic [ref=e3958]:
+      - generic [ref=e3959] [cursor=pointer]:
+        - img [ref=e3961]
+        - generic [ref=e3963]: Aktif
+      - generic [ref=e3964]:
+        - heading "Peynirli Omlet" [level=3] [ref=e3965]
+        - paragraph [ref=e3966]: Kahvaltı Tabakları
+        - generic [ref=e3968]: ₺120.00
+        - generic [ref=e3969]:
+          - button "Düzenle" [ref=e3970] [cursor=pointer]
+          - button "Sil" [ref=e3971] [cursor=pointer]
+    - generic [ref=e3972]:
+      - generic [ref=e3973] [cursor=pointer]:
+        - img [ref=e3975]
+        - generic [ref=e3977]: Aktif
+      - generic [ref=e3978]:
+        - heading "Cappuccino" [level=3] [ref=e3979]
+        - paragraph [ref=e3980]: İçecekler
+        - generic [ref=e3982]: ₺70.00
+        - generic [ref=e3983]:
+          - button "Düzenle" [ref=e3984] [cursor=pointer]
+          - button "Sil" [ref=e3985] [cursor=pointer]
+    - generic [ref=e3986]:
+      - generic [ref=e3987] [cursor=pointer]:
+        - img [ref=e3989]
+        - generic [ref=e3991]: Aktif
+      - generic [ref=e3992]:
+        - heading "Tagliatelle al Ragù" [level=3] [ref=e3993]
+        - paragraph [ref=e3994]: Makarnalar
+        - generic [ref=e3996]: ₺190.00
+        - generic [ref=e3997]:
+          - button "Düzenle" [ref=e3998] [cursor=pointer]
+          - button "Sil" [ref=e3999] [cursor=pointer]
+    - generic [ref=e4000]:
+      - generic [ref=e4001] [cursor=pointer]:
+        - img [ref=e4003]
+        - generic [ref=e4005]: Aktif
+      - generic [ref=e4006]:
+        - heading "Funghi e Tartufo" [level=3] [ref=e4007]
+        - paragraph [ref=e4008]: Pizzalar
+        - generic [ref=e4010]: ₺235.00
+        - generic [ref=e4011]:
+          - button "Düzenle" [ref=e4012] [cursor=pointer]
+          - button "Sil" [ref=e4013] [cursor=pointer]
+    - generic [ref=e4014]:
+      - generic [ref=e4015] [cursor=pointer]:
+        - img [ref=e4017]
+        - generic [ref=e4019]: Aktif
+      - generic [ref=e4020]:
+        - heading "Calamari Fritti" [level=3] [ref=e4021]
+        - paragraph [ref=e4022]: Antipasti
+        - generic [ref=e4024]: ₺200.00
+        - generic [ref=e4025]:
+          - button "Düzenle" [ref=e4026] [cursor=pointer]
+          - button "Sil" [ref=e4027] [cursor=pointer]
+    - generic [ref=e4028]:
+      - generic [ref=e4029] [cursor=pointer]:
+        - img [ref=e4031]
+        - generic [ref=e4033]: Aktif
+      - generic [ref=e4034]:
+        - heading "Kola" [level=3] [ref=e4035]
+        - paragraph [ref=e4036]: İçecekler
+        - generic [ref=e4038]: ₺40.00
+        - generic [ref=e4039]:
+          - button "Düzenle" [ref=e4040] [cursor=pointer]
+          - button "Sil" [ref=e4041] [cursor=pointer]
+    - generic [ref=e4042]:
+      - generic [ref=e4043] [cursor=pointer]:
+        - img [ref=e4045]
+        - generic [ref=e4047]: Aktif
+      - generic [ref=e4048]:
+        - heading "Sucuklu Yumurtalı Pide" [level=3] [ref=e4049]
+        - paragraph [ref=e4050]: Pide & Lahmacun
+        - generic [ref=e4052]: ₺130.00
+        - generic [ref=e4053]:
+          - button "Düzenle" [ref=e4054] [cursor=pointer]
+          - button "Sil" [ref=e4055] [cursor=pointer]
+    - generic [ref=e4056]:
+      - generic [ref=e4057] [cursor=pointer]:
+        - img [ref=e4059]
+        - generic [ref=e4061]: Aktif
+      - generic [ref=e4062]:
+        - heading "Kuzu But" [level=3] [ref=e4063]
+        - paragraph [ref=e4064]: Izgara
+        - generic [ref=e4066]: ₺300.00
+        - generic [ref=e4067]:
+          - button "Düzenle" [ref=e4068] [cursor=pointer]
+          - button "Sil" [ref=e4069] [cursor=pointer]
+    - generic [ref=e4070]:
+      - generic [ref=e4071] [cursor=pointer]:
+        - img [ref=e4073]
+        - generic [ref=e4075]: Aktif
+      - generic [ref=e4076]:
+        - heading "Tavuk Kanat" [level=3] [ref=e4077]
+        - paragraph [ref=e4078]: Kebaplar
+        - generic [ref=e4080]: ₺170.00
+        - generic [ref=e4081]:
+          - button "Düzenle" [ref=e4082] [cursor=pointer]
+          - button "Sil" [ref=e4083] [cursor=pointer]
+    - generic [ref=e4084]:
+      - generic [ref=e4085] [cursor=pointer]:
+        - img [ref=e4087]
+        - generic [ref=e4089]: Aktif
+      - generic [ref=e4090]:
+        - heading "Humus" [level=3] [ref=e4091]
+        - paragraph [ref=e4092]: Başlangıçlar
+        - generic [ref=e4094]: ₺85.00
+        - generic [ref=e4095]:
+          - button "Düzenle" [ref=e4096] [cursor=pointer]
+          - button "Sil" [ref=e4097] [cursor=pointer]
+    - generic [ref=e4098]:
+      - generic [ref=e4099] [cursor=pointer]:
+        - img [ref=e4101]
+        - generic [ref=e4103]: Aktif
+      - generic [ref=e4104]:
+        - heading "İşkembe Çorbası" [level=3] [ref=e4105]
+        - paragraph [ref=e4106]: Çorbalar
+        - generic [ref=e4108]: ₺90.00
+        - generic [ref=e4109]:
+          - button "Düzenle" [ref=e4110] [cursor=pointer]
+          - button "Sil" [ref=e4111] [cursor=pointer]
+    - generic [ref=e4112]:
+      - generic [ref=e4113] [cursor=pointer]:
+        - img [ref=e4115]
+        - generic [ref=e4117]: Aktif
+      - generic [ref=e4118]:
+        - heading "Kalkan Izgara" [level=3] [ref=e4119]
+        - paragraph [ref=e4120]: Balık & Deniz Ürünleri
+        - generic [ref=e4122]: ₺480.00
+        - generic [ref=e4123]:
+          - button "Düzenle" [ref=e4124] [cursor=pointer]
+          - button "Sil" [ref=e4125] [cursor=pointer]
+    - generic [ref=e4126]:
+      - generic [ref=e4127] [cursor=pointer]:
+        - img [ref=e4129]
+        - generic [ref=e4131]: Aktif
+      - generic [ref=e4132]:
+        - heading "Karides Kokteyl" [level=3] [ref=e4133]
+        - paragraph [ref=e4134]: Mezeler
+        - generic [ref=e4136]: ₺150.00
+        - generic [ref=e4137]:
+          - button "Düzenle" [ref=e4138] [cursor=pointer]
+          - button "Sil" [ref=e4139] [cursor=pointer]
+    - generic [ref=e4140]:
+      - generic [ref=e4141] [cursor=pointer]:
+        - img [ref=e4143]
+        - generic [ref=e4145]: Aktif
+      - generic [ref=e4146]:
+        - heading "Meyve Tabağı" [level=3] [ref=e4147]
+        - paragraph [ref=e4148]: Atıştırmalıklar & Bowl
+        - generic [ref=e4150]: ₺100.00
+        - generic [ref=e4151]:
+          - button "Düzenle" [ref=e4152] [cursor=pointer]
+          - button "Sil" [ref=e4153] [cursor=pointer]
+    - generic [ref=e4154]:
+      - generic [ref=e4155] [cursor=pointer]:
+        - img [ref=e4157]
+        - generic [ref=e4159]: Aktif
+      - generic [ref=e4160]:
+        - heading "Brownie" [level=3] [ref=e4161]
+        - paragraph [ref=e4162]: Pastalar & Kekler
+        - generic [ref=e4164]: ₺95.00
+        - generic [ref=e4165]:
+          - button "Düzenle" [ref=e4166] [cursor=pointer]
+          - button "Sil" [ref=e4167] [cursor=pointer]
+    - generic [ref=e4168]:
+      - generic [ref=e4169] [cursor=pointer]:
+        - img [ref=e4171]
+        - generic [ref=e4173]: Aktif
+      - generic [ref=e4174]:
+        - heading "Pastrami Roll" [level=3] [ref=e4175]
+        - paragraph [ref=e4176]: Sandviç & Tostlar
+        - generic [ref=e4178]: ₺145.00
+        - generic [ref=e4179]:
+          - button "Düzenle" [ref=e4180] [cursor=pointer]
+          - button "Sil" [ref=e4181] [cursor=pointer]
+    - generic [ref=e4182]:
+      - generic [ref=e4183] [cursor=pointer]:
+        - img [ref=e4185]
+        - generic [ref=e4187]: Aktif
+      - generic [ref=e4188]:
+        - heading "Meyve Smoothie" [level=3] [ref=e4189]
+        - paragraph [ref=e4190]: Soğuk İçecekler
+        - generic [ref=e4192]: ₺110.00
+        - generic [ref=e4193]:
+          - button "Düzenle" [ref=e4194] [cursor=pointer]
+          - button "Sil" [ref=e4195] [cursor=pointer]
+    - generic [ref=e4196]:
+      - generic [ref=e4197] [cursor=pointer]:
+        - img [ref=e4199]
+        - generic [ref=e4201]: Aktif
+      - generic [ref=e4202]:
+        - heading "Flat White" [level=3] [ref=e4203]
+        - paragraph [ref=e4204]: Sıcak İçecekler
+        - generic [ref=e4206]: ₺80.00
+        - generic [ref=e4207]:
+          - button "Düzenle" [ref=e4208] [cursor=pointer]
+          - button "Sil" [ref=e4209] [cursor=pointer]
+    - generic [ref=e4210]:
+      - generic [ref=e4211] [cursor=pointer]:
+        - img [ref=e4213]
+        - generic [ref=e4215]: Aktif
+      - generic [ref=e4216]:
+        - heading "Avokadolu Poşe Yumurta" [level=3] [ref=e4217]
+        - paragraph [ref=e4218]: Kahvaltı Tabakları
+        - generic [ref=e4220]: ₺150.00
+        - generic [ref=e4221]:
+          - button "Düzenle" [ref=e4222] [cursor=pointer]
+          - button "Sil" [ref=e4223] [cursor=pointer]
+    - generic [ref=e4224]:
+      - generic [ref=e4225] [cursor=pointer]:
+        - img [ref=e4227]
+        - generic [ref=e4229]: Aktif
+      - generic [ref=e4230]:
+        - heading "Linguine ai Frutti di Mare" [level=3] [ref=e4231]
+        - paragraph [ref=e4232]: Makarnalar
+        - generic [ref=e4234]: ₺230.00
+        - generic [ref=e4235]:
+          - button "Düzenle" [ref=e4236] [cursor=pointer]
+          - button "Sil" [ref=e4237] [cursor=pointer]
+    - generic [ref=e4238]:
+      - generic [ref=e4239] [cursor=pointer]:
+        - img [ref=e4241]
+        - generic [ref=e4243]: Aktif
+      - generic [ref=e4244]:
+        - heading "Prosciutto e Rucola" [level=3] [ref=e4245]
+        - paragraph [ref=e4246]: Pizzalar
+        - generic [ref=e4248]: ₺230.00
+        - generic [ref=e4249]:
+          - button "Düzenle" [ref=e4250] [cursor=pointer]
+          - button "Sil" [ref=e4251] [cursor=pointer]
+    - generic [ref=e4252]:
+      - generic [ref=e4253] [cursor=pointer]:
+        - img [ref=e4255]
+        - generic [ref=e4257]: Aktif
+      - generic [ref=e4258]:
+        - heading "Antipasto Misto" [level=3] [ref=e4259]
+        - paragraph [ref=e4260]: Antipasti
+        - generic [ref=e4262]: ₺280.00
+        - generic [ref=e4263]:
+          - button "Düzenle" [ref=e4264] [cursor=pointer]
+          - button "Sil" [ref=e4265] [cursor=pointer]
+    - generic [ref=e4266]:
+      - generic [ref=e4267] [cursor=pointer]:
+        - img [ref=e4269]
+        - generic [ref=e4271]: Aktif
+      - generic [ref=e4272]:
+        - heading "Su (500ml)" [level=3] [ref=e4273]
+        - paragraph [ref=e4274]: İçecekler
+        - generic [ref=e4276]: ₺20.00
+        - generic [ref=e4277]:
+          - button "Düzenle" [ref=e4278] [cursor=pointer]
+          - button "Sil" [ref=e4279] [cursor=pointer]
+    - generic [ref=e4280]:
+      - generic [ref=e4281] [cursor=pointer]:
+        - img [ref=e4283]
+        - generic [ref=e4285]: Aktif
+      - generic [ref=e4286]:
+        - heading "Karışık Pide" [level=3] [ref=e4287]
+        - paragraph [ref=e4288]: Pide & Lahmacun
+        - generic [ref=e4290]: ₺160.00
+        - generic [ref=e4291]:
+          - button "Düzenle" [ref=e4292] [cursor=pointer]
+          - button "Sil" [ref=e4293] [cursor=pointer]
+    - generic [ref=e4294]:
+      - generic [ref=e4295] [cursor=pointer]:
+        - img [ref=e4297]
+        - generic [ref=e4299]: Aktif
+      - generic [ref=e4300]:
+        - heading "Yarım Tavuk Izgara" [level=3] [ref=e4301]
+        - paragraph [ref=e4302]: Izgara
+        - generic [ref=e4304]: ₺220.00
+        - generic [ref=e4305]:
+          - button "Düzenle" [ref=e4306] [cursor=pointer]
+          - button "Sil" [ref=e4307] [cursor=pointer]
+    - generic [ref=e4308]:
+      - generic [ref=e4309] [cursor=pointer]:
+        - img [ref=e4311]
+        - generic [ref=e4313]: Aktif
+      - generic [ref=e4314]:
+        - heading "Kuzu Şiş" [level=3] [ref=e4315]
+        - paragraph [ref=e4316]: Kebaplar
+        - generic [ref=e4318]: ₺260.00
+        - generic [ref=e4319]:
+          - button "Düzenle" [ref=e4320] [cursor=pointer]
+          - button "Sil" [ref=e4321] [cursor=pointer]
+    - generic [ref=e4322]:
+      - generic [ref=e4323] [cursor=pointer]:
+        - img [ref=e4325]
+        - generic [ref=e4327]: Aktif
+      - generic [ref=e4328]:
+        - heading "Kavurmalı Kuru Fasulye" [level=3] [ref=e4329]
+        - paragraph [ref=e4330]: Başlangıçlar
+        - generic [ref=e4332]: ₺95.00
+        - generic [ref=e4333]:
+          - button "Düzenle" [ref=e4334] [cursor=pointer]
+          - button "Sil" [ref=e4335] [cursor=pointer]
+    - generic [ref=e4336]:
+      - generic [ref=e4337] [cursor=pointer]:
+        - img [ref=e4339]
+        - generic [ref=e4341]: Aktif
+      - generic [ref=e4342]:
+        - heading "Kılıç Şiş" [level=3] [ref=e4343]
+        - paragraph [ref=e4344]: Balık & Deniz Ürünleri
+        - generic [ref=e4346]: ₺350.00
+        - generic [ref=e4347]:
+          - button "Düzenle" [ref=e4348] [cursor=pointer]
+          - button "Sil" [ref=e4349] [cursor=pointer]
+    - generic [ref=e4350]:
+      - generic [ref=e4351] [cursor=pointer]:
+        - img [ref=e4353]
+        - generic [ref=e4355]: Aktif
+      - generic [ref=e4356]:
+        - heading "Deniz Börülcesi" [level=3] [ref=e4357]
+        - paragraph [ref=e4358]: Mezeler
+        - generic [ref=e4360]: ₺95.00
+        - generic [ref=e4361]:
+          - button "Düzenle" [ref=e4362] [cursor=pointer]
+          - button "Sil" [ref=e4363] [cursor=pointer]
+    - generic [ref=e4364]:
+      - generic [ref=e4365] [cursor=pointer]:
+        - img [ref=e4367]
+        - generic [ref=e4369]: Aktif
+      - generic [ref=e4370]:
+        - heading "Türk Kahvesi" [level=3] [ref=e4371]
+        - paragraph [ref=e4372]: Sıcak İçecekler
+        - generic [ref=e4374]: ₺55.00
+        - generic [ref=e4375]:
+          - button "Düzenle" [ref=e4376] [cursor=pointer]
+          - button "Sil" [ref=e4377] [cursor=pointer]
+    - generic [ref=e4378]:
+      - generic [ref=e4379] [cursor=pointer]:
+        - img [ref=e4381]
+        - generic [ref=e4383]: Aktif
+      - generic [ref=e4384]:
+        - heading "Eggs Benedict" [level=3] [ref=e4385]
+        - paragraph [ref=e4386]: Kahvaltı Tabakları
+        - generic [ref=e4388]: ₺170.00
+        - generic [ref=e4389]:
+          - button "Düzenle" [ref=e4390] [cursor=pointer]
+          - button "Sil" [ref=e4391] [cursor=pointer]
+    - generic [ref=e4392]:
+      - generic [ref=e4393] [cursor=pointer]:
+        - img [ref=e4395]
+        - generic [ref=e4397]: Aktif
+      - generic [ref=e4398]:
+        - heading "Gnocchi al Pomodoro" [level=3] [ref=e4399]
+        - paragraph [ref=e4400]: Makarnalar
+        - generic [ref=e4402]: ₺170.00
+        - generic [ref=e4403]:
+          - button "Düzenle" [ref=e4404] [cursor=pointer]
+          - button "Sil" [ref=e4405] [cursor=pointer]
+    - generic [ref=e4406]:
+      - generic [ref=e4407] [cursor=pointer]:
+        - img [ref=e4409]
+        - generic [ref=e4411]: Aktif
+      - generic [ref=e4412]:
+        - heading "Salmone" [level=3] [ref=e4413]
+        - paragraph [ref=e4414]: Pizzalar
+        - generic [ref=e4416]: ₺250.00
+        - generic [ref=e4417]:
+          - button "Düzenle" [ref=e4418] [cursor=pointer]
+          - button "Sil" [ref=e4419] [cursor=pointer]
+    - generic [ref=e4420]:
+      - generic [ref=e4421] [cursor=pointer]:
+        - img [ref=e4423]
+        - generic [ref=e4425]: Aktif
+      - generic [ref=e4426]:
+        - heading "Kuzu Pirzola" [level=3] [ref=e4427]
+        - paragraph [ref=e4428]: Kebaplar
+        - generic [ref=e4430]: ₺350.00
+        - generic [ref=e4431]:
+          - button "Düzenle" [ref=e4432] [cursor=pointer]
+          - button "Sil" [ref=e4433] [cursor=pointer]
+    - generic [ref=e4434]:
+      - generic [ref=e4435] [cursor=pointer]:
+        - img [ref=e4437]
+        - generic [ref=e4439]: Aktif
+      - generic [ref=e4440]:
+        - heading "Fıstıklı Sumaklı Salata" [level=3] [ref=e4441]
+        - paragraph [ref=e4442]: Başlangıçlar
+        - generic [ref=e4444]: ₺90.00
+        - generic [ref=e4445]:
+          - button "Düzenle" [ref=e4446] [cursor=pointer]
+          - button "Sil" [ref=e4447] [cursor=pointer]
+    - generic [ref=e4448]:
+      - generic [ref=e4449] [cursor=pointer]:
+        - img [ref=e4451]
+        - generic [ref=e4453]: Aktif
+      - generic [ref=e4454]:
+        - heading "Karides Güveç" [level=3] [ref=e4455]
+        - paragraph [ref=e4456]: Balık & Deniz Ürünleri
+        - generic [ref=e4458]: ₺280.00
+        - generic [ref=e4459]:
+          - button "Düzenle" [ref=e4460] [cursor=pointer]
+          - button "Sil" [ref=e4461] [cursor=pointer]
+    - generic [ref=e4462]:
+      - generic [ref=e4463] [cursor=pointer]:
+        - img [ref=e4465]
+        - generic [ref=e4467]: Aktif
+      - generic [ref=e4468]:
+        - heading "Lakerda" [level=3] [ref=e4469]
+        - paragraph [ref=e4470]: Mezeler
+        - generic [ref=e4472]: ₺130.00
+        - generic [ref=e4473]:
+          - button "Düzenle" [ref=e4474] [cursor=pointer]
+          - button "Sil" [ref=e4475] [cursor=pointer]
+    - generic [ref=e4476]:
+      - generic [ref=e4477] [cursor=pointer]:
+        - img [ref=e4479]
+        - generic [ref=e4481]: Aktif
+      - generic [ref=e4482]:
+        - heading "Çay (Çaydanlık)" [level=3] [ref=e4483]
+        - paragraph [ref=e4484]: Sıcak İçecekler
+        - generic [ref=e4486]: ₺50.00
+        - generic [ref=e4487]:
+          - button "Düzenle" [ref=e4488] [cursor=pointer]
+          - button "Sil" [ref=e4489] [cursor=pointer]
+    - generic [ref=e4490]:
+      - generic [ref=e4491] [cursor=pointer]:
+        - img [ref=e4493]
+        - generic [ref=e4495]: Aktif
+      - generic [ref=e4496]:
+        - heading "Tam Kahvaltı Tabağı" [level=3] [ref=e4497]
+        - paragraph [ref=e4498]: Kahvaltı Tabakları
+        - generic [ref=e4500]: ₺220.00
+        - generic [ref=e4501]:
+          - button "Düzenle" [ref=e4502] [cursor=pointer]
+          - button "Sil" [ref=e4503] [cursor=pointer]
+    - generic [ref=e4504]:
+      - generic [ref=e4505] [cursor=pointer]:
+        - img [ref=e4507]
+        - generic [ref=e4509]: Aktif
+      - generic [ref=e4510]:
+        - heading "Ravioli di Ricotta" [level=3] [ref=e4511]
+        - paragraph [ref=e4512]: Makarnalar
+        - generic [ref=e4514]: ₺200.00
+        - generic [ref=e4515]:
+          - button "Düzenle" [ref=e4516] [cursor=pointer]
+          - button "Sil" [ref=e4517] [cursor=pointer]
+    - generic [ref=e4518]:
+      - generic [ref=e4519] [cursor=pointer]:
+        - img [ref=e4521]
+        - generic [ref=e4523]: Aktif
+      - generic [ref=e4524]:
+        - heading "Vegetariana" [level=3] [ref=e4525]
+        - paragraph [ref=e4526]: Pizzalar
+        - generic [ref=e4528]: ₺185.00
+        - generic [ref=e4529]:
+          - button "Düzenle" [ref=e4530] [cursor=pointer]
+          - button "Sil" [ref=e4531] [cursor=pointer]
+    - generic [ref=e4532]:
+      - generic [ref=e4533] [cursor=pointer]:
+        - img [ref=e4535]
+        - generic [ref=e4537]: Aktif
+      - generic [ref=e4538]:
+        - heading "Izgara Köfte" [level=3] [ref=e4539]
+        - paragraph [ref=e4540]: Kebaplar
+        - generic [ref=e4542]: ₺190.00
+        - generic [ref=e4543]:
+          - button "Düzenle" [ref=e4544] [cursor=pointer]
+          - button "Sil" [ref=e4545] [cursor=pointer]
+    - generic [ref=e4546]:
+      - generic [ref=e4547] [cursor=pointer]:
+        - img [ref=e4549]
+        - generic [ref=e4551]: Aktif
+      - generic [ref=e4552]:
+        - heading "Ahtapot Izgara" [level=3] [ref=e4553]
+        - paragraph [ref=e4554]: Balık & Deniz Ürünleri
+        - generic [ref=e4556]: ₺260.00
+        - generic [ref=e4557]:
+          - button "Düzenle" [ref=e4558] [cursor=pointer]
+          - button "Sil" [ref=e4559] [cursor=pointer]
+    - generic [ref=e4560]:
+      - generic [ref=e4561] [cursor=pointer]:
+        - img [ref=e4563]
+        - generic [ref=e4565]: Aktif
+      - generic [ref=e4566]:
+        - heading "Ahtapot Salatası" [level=3] [ref=e4567]
+        - paragraph [ref=e4568]: Mezeler
+        - generic [ref=e4570]: ₺160.00
+        - generic [ref=e4571]:
+          - button "Düzenle" [ref=e4572] [cursor=pointer]
+          - button "Sil" [ref=e4573] [cursor=pointer]
+    - generic [ref=e4574]:
+      - generic [ref=e4575] [cursor=pointer]:
+        - img [ref=e4577]
+        - generic [ref=e4579]: Aktif
+      - generic [ref=e4580]:
+        - heading "Rigatoni alla Norma" [level=3] [ref=e4581]
+        - paragraph [ref=e4582]: Makarnalar
+        - generic [ref=e4584]: ₺175.00
+        - generic [ref=e4585]:
+          - button "Düzenle" [ref=e4586] [cursor=pointer]
+          - button "Sil" [ref=e4587] [cursor=pointer]
+    - generic [ref=e4588]:
+      - generic [ref=e4589] [cursor=pointer]:
+        - img [ref=e4591]
+        - generic [ref=e4593]: Aktif
+      - generic [ref=e4594]:
+        - heading "Calzone" [level=3] [ref=e4595]
+        - paragraph [ref=e4596]: Pizzalar
+        - generic [ref=e4598]: ₺215.00
+        - generic [ref=e4599]:
+          - button "Düzenle" [ref=e4600] [cursor=pointer]
+          - button "Sil" [ref=e4601] [cursor=pointer]
+    - generic [ref=e4602]:
+      - generic [ref=e4603] [cursor=pointer]:
+        - img [ref=e4605]
+        - generic [ref=e4607]: Aktif
+      - generic [ref=e4608]:
+        - heading "İnegöl Köfte" [level=3] [ref=e4609]
+        - paragraph [ref=e4610]: Kebaplar
+        - generic [ref=e4612]: ₺195.00
+        - generic [ref=e4613]:
+          - button "Düzenle" [ref=e4614] [cursor=pointer]
+          - button "Sil" [ref=e4615] [cursor=pointer]
+    - generic [ref=e4616]:
+      - generic [ref=e4617] [cursor=pointer]:
+        - img [ref=e4619]
+        - generic [ref=e4621]: Aktif
+      - generic [ref=e4622]:
+        - heading "Midye Tava" [level=3] [ref=e4623]
+        - paragraph [ref=e4624]: Balık & Deniz Ürünleri
+        - generic [ref=e4626]: ₺150.00
+        - generic [ref=e4627]:
+          - button "Düzenle" [ref=e4628] [cursor=pointer]
+          - button "Sil" [ref=e4629] [cursor=pointer]
+    - generic [ref=e4630]:
+      - generic [ref=e4631] [cursor=pointer]:
+        - img [ref=e4633]
+        - generic [ref=e4635]: Aktif
+      - generic [ref=e4636]:
+        - heading "Çoban Salatası" [level=3] [ref=e4637]
+        - paragraph [ref=e4638]: Mezeler
+        - generic [ref=e4640]: ₺80.00
+        - generic [ref=e4641]:
+          - button "Düzenle" [ref=e4642] [cursor=pointer]
+          - button "Sil" [ref=e4643] [cursor=pointer]
+    - generic [ref=e4644]:
+      - generic [ref=e4645] [cursor=pointer]:
+        - img [ref=e4647]
+        - generic [ref=e4649]: Aktif
+      - generic [ref=e4650]:
+        - heading "Pappardelle al Cinghiale" [level=3] [ref=e4651]
+        - paragraph [ref=e4652]: Makarnalar
+        - generic [ref=e4654]: ₺220.00
+        - generic [ref=e4655]:
+          - button "Düzenle" [ref=e4656] [cursor=pointer]
+          - button "Sil" [ref=e4657] [cursor=pointer]
+    - generic [ref=e4658]:
+      - generic [ref=e4659] [cursor=pointer]:
+        - img [ref=e4661]
+        - generic [ref=e4663]: Aktif
+      - generic [ref=e4664]:
+        - heading "Tonno e Cipolla" [level=3] [ref=e4665]
+        - paragraph [ref=e4666]: Pizzalar
+        - generic [ref=e4668]: ₺210.00
+        - generic [ref=e4669]:
+          - button "Düzenle" [ref=e4670] [cursor=pointer]
+          - button "Sil" [ref=e4671] [cursor=pointer]
+    - generic [ref=e4672]:
+      - generic [ref=e4673] [cursor=pointer]:
+        - img [ref=e4675]
+        - generic [ref=e4677]: Aktif
+      - generic [ref=e4678]:
+        - heading "Kaburga (Porsiyon)" [level=3] [ref=e4679]
+        - paragraph [ref=e4680]: Kebaplar
+        - generic [ref=e4682]: ₺280.00
+        - generic [ref=e4683]:
+          - button "Düzenle" [ref=e4684] [cursor=pointer]
+          - button "Sil" [ref=e4685] [cursor=pointer]
+    - generic [ref=e4686]:
+      - generic [ref=e4687] [cursor=pointer]:
+        - img [ref=e4689]
+        - generic [ref=e4691]: Aktif
+      - generic [ref=e4692]:
+        - heading "Kalamari" [level=3] [ref=e4693]
+        - paragraph [ref=e4694]: Balık & Deniz Ürünleri
+        - generic [ref=e4696]: ₺170.00
+        - generic [ref=e4697]:
+          - button "Düzenle" [ref=e4698] [cursor=pointer]
+          - button "Sil" [ref=e4699] [cursor=pointer]
+    - generic [ref=e4700]:
+      - generic [ref=e4701] [cursor=pointer]:
+        - img [ref=e4703]
+        - generic [ref=e4705]: Aktif
+      - generic [ref=e4706]:
+        - heading "Atom Salata" [level=3] [ref=e4707]
+        - paragraph [ref=e4708]: Mezeler
+        - generic [ref=e4710]: ₺85.00
+        - generic [ref=e4711]:
+          - button "Düzenle" [ref=e4712] [cursor=pointer]
+          - button "Sil" [ref=e4713] [cursor=pointer]
+    - generic [ref=e4714]:
+      - generic [ref=e4715] [cursor=pointer]:
+        - img [ref=e4717]
+        - generic [ref=e4719]: Aktif
+      - generic [ref=e4720]:
+        - heading "BBQ Pollo" [level=3] [ref=e4721]
+        - paragraph [ref=e4722]: Pizzalar
+        - generic [ref=e4724]: ₺220.00
+        - generic [ref=e4725]:
+          - button "Düzenle" [ref=e4726] [cursor=pointer]
+          - button "Sil" [ref=e4727] [cursor=pointer]
+    - generic [ref=e4728]:
+      - generic [ref=e4729] [cursor=pointer]:
+        - img [ref=e4731]
+        - generic [ref=e4733]: Aktif
+      - generic [ref=e4734]:
+        - heading "Ciğer Kebap" [level=3] [ref=e4735]
+        - paragraph [ref=e4736]: Kebaplar
+        - generic [ref=e4738]: ₺200.00
+        - generic [ref=e4739]:
+          - button "Düzenle" [ref=e4740] [cursor=pointer]
+          - button "Sil" [ref=e4741] [cursor=pointer]
+    - generic [ref=e4742]:
+      - generic [ref=e4743] [cursor=pointer]:
+        - img [ref=e4745]
+        - generic [ref=e4747]: Aktif
+      - generic [ref=e4748]:
+        - heading "Somon Izgara" [level=3] [ref=e4749]
+        - paragraph [ref=e4750]: Balık & Deniz Ürünleri
+        - generic [ref=e4752]: ₺380.00
+        - generic [ref=e4753]:
+          - button "Düzenle" [ref=e4754] [cursor=pointer]
+          - button "Sil" [ref=e4755] [cursor=pointer]
+    - generic [ref=e4756]:
+      - generic [ref=e4757] [cursor=pointer]:
+        - img [ref=e4759]
+        - generic [ref=e4761]: Aktif
+      - generic [ref=e4762]:
+        - heading "Quattro Stagioni" [level=3] [ref=e4763]
+        - paragraph [ref=e4764]: Pizzalar
+        - generic [ref=e4766]: ₺225.00
+        - generic [ref=e4767]:
+          - button "Düzenle" [ref=e4768] [cursor=pointer]
+          - button "Sil" [ref=e4769] [cursor=pointer]
+    - generic [ref=e4770]:
+      - generic [ref=e4771] [cursor=pointer]:
+        - img [ref=e4773]
+        - generic [ref=e4775]: Aktif
+      - generic [ref=e4776]:
+        - heading "Sarma Kebap" [level=3] [ref=e4777]
+        - paragraph [ref=e4778]: Kebaplar
+        - generic [ref=e4780]: ₺240.00
+        - generic [ref=e4781]:
+          - button "Düzenle" [ref=e4782] [cursor=pointer]
+          - button "Sil" [ref=e4783] [cursor=pointer]
+    - generic [ref=e4784]:
+      - generic [ref=e4785] [cursor=pointer]:
+        - img [ref=e4787]
+        - generic [ref=e4789]: Aktif
+      - generic [ref=e4790]:
+        - heading "Palamut Tava" [level=3] [ref=e4791]
+        - paragraph [ref=e4792]: Balık & Deniz Ürünleri
+        - generic [ref=e4794]: ₺200.00
+        - generic [ref=e4795]:
+          - button "Düzenle" [ref=e4796] [cursor=pointer]
+          - button "Sil" [ref=e4797] [cursor=pointer]
+    - generic [ref=e4798]:
+      - generic [ref=e4799] [cursor=pointer]:
+        - img [ref=e4801]
+        - generic [ref=e4803]: Aktif
+      - generic [ref=e4804]:
+        - heading "Lüfer Izgara" [level=3] [ref=e4805]
+        - paragraph [ref=e4806]: Balık & Deniz Ürünleri
+        - generic [ref=e4808]: ₺420.00
+        - generic [ref=e4809]:
+          - button "Düzenle" [ref=e4810] [cursor=pointer]
+          - button "Sil" [ref=e4811] [cursor=pointer]
+    - generic [ref=e4812]:
+      - generic [ref=e4813] [cursor=pointer]:
+        - img [ref=e4815]
+        - generic [ref=e4817]: Aktif
+      - generic [ref=e4818]:
+        - heading "İstavrit Tava" [level=3] [ref=e4819]
+        - paragraph [ref=e4820]: Balık & Deniz Ürünleri
+        - generic [ref=e4822]: ₺160.00
+        - generic [ref=e4823]:
+          - button "Düzenle" [ref=e4824] [cursor=pointer]
+          - button "Sil" [ref=e4825] [cursor=pointer]
+    - generic [ref=e4826]:
+      - generic [ref=e4827] [cursor=pointer]:
+        - img [ref=e4829]
+        - generic [ref=e4831]: Aktif
+      - generic [ref=e4832]:
+        - heading "Akdeniz Usulü Levrek" [level=3] [ref=e4833]
+        - paragraph [ref=e4834]: Balık & Deniz Ürünleri
+        - generic [ref=e4836]: ₺350.00
+        - generic [ref=e4837]:
+          - button "Düzenle" [ref=e4838] [cursor=pointer]
+          - button "Sil" [ref=e4839] [cursor=pointer]

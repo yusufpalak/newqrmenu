@@ -1,47 +1,66 @@
-﻿import {  IsString, IsNotEmpty, IsOptional, IsBoolean, IsInt, IsArray, ValidateNested  } from 'class-validator';
-import {  Type  } from 'class-transformer';
+import { Type } from 'class-transformer';
+import {
+  IsArray,
+  IsBoolean,
+  IsInt,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  IsUUID,
+  Length,
+  Matches,
+  ValidateNested,
+} from 'class-validator';
 
-class TranslationDto {
+export class TranslationDto {
   @IsString()
-  locale;
+  @IsNotEmpty()
+  locale!: string;
 
   @IsString()
   @IsNotEmpty()
-  name;
+  name!: string;
 
-  @IsString()
   @IsOptional()
-  description;
+  @IsString()
+  description?: string;
 }
 
 export class CreateCategoryDto {
+  @IsOptional()
+  @IsUUID()
+  tenantId?: string;
+
   @IsString()
   @IsNotEmpty()
-  name;
+  @Length(1, 255)
+  name!: string;
 
-  @IsString()
-  @IsNotEmpty()
-  slug;
-
-  @IsString()
   @IsOptional()
-  description;
-
   @IsString()
-  @IsOptional()
-  image;
+  @Length(1, 150)
+  @Matches(/^[a-z0-9-]+$/)
+  slug?: string;
 
+  @IsOptional()
+  @IsString()
+  description?: string;
+
+  @IsOptional()
+  @IsString()
+  image?: string;
+
+  @IsOptional()
   @IsInt()
-  @IsOptional()
-  sortOrder;
+  sortOrder?: number;
 
+  @IsOptional()
   @IsBoolean()
-  @IsOptional()
-  isActive;
+  isActive?: boolean;
 
+  @IsOptional()
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => TranslationDto)
-  @IsOptional()
-  translations;
+  translations?: TranslationDto[];
 }

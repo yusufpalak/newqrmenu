@@ -92,7 +92,7 @@
             <label class="block text-sm font-medium text-slate-700 mb-2">Ürün Görseli</label>
             <div class="flex items-start gap-4">
               <!-- Preview -->
-              <div class="w-28 h-28 rounded-xl border-2 border-slate-200 bg-slate-50 flex items-center justify-center overflow-hidden flex-shrink-0 relative group cursor-pointer" @click="formData.image ? viewImage(formData.image) : $refs.fileInput.click()">
+              <div class="w-28 h-28 rounded-xl border-2 border-slate-200 bg-slate-50 flex items-center justify-center overflow-hidden flex-shrink-0 relative group cursor-pointer" @click="formData.image ? viewImage(formData.image) : fileInput?.click()">
                 <img v-if="formData.image" :src="imageUrl(formData.image)" class="w-full h-full object-cover" alt="Önizleme" />
                 <svg v-else class="w-8 h-8 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -121,7 +121,7 @@
                   <p class="text-xs text-slate-600 mb-1">
                     Görseli buraya sürükle ya da
                   </p>
-                  <button type="button" @click="$refs.fileInput.click()" :disabled="uploading"
+                  <button type="button" @click="fileInput?.click()" :disabled="uploading"
                     class="text-indigo-600 text-xs font-medium hover:text-indigo-700 transition disabled:opacity-50">
                     seç
                   </button>
@@ -289,27 +289,36 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { IProduct, ICategory, ISubCategory, ICurrency, ITranslation, IUploadResponse } from '~/types';
 definePageMeta({ layout: 'admin' });
+
+type ProductFormData = {
+  name: string; description: string; categoryId: string; subCategoryId: string;
+  prices: Record<string, number>; isActive: boolean; image: string;
+  translations: ITranslation[];
+  nutrition: { calories: number | null; protein: number | null; carbohydrate: number | null; fat: number | null; sugar: number | null; salt: number | null; allergens: string; ingredients: string; };
+};
 
 const config = useRuntimeConfig();
 const api = useApi();
-const products = ref([]);
-const categories = ref([]);
-const subCategories = ref([]);
-const currencies = ref([]);
-const loading = ref(false);
-const showModal = ref(false);
-const isEditing = ref(false);
-const saving = ref(false);
-const uploading = ref(false);
-const editingId = ref(null);
-const fileInput = ref(null);
-const dragOver = ref(false);
-const showImageModal = ref(false);
-const previewImageUrl = ref('');
+const auth = useAuthStore();
+const products = ref<IProduct[]>([]);
+const categories = ref<ICategory[]>([]);
+const subCategories = ref<ISubCategory[]>([]);
+const currencies = ref<ICurrency[]>([]);
+const loading = ref<boolean>(false);
+const showModal = ref<boolean>(false);
+const isEditing = ref<boolean>(false);
+const saving = ref<boolean>(false);
+const uploading = ref<boolean>(false);
+const editingId = ref<string | null>(null);
+const fileInput = ref<HTMLInputElement | null>(null);
+const dragOver = ref<boolean>(false);
+const showImageModal = ref<boolean>(false);
+const previewImageUrl = ref<string>('');
 
-const formData = ref({
+const formData = ref<ProductFormData>({
   name: '', description: '', categoryId: '', subCategoryId: '', prices: {}, isActive: true, image: '',
   translations: [],
   nutrition: { calories: null, protein: null, carbohydrate: null, fat: null, sugar: null, salt: null, allergens: '', ingredients: '' }
@@ -320,19 +329,20 @@ const filteredSubCategories = computed(() => {
   return subCategories.value.filter(sc => sc.categoryId === formData.value.categoryId);
 });
 
-const imageUrl = (path) => {
+const imageUrl = (path: string | null | undefined): string => {
   if (!path) return '';
   if (path.startsWith('http')) return path;
   return `${config.public.apiBase}${path}`;
 };
 
-const getAllPrices = (product) => {
+const getAllPrices = (product: IProduct): { code: string; symbol: string; price: number }[] => {
   if (!product.prices?.length) return [];
   return product.prices.map(p => ({ code: p.currency?.code || '?', symbol: p.currency?.symbol || '', price: Number(p.price || 0) }));
 };
 
-const handleFileSelect = async (event) => {
-  const file = event.target.files?.[0];
+const handleFileSelect = async (event: Event): Promise<void> => {
+  const input = event.target as HTMLInputElement;
+  const file = input.files?.[0];
   if (!file) return;
 
   const formPayload = new FormData();
@@ -340,7 +350,7 @@ const handleFileSelect = async (event) => {
 
   uploading.value = true;
   try {
-    const result = await api.upload('/uploads', formPayload);
+    const result = await api.upload<IUploadResponse>('/uploads', formPayload);
     formData.value.image = result.url;
   } catch (e) {
     console.error('Upload failed:', e);
@@ -352,7 +362,7 @@ const handleFileSelect = async (event) => {
   }
 };
 
-const handleFileDrop = async (event) => {
+const handleFileDrop = async (event: DragEvent): Promise<void> => {
   dragOver.value = false;
   const file = event.dataTransfer?.files?.[0];
   if (!file) return;
@@ -374,7 +384,7 @@ const handleFileDrop = async (event) => {
 
   uploading.value = true;
   try {
-    const result = await api.upload('/uploads', formPayload);
+    const result = await api.upload<IUploadResponse>('/uploads', formPayload);
     formData.value.image = result.url;
   } catch (e) {
     console.error('Upload failed:', e);
@@ -384,48 +394,48 @@ const handleFileDrop = async (event) => {
   }
 };
 
-const viewImage = (imagePath) => {
+const viewImage = (imagePath: string | null | undefined): void => {
   if (!imagePath) return;
   previewImageUrl.value = imageUrl(imagePath);
   showImageModal.value = true;
 };
 
-const loadProducts = async () => {
+const loadProducts = async (): Promise<void> => {
   loading.value = true;
-  try { products.value = await api.get('/products'); } catch (e) { console.error(e); } finally { loading.value = false; }
+  try { products.value = await api.get<IProduct[]>('/products'); } catch (e) { console.error(e); } finally { loading.value = false; }
 };
 
-const loadCategories = async () => {
-  try { categories.value = await api.get('/categories'); } catch (e) { console.error(e); }
+const loadCategories = async (): Promise<void> => {
+  try { categories.value = await api.get<ICategory[]>('/categories'); } catch (e) { console.error(e); }
 };
 
-const loadSubCategories = async () => {
-  try { subCategories.value = await api.get('/sub-categories'); } catch (e) { console.error(e); }
+const loadSubCategories = async (): Promise<void> => {
+  try { subCategories.value = await api.get<ISubCategory[]>('/sub-categories'); } catch (e) { console.error(e); }
 };
 
-const loadCurrencies = async () => {
-  try { currencies.value = await api.get('/currencies'); } catch (e) { console.error(e); }
+const loadCurrencies = async (): Promise<void> => {
+  try { currencies.value = await api.get<ICurrency[]>('/currencies'); } catch (e) { console.error(e); }
 };
 
-const onCategoryChange = () => { formData.value.subCategoryId = ''; };
+const onCategoryChange = (): void => { formData.value.subCategoryId = ''; };
 
-const emptyForm = () => ({
+const emptyForm = (): ProductFormData => ({
   name: '', description: '', categoryId: '', subCategoryId: '', prices: {}, isActive: true, image: '',
   translations: [],
   nutrition: { calories: null, protein: null, carbohydrate: null, fat: null, sugar: null, salt: null, allergens: '', ingredients: '' }
 });
 
-const openCreateModal = () => {
+const openCreateModal = (): void => {
   isEditing.value = false;
   editingId.value = null;
   formData.value = emptyForm();
   showModal.value = true;
 };
 
-const editProduct = (product) => {
+const editProduct = (product: IProduct): void => {
   isEditing.value = true;
   editingId.value = product.id;
-  const prices = {};
+  const prices: Record<string, number> = {};
   product.prices?.forEach(p => { prices[p.currencyId] = Number(p.price || 0); });
   formData.value = {
     name: product.name, description: product.description || '',
@@ -443,22 +453,23 @@ const editProduct = (product) => {
   showModal.value = true;
 };
 
-const closeModal = () => { showModal.value = false; isEditing.value = false; editingId.value = null; };
+const closeModal = (): void => { showModal.value = false; isEditing.value = false; editingId.value = null; };
 
-const saveProduct = async () => {
+const saveProduct = async (): Promise<void> => {
   saving.value = true;
   try {
     const pricesArray = Object.entries(formData.value.prices)
       .filter(([_, price]) => price && price > 0)
-      .map(([currencyId, price]) => ({ currencyId, price: parseFloat(price) }));
+      .map(([currencyId, price]) => ({ currencyId, price }));
     const nutritionData = Object.fromEntries(
-      Object.entries(formData.value.nutrition).filter(([_, v]) => v !== null && v !== '' && v !== 0)
+      (Object.entries(formData.value.nutrition) as [string, unknown][]).filter(([_, v]) => v !== null && v !== '' && v !== 0)
     );
     const productData = {
       name: formData.value.name, description: formData.value.description,
       categoryId: formData.value.categoryId, subCategoryId: formData.value.subCategoryId || null,
       isActive: formData.value.isActive, prices: pricesArray,
       image: formData.value.image || null,
+      ...(auth.currentTenant ? { tenantId: auth.currentTenant.id } : {}),
       translations: (() => {
         const t = (formData.value.translations || [])
           .filter(t => t.locale && t.name?.trim())
@@ -484,7 +495,7 @@ const saveProduct = async () => {
   }
 };
 
-const deleteProduct = async (id) => {
+const deleteProduct = async (id: string): Promise<void> => {
   if (confirm('Bu ürünü silmek istediğinden emin misin?')) {
     try { await api.delete(`/products/${id}`); await loadProducts(); }
     catch { alert('Ürün silinemedi.'); }

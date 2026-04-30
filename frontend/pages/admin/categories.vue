@@ -110,23 +110,27 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { ICategory, ITranslation } from '~/types';
 definePageMeta({ layout: 'admin' });
 
 const api = useApi();
-const categories = ref([]);
-const loading = ref(false);
-const showModal = ref(false);
-const isEditing = ref(false);
-const saving = ref(false);
-const editingId = ref(null);
+const auth = useAuthStore();
+const categories = ref<ICategory[]>([]);
+const loading = ref<boolean>(false);
+const showModal = ref<boolean>(false);
+const isEditing = ref<boolean>(false);
+const saving = ref<boolean>(false);
+const editingId = ref<string | null>(null);
 
-const formData = ref({ name: '', description: '', isActive: true, translations: [] });
+const formData = ref<{ name: string; description: string; isActive: boolean; translations: ITranslation[] }>(
+  { name: '', description: '', isActive: true, translations: [] }
+);
 
-const loadCategories = async () => {
+const loadCategories = async (): Promise<void> => {
   loading.value = true;
   try {
-    categories.value = await api.get('/categories');
+    categories.value = await api.get<ICategory[]>('/categories');
   } catch (error) {
     console.error('Failed to load categories:', error);
   } finally {
@@ -134,14 +138,14 @@ const loadCategories = async () => {
   }
 };
 
-const openCreateModal = () => {
+const openCreateModal = (): void => {
   isEditing.value = false;
   editingId.value = null;
   formData.value = { name: '', description: '', isActive: true, translations: [] };
   showModal.value = true;
 };
 
-const editCategory = (category) => {
+const editCategory = (category: ICategory): void => {
   isEditing.value = true;
   editingId.value = category.id;
   formData.value = {
@@ -153,19 +157,23 @@ const editCategory = (category) => {
   showModal.value = true;
 };
 
-const closeModal = () => {
+const closeModal = (): void => {
   showModal.value = false;
   isEditing.value = false;
   editingId.value = null;
 };
 
-const saveCategory = async () => {
+const saveCategory = async (): Promise<void> => {
   saving.value = true;
   try {
     const translations = (formData.value.translations || [])
       .filter(t => t.locale && t.name?.trim())
       .map(({ locale, name, description }) => ({ locale, name: name.trim(), description: description?.trim() || undefined }));
-    const payload = { ...formData.value, translations: translations.length ? translations : undefined };
+    const payload = {
+      ...formData.value,
+      translations: translations.length ? translations : undefined,
+      ...(auth.currentTenant ? { tenantId: auth.currentTenant.id } : {}),
+    };
     if (isEditing.value) {
       await api.patch(`/categories/${editingId.value}`, payload);
     } else {
@@ -181,7 +189,7 @@ const saveCategory = async () => {
   }
 };
 
-const deleteCategory = async (id) => {
+const deleteCategory = async (id: string): Promise<void> => {
   if (confirm('Bu kategoriyi silmek istediğinden emin misin?')) {
     try {
       await api.delete(`/categories/${id}`);

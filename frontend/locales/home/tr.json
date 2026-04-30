@@ -1,0 +1,36 @@
+{
+  "htmlLang": "tr",
+  "ogLocale": "tr_TR",
+  "metaTitle": "QR Menü — Akıllı dijital restoran menüsü",
+  "metaDescription": "Restoranın için akıllı dijital menü. QR kod ile masalara anında menü sun. Çoklu dil ve para birimi desteği.",
+  "brand": "QR Menü",
+  "nav": { "login": "Giriş Yap", "about": "Hakkımızda", "contact": "İletişim", "blog": "Blog" },
+  "languageLabel": "Dil",
+  "hero": {
+    "eyebrow": "Dijital Menü Çözümü",
+    "titleLine1": "Restoranın için",
+    "titleLine2": "akıllı dijital menü.",
+    "subtitle": "Ürünleri, kategorileri ve fiyatları kolayca yönet. QR kod ile masalara anında menü sun.",
+    "primary": "Admin Paneline Gir",
+    "secondary": "Demo Menüyü Gör"
+  },
+  "features": {
+    "title": "Her şey tek bir yerde",
+    "subtitle": "Restoranını yönetmek için ihtiyacın olan tüm araçlar.",
+    "items": [
+      { "title": "Kolay Yönetim", "desc": "Ürün, kategori ve fiyatlarını anında ekle, düzenle veya gizle. Sürükle-bırak sıralama desteği." },
+      { "title": "Çok Dil Desteği", "desc": "Türkçe, İngilizce, İspanyolca, Rusça, Almanca, Fransızca ve İtalyanca ile uluslararası müşterilere ulaş." },
+      { "title": "QR Kod", "desc": "Her masa için özel QR kod üret. Müşteriler telefon kamerasıyla menüye anında ulaşır." },
+      { "title": "Çoklu Para Birimi", "desc": "TRY, USD, EUR ve daha fazla para biriminde fiyat tanımla. Menü dövize göre otomatik güncellenir." },
+      { "title": "Besin Değerleri", "desc": "Kalori, protein, karbonhidrat ve alerjen bilgisini ürünlere ekle. Sağlık bilinci yüksek müşteriler için ideal." },
+      { "title": "Çoklu Restoran", "desc": "Birden fazla şubeyi tek hesaptan yönet. Her şubeye özel menü ve ayarlar tanımla." }
+    ]
+  },
+  "cta": {
+    "title": "Hemen başla",
+    "subtitle": "Demo hesabıyla sistemi keşfet veya kendi restoranın için hemen ayarla.",
+    "primary": "Admin Paneline Gir",
+    "secondary": "Demo Menüyü Görüntüle"
+  },
+  "footer": { "rights": "Tüm hakları saklıdır." }
+}

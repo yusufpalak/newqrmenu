@@ -1,43 +1,66 @@
-﻿import {  Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request  } from '@nestjs/common';
-import {  UsersService  } from './users.service';
-import {  CreateUserDto  } from './dto/create-user.dto';
-import {  UpdateUserDto  } from './dto/update-user.dto';
-import {  JwtAuthGuard  } from '../auth/guards/jwt-auth.guard';
-import {  RolesGuard  } from '../auth/guards/roles.guard';
-import {  Roles  } from '../common/decorators/roles.decorator';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Patch,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
+import { UsersService } from './users.service';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
+import { Roles } from '../common/decorators/roles.decorator';
+import { Role } from '../common/enums/role.enum';
+import { CurrentUser } from '../common/decorators/current-user.decorator';
+import { IAuthenticatedUser } from '../common/interfaces/jwt-payload.interface';
+import { User } from './entities/user.entity';
 
 @Controller('users')
 @UseGuards(JwtAuthGuard, RolesGuard)
+@Roles(Role.SUPERADMIN, Role.ADMIN)
 export class UsersController {
-  constructor(private usersService: UsersService) {}
+  constructor(private readonly service: UsersService) {}
 
   @Get()
-  @Roles('SUPERADMIN', 'ADMIN')
-  findAll(@Request() req) {
-    return this.usersService.findAll(req.user.tenantId, req.user.role);
+  findAll(@CurrentUser() user: IAuthenticatedUser): Promise<User[]> {
+    return this.service.findAll(user);
   }
 
   @Get(':id')
-  @Roles('SUPERADMIN', 'ADMIN')
-  findOne(@Param('id') id, @Request() req) {
-    return this.usersService.findOne(id, req.user.tenantId, req.user.role);
+  findOne(
+    @Param('id', ParseUUIDPipe) id: string,
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<User> {
+    return this.service.findOne(id, user);
   }
 
   @Post()
-  @Roles('SUPERADMIN', 'ADMIN')
-  create(@Body() createUserDto: CreateUserDto, @Request() req) {
-    return this.usersService.create(createUserDto, req.user.role);
+  create(
+    @Body() dto: CreateUserDto,
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<User> {
+    return this.service.create(dto, user);
   }
 
   @Patch(':id')
-  @Roles('SUPERADMIN', 'ADMIN')
-  update(@Param('id') id, @Body() updateUserDto: UpdateUserDto, @Request() req) {
-    return this.usersService.update(id, updateUserDto, req.user.tenantId, req.user.role);
+  update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() dto: UpdateUserDto,
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<User> {
+    return this.service.update(id, dto, user);
   }
 
   @Delete(':id')
-  @Roles('SUPERADMIN', 'ADMIN')
-  remove(@Param('id') id, @Request() req) {
-    return this.usersService.remove(id, req.user.tenantId, req.user.role);
+  remove(
+    @Param('id', ParseUUIDPipe) id: string,
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<{ success: true }> {
+    return this.service.remove(id, user);
   }
 }

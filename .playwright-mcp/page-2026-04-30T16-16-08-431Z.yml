@@ -1,0 +1,233 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e10]:
+      - generic [ref=e12]:
+        - paragraph [ref=e15]: Dijital Menü
+        - heading "Bosphorus Café" [level=1] [ref=e16]
+        - paragraph [ref=e17]: Boğaz manzaralı kahve, kahvaltı ve tatlı durakları
+      - generic [ref=e20]:
+        - button "Kahvaltı Tabakları" [ref=e21] [cursor=pointer]
+        - button "Sıcak İçecekler" [ref=e22] [cursor=pointer]
+        - button "Soğuk İçecekler" [ref=e23] [cursor=pointer]
+        - button "Sandviç & Tostlar" [ref=e24] [cursor=pointer]
+        - button "Pastalar & Kekler" [ref=e25] [cursor=pointer]
+        - button "Atıştırmalıklar & Bowl" [ref=e26] [cursor=pointer]
+  - main [ref=e27]:
+    - generic [ref=e28]:
+      - heading "Kahvaltı Tabakları" [level=2] [ref=e30]
+      - generic [ref=e32]:
+        - button "Serpme Kahvaltı (2 Kişilik) Peynir çeşitleri, zeytin, bal, kaymak, reçel, tereyağ, domates, salatalık" [ref=e33] [cursor=pointer]:
+          - generic [ref=e34]:
+            - heading "Serpme Kahvaltı (2 Kişilik)" [level=4] [ref=e36]
+            - paragraph [ref=e37]: Peynir çeşitleri, zeytin, bal, kaymak, reçel, tereyağ, domates, salatalık
+          - img [ref=e40]
+        - button "Sahanda Yumurta Tereyağında sahanda 2 yumurta" [ref=e42] [cursor=pointer]:
+          - generic [ref=e43]:
+            - heading "Sahanda Yumurta" [level=4] [ref=e45]
+            - paragraph [ref=e46]: Tereyağında sahanda 2 yumurta
+          - img [ref=e49]
+        - button "Menemen Taze biber, domates ve yumurta" [ref=e51] [cursor=pointer]:
+          - generic [ref=e52]:
+            - heading "Menemen" [level=4] [ref=e54]
+            - paragraph [ref=e55]: Taze biber, domates ve yumurta
+          - img [ref=e58]
+        - button "Kavurmalı Yumurta Ev yapımı et kavurması ile yumurta" [ref=e60] [cursor=pointer]:
+          - generic [ref=e61]:
+            - heading "Kavurmalı Yumurta" [level=4] [ref=e63]
+            - paragraph [ref=e64]: Ev yapımı et kavurması ile yumurta
+          - img [ref=e67]
+        - button "Peynirli Omlet Kaşar ve beyaz peynir karışımı" [ref=e69] [cursor=pointer]:
+          - generic [ref=e70]:
+            - heading "Peynirli Omlet" [level=4] [ref=e72]
+            - paragraph [ref=e73]: Kaşar ve beyaz peynir karışımı
+          - img [ref=e76]
+        - button "Avokadolu Poşe Yumurta Ekşi maya ekmek, avokado, poşe yumurta, hollandaise" [ref=e78] [cursor=pointer]:
+          - generic [ref=e79]:
+            - heading "Avokadolu Poşe Yumurta" [level=4] [ref=e81]
+            - paragraph [ref=e82]: Ekşi maya ekmek, avokado, poşe yumurta, hollandaise
+          - img [ref=e85]
+        - button "Eggs Benedict İngiliz mafini, somon veya jambon, hollandaise" [ref=e87] [cursor=pointer]:
+          - generic [ref=e88]:
+            - heading "Eggs Benedict" [level=4] [ref=e90]
+            - paragraph [ref=e91]: İngiliz mafini, somon veya jambon, hollandaise
+          - img [ref=e94]
+        - button "Tam Kahvaltı Tabağı Yumurta, sosis, sucuk, kaşar, domates, salatalık" [ref=e96] [cursor=pointer]:
+          - generic [ref=e97]:
+            - heading "Tam Kahvaltı Tabağı" [level=4] [ref=e99]
+            - paragraph [ref=e100]: Yumurta, sosis, sucuk, kaşar, domates, salatalık
+          - img [ref=e103]
+    - generic [ref=e105]:
+      - heading "Sıcak İçecekler" [level=2] [ref=e107]
+      - generic [ref=e109]:
+        - button "Filtre Kahve Günlük öğütülmüş, V60 veya chemex" [ref=e110] [cursor=pointer]:
+          - generic [ref=e111]:
+            - heading "Filtre Kahve" [level=4] [ref=e113]
+            - paragraph [ref=e114]: Günlük öğütülmüş, V60 veya chemex
+          - img [ref=e117]
+        - button "Espresso Çift shot" [ref=e119] [cursor=pointer]:
+          - generic [ref=e120]:
+            - heading "Espresso" [level=4] [ref=e122]
+            - paragraph [ref=e123]: Çift shot
+          - img [ref=e126]
+        - button "Americano Çift espresso ve sıcak su" [ref=e128] [cursor=pointer]:
+          - generic [ref=e129]:
+            - heading "Americano" [level=4] [ref=e131]
+            - paragraph [ref=e132]: Çift espresso ve sıcak su
+          - img [ref=e135]
+        - button "Cappuccino Espresso, buharlanmış süt ve süt köpüğü" [ref=e137] [cursor=pointer]:
+          - generic [ref=e138]:
+            - heading "Cappuccino" [level=4] [ref=e140]
+            - paragraph [ref=e141]: Espresso, buharlanmış süt ve süt köpüğü
+          - img [ref=e144]
+        - button "Latte Espresso ve kremalı mikro köpüklü süt" [ref=e146] [cursor=pointer]:
+          - generic [ref=e147]:
+            - heading "Latte" [level=4] [ref=e149]
+            - paragraph [ref=e150]: Espresso ve kremalı mikro köpüklü süt
+          - img [ref=e153]
+        - button "Flat White Yoğun ristretto, az süt köpüğü" [ref=e155] [cursor=pointer]:
+          - generic [ref=e156]:
+            - heading "Flat White" [level=4] [ref=e158]
+            - paragraph [ref=e159]: Yoğun ristretto, az süt köpüğü
+          - img [ref=e162]
+        - button "Türk Kahvesi Geleneksel çezve, lokum ile" [ref=e164] [cursor=pointer]:
+          - generic [ref=e165]:
+            - heading "Türk Kahvesi" [level=4] [ref=e167]
+            - paragraph [ref=e168]: Geleneksel çezve, lokum ile
+          - img [ref=e171]
+        - button "Çay (Çaydanlık) Rize çayı, çaydanlıkta 2 bardak" [ref=e173] [cursor=pointer]:
+          - generic [ref=e174]:
+            - heading "Çay (Çaydanlık)" [level=4] [ref=e176]
+            - paragraph [ref=e177]: Rize çayı, çaydanlıkta 2 bardak
+          - img [ref=e180]
+    - generic [ref=e182]:
+      - heading "Soğuk İçecekler" [level=2] [ref=e184]
+      - generic [ref=e186]:
+        - button "Cold Brew 18 saat soğuk demleme kahvesi" [ref=e187] [cursor=pointer]:
+          - generic [ref=e188]:
+            - heading "Cold Brew" [level=4] [ref=e190]
+            - paragraph [ref=e191]: 18 saat soğuk demleme kahvesi
+          - img [ref=e194]
+        - button "Iced Latte Espresso, soğuk süt ve buz" [ref=e196] [cursor=pointer]:
+          - generic [ref=e197]:
+            - heading "Iced Latte" [level=4] [ref=e199]
+            - paragraph [ref=e200]: Espresso, soğuk süt ve buz
+          - img [ref=e203]
+        - button "Frappuccino Blended kahve, krem şanti ve şurup" [ref=e205] [cursor=pointer]:
+          - generic [ref=e206]:
+            - heading "Frappuccino" [level=4] [ref=e208]
+            - paragraph [ref=e209]: Blended kahve, krem şanti ve şurup
+          - img [ref=e212]
+        - button "Limonata Taze sıkılmış, nane ile servis" [ref=e214] [cursor=pointer]:
+          - generic [ref=e215]:
+            - heading "Limonata" [level=4] [ref=e217]
+            - paragraph [ref=e218]: Taze sıkılmış, nane ile servis
+          - img [ref=e221]
+        - button "Taze Portakal Suyu Sıkma taze portakal, 300ml" [ref=e223] [cursor=pointer]:
+          - generic [ref=e224]:
+            - heading "Taze Portakal Suyu" [level=4] [ref=e226]
+            - paragraph [ref=e227]: Sıkma taze portakal, 300ml
+          - img [ref=e230]
+        - button "Meyve Smoothie Mevsim meyvesi, yoğurt ve bal" [ref=e232] [cursor=pointer]:
+          - generic [ref=e233]:
+            - heading "Meyve Smoothie" [level=4] [ref=e235]
+            - paragraph [ref=e236]: Mevsim meyvesi, yoğurt ve bal
+          - img [ref=e239]
+    - generic [ref=e241]:
+      - heading "Sandviç & Tostlar" [level=2] [ref=e243]
+      - generic [ref=e245]:
+        - button "Klasik Tost Kaşar, sucuk ve domates" [ref=e246] [cursor=pointer]:
+          - generic [ref=e247]:
+            - heading "Klasik Tost" [level=4] [ref=e249]
+            - paragraph [ref=e250]: Kaşar, sucuk ve domates
+          - img [ref=e253]
+        - button "Club Sandwich Hindi, bacon, marul, domates, mayonez" [ref=e255] [cursor=pointer]:
+          - generic [ref=e256]:
+            - heading "Club Sandwich" [level=4] [ref=e258]
+            - paragraph [ref=e259]: Hindi, bacon, marul, domates, mayonez
+          - img [ref=e262]
+        - button "Avokado Toast Ekşi maya ekmek, avokado, kiraz domates, sarı biber" [ref=e264] [cursor=pointer]:
+          - generic [ref=e265]:
+            - heading "Avokado Toast" [level=4] [ref=e267]
+            - paragraph [ref=e268]: Ekşi maya ekmek, avokado, kiraz domates, sarı biber
+          - img [ref=e271]
+        - button "Kaşar Tost Çift taraflı eritilmiş kaşar peyniri" [ref=e273] [cursor=pointer]:
+          - generic [ref=e274]:
+            - heading "Kaşar Tost" [level=4] [ref=e276]
+            - paragraph [ref=e277]: Çift taraflı eritilmiş kaşar peyniri
+          - img [ref=e280]
+        - button "Focaccia Sandviç Ev yapımı focaccia, mozzarella, pesto, roka" [ref=e282] [cursor=pointer]:
+          - generic [ref=e283]:
+            - heading "Focaccia Sandviç" [level=4] [ref=e285]
+            - paragraph [ref=e286]: Ev yapımı focaccia, mozzarella, pesto, roka
+          - img [ref=e289]
+        - button "Pastrami Roll Dilimlenmiş pastrami, kornişon turşu, hardal" [ref=e291] [cursor=pointer]:
+          - generic [ref=e292]:
+            - heading "Pastrami Roll" [level=4] [ref=e294]
+            - paragraph [ref=e295]: Dilimlenmiş pastrami, kornişon turşu, hardal
+          - img [ref=e298]
+    - generic [ref=e300]:
+      - heading "Pastalar & Kekler" [level=2] [ref=e302]
+      - generic [ref=e304]:
+        - button "New York Cheesecake Klasik cheesecake, taze çilek sosu" [ref=e305] [cursor=pointer]:
+          - generic [ref=e306]:
+            - heading "New York Cheesecake" [level=4] [ref=e308]
+            - paragraph [ref=e309]: Klasik cheesecake, taze çilek sosu
+          - img [ref=e312]
+        - button "Çikolatalı Kek Nemli çikolatalı kek, bitter çikolata ganajı" [ref=e314] [cursor=pointer]:
+          - generic [ref=e315]:
+            - heading "Çikolatalı Kek" [level=4] [ref=e317]
+            - paragraph [ref=e318]: Nemli çikolatalı kek, bitter çikolata ganajı
+          - img [ref=e321]
+        - button "Red Velvet Kadife kek, cream cheese frosting" [ref=e323] [cursor=pointer]:
+          - generic [ref=e324]:
+            - heading "Red Velvet" [level=4] [ref=e326]
+            - paragraph [ref=e327]: Kadife kek, cream cheese frosting
+          - img [ref=e330]
+        - button "Tiramisu Ev yapımı İtalyan klasiği" [ref=e332] [cursor=pointer]:
+          - generic [ref=e333]:
+            - heading "Tiramisu" [level=4] [ref=e335]
+            - paragraph [ref=e336]: Ev yapımı İtalyan klasiği
+          - img [ref=e339]
+        - button "Limonlu Tart Ekşi limon kreması, İsviçre merengesi" [ref=e341] [cursor=pointer]:
+          - generic [ref=e342]:
+            - heading "Limonlu Tart" [level=4] [ref=e344]
+            - paragraph [ref=e345]: Ekşi limon kreması, İsviçre merengesi
+          - img [ref=e348]
+        - button "Brownie Yoğun çikolatalı, cevizli, sıcak servis" [ref=e350] [cursor=pointer]:
+          - generic [ref=e351]:
+            - heading "Brownie" [level=4] [ref=e353]
+            - paragraph [ref=e354]: Yoğun çikolatalı, cevizli, sıcak servis
+          - img [ref=e357]
+    - generic [ref=e359]:
+      - heading "Atıştırmalıklar & Bowl" [level=2] [ref=e361]
+      - generic [ref=e363]:
+        - button "Çikolatalı Kurabiye (2 adet) El yapımı, bol bitter çikolata parçalı" [ref=e364] [cursor=pointer]:
+          - generic [ref=e365]:
+            - heading "Çikolatalı Kurabiye (2 adet)" [level=4] [ref=e367]
+            - paragraph [ref=e368]: El yapımı, bol bitter çikolata parçalı
+          - img [ref=e371]
+        - button "Waffle Muz, nutella, dondurma ve çilek" [ref=e373] [cursor=pointer]:
+          - generic [ref=e374]:
+            - heading "Waffle" [level=4] [ref=e376]
+            - paragraph [ref=e377]: Muz, nutella, dondurma ve çilek
+          - img [ref=e380]
+        - button "Pancake (3 adet) Akçaağaç şurubu ve taze tereyağ" [ref=e382] [cursor=pointer]:
+          - generic [ref=e383]:
+            - heading "Pancake (3 adet)" [level=4] [ref=e385]
+            - paragraph [ref=e386]: Akçaağaç şurubu ve taze tereyağ
+          - img [ref=e389]
+        - button "Granola Bowl Ev yapımı granola, Yunan yoğurdu, meyve" [ref=e391] [cursor=pointer]:
+          - generic [ref=e392]:
+            - heading "Granola Bowl" [level=4] [ref=e394]
+            - paragraph [ref=e395]: Ev yapımı granola, Yunan yoğurdu, meyve
+          - img [ref=e398]
+        - button "Acai Bowl Acai, muz, granola, çilek, hindistan cevizi" [ref=e400] [cursor=pointer]:
+          - generic [ref=e401]:
+            - heading "Acai Bowl" [level=4] [ref=e403]
+            - paragraph [ref=e404]: Acai, muz, granola, çilek, hindistan cevizi
+          - img [ref=e407]
+        - button "Meyve Tabağı Mevsiminde taze kesilmiş meyve seçkisi" [ref=e409] [cursor=pointer]:
+          - generic [ref=e410]:
+            - heading "Meyve Tabağı" [level=4] [ref=e412]
+            - paragraph [ref=e413]: Mevsiminde taze kesilmiş meyve seçkisi
+          - img [ref=e416]

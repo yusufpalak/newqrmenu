@@ -68,7 +68,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import QrcodeVue from 'qrcode.vue';
 definePageMeta({ layout: 'admin' });
 

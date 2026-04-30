@@ -1,34 +1,49 @@
-﻿import {  Module  } from '@nestjs/common';
-import {  ConfigModule  } from '@nestjs/config';
-import {  DatabaseModule  } from './database/database.module';
-import {  AuthModule  } from './auth/auth.module';
-import {  UsersModule  } from './users/users.module';
-import {  TenantsModule  } from './tenants/tenants.module';
-import {  CategoriesModule  } from './categories/categories.module';
-import {  SubCategoriesModule  } from './sub-categories/sub-categories.module';
-import {  ProductsModule  } from './products/products.module';
-import {  CurrenciesModule  } from './currencies/currencies.module';
-import {  PublicModule  } from './public/public.module';
-import {  UploadsModule  } from './uploads/uploads.module';
-import {  TranslationRequestsModule  } from './translation-requests/translation-requests.module';
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { APP_GUARD } from '@nestjs/core';
+import { DatabaseModule } from './database/database.module';
+import { StorageModule } from './storage/storage.module';
+import { AuthModule } from './auth/auth.module';
+import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
+import { TenantsModule } from './tenants/tenants.module';
+import { UsersModule } from './users/users.module';
+import { CurrenciesModule } from './currencies/currencies.module';
+import { CategoriesModule } from './categories/categories.module';
+import { SubCategoriesModule } from './sub-categories/sub-categories.module';
+import { ProductsModule } from './products/products.module';
+import { TranslationRequestsModule } from './translation-requests/translation-requests.module';
+import { PublicModule } from './public/public.module';
+import { UploadsModule } from './uploads/uploads.module';
+import { MediaModule } from './media/media.module';
+import { BlogModule } from './blog/blog.module';
+import { ContactModule } from './contact/contact.module';
+import { TranslateModule } from './translate/translate.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      envFilePath: '.env',
-    }),
+    ConfigModule.forRoot({ isGlobal: true }),
     DatabaseModule,
+    StorageModule,
     AuthModule,
-    UsersModule,
     TenantsModule,
+    UsersModule,
+    CurrenciesModule,
     CategoriesModule,
     SubCategoriesModule,
     ProductsModule,
-    CurrenciesModule,
+    TranslationRequestsModule,
     PublicModule,
     UploadsModule,
-    TranslationRequestsModule,
+    MediaModule,
+    TranslateModule,
+    BlogModule,
+    ContactModule,
+  ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
   ],
 })
 export class AppModule {}

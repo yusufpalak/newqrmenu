@@ -1,29 +1,46 @@
-﻿import {  Injectable  } from '@nestjs/common';
-import {  PrismaService  } from '../database/prisma.service';
+import {
+  Injectable,
+  NotFoundException,
+  ConflictException,
+} from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Currency } from './entities/currency.entity';
+import { CreateCurrencyDto } from './dto/create-currency.dto';
+import { UpdateCurrencyDto } from './dto/update-currency.dto';
 
-@Injectable()export class CurrenciesService {
-  constructor(private prisma: PrismaService) {}
+@Injectable()
+export class CurrenciesService {
+  constructor(
+    @InjectRepository(Currency)
+    private readonly currencyRepo: Repository<Currency>,
+  ) {}
 
-  async findAll() {
-    return this.prisma.currency.findMany({
-      where: { isActive: true },
-      orderBy: { code: 'asc' },
-    });
+  findAll(): Promise<Currency[]> {
+    return this.currencyRepo.find({ order: { code: 'ASC' } });
   }
 
-  async findOne(id) {
-    return this.prisma.currency.findUnique({ where: { id } });
+  async findOne(id: string): Promise<Currency> {
+    const c = await this.currencyRepo.findOne({ where: { id } });
+    if (!c) throw new NotFoundException('Currency not found');
+    return c;
   }
 
-  async create(data) {
-    return this.prisma.currency.create({ data });
+  async create(dto: CreateCurrencyDto): Promise<Currency> {
+    const exists = await this.currencyRepo.findOne({ where: { code: dto.code } });
+    if (exists) throw new ConflictException('Currency code already exists');
+    return this.currencyRepo.save(this.currencyRepo.create(dto));
   }
 
-  async update(id, data) {
-    return this.prisma.currency.update({ where: { id }, data });
+  async update(id: string, dto: UpdateCurrencyDto): Promise<Currency> {
+    const c = await this.findOne(id);
+    Object.assign(c, dto);
+    return this.currencyRepo.save(c);
   }
 
-  async remove(id) {
-    return this.prisma.currency.delete({ where: { id } });
+  async remove(id: string): Promise<{ success: true }> {
+    await this.findOne(id);
+    await this.currencyRepo.delete(id);
+    return { success: true };
   }
 }

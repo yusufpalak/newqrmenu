@@ -1,30 +1,70 @@
-﻿import {  Controller, Get, Post, Body, Patch, Param, UseGuards, Request  } from '@nestjs/common';
-import {  TranslationRequestsService  } from './translation-requests.service';
-import {  CreateTranslationRequestDto  } from './dto/create-translation-request.dto';
-import {  JwtAuthGuard  } from '../auth/guards/jwt-auth.guard';
-import {  RolesGuard  } from '../auth/guards/roles.guard';
-import {  Roles  } from '../common/decorators/roles.decorator';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Patch,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
+import { TranslationRequestsService } from './translation-requests.service';
+import {
+  CreateTranslationRequestDto,
+  UpdateTranslationRequestDto,
+} from './dto/translation-request.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
+import { Roles } from '../common/decorators/roles.decorator';
+import { Role } from '../common/enums/role.enum';
+import { CurrentUser } from '../common/decorators/current-user.decorator';
+import { IAuthenticatedUser } from '../common/interfaces/jwt-payload.interface';
+import { TranslationRequest } from './entities/translation-request.entity';
 
 @Controller('translation-requests')
 @UseGuards(JwtAuthGuard, RolesGuard)
+@Roles(Role.SUPERADMIN, Role.ADMIN)
 export class TranslationRequestsController {
-  constructor(private service: TranslationRequestsService) {}
+  constructor(private readonly service: TranslationRequestsService) {}
 
   @Get()
-  @Roles('SUPERADMIN', 'ADMIN')
-  findAll(@Request() req) {
-    return this.service.findAll(req.user.tenantId, req.user.role);
+  findAll(
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<TranslationRequest[]> {
+    return this.service.findAll(user);
+  }
+
+  @Get(':id')
+  findOne(
+    @Param('id', ParseUUIDPipe) id: string,
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<TranslationRequest> {
+    return this.service.findOne(id, user);
   }
 
   @Post()
-  @Roles('ADMIN')
-  create(@Body() dto: CreateTranslationRequestDto, @Request() req) {
-    return this.service.create(dto, req.user.userId, req.user.tenantId);
+  create(
+    @Body() dto: CreateTranslationRequestDto,
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<TranslationRequest> {
+    return this.service.create(dto, user);
   }
 
   @Patch(':id')
-  @Roles('SUPERADMIN')
-  update(@Param('id') id, @Body() data, @Request() req) {
-    return this.service.update(id, data, req.user.role);
+  update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() dto: UpdateTranslationRequestDto,
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<TranslationRequest> {
+    return this.service.update(id, dto, user);
+  }
+
+  @Delete(':id')
+  remove(
+    @Param('id', ParseUUIDPipe) id: string,
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<{ success: true }> {
+    return this.service.remove(id, user);
   }
 }

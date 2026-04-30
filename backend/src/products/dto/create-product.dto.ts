@@ -1,120 +1,116 @@
-﻿import {  IsString, IsNotEmpty, IsOptional, IsBoolean, IsInt, IsNumber, IsArray, ValidateNested  } from 'class-validator';
-import {  Type  } from 'class-transformer';
+import { Type } from 'class-transformer';
+import {
+  IsArray,
+  IsBoolean,
+  IsInt,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+  IsUUID,
+  Length,
+  Matches,
+  ValidateNested,
+} from 'class-validator';
 
-class PriceDto {
+export class ProductTranslationDto {
   @IsString()
-  currencyId;
-
-  @IsNumber()
-  price;
-
-  @IsNumber()
-  @IsOptional()
-  discountedPrice;
-}
-
-class NutritionDto {
-  @IsNumber()
-  @IsOptional()
-  calories;
-
-  @IsNumber()
-  @IsOptional()
-  protein;
-
-  @IsNumber()
-  @IsOptional()
-  carbohydrate;
-
-  @IsNumber()
-  @IsOptional()
-  fat;
-
-  @IsNumber()
-  @IsOptional()
-  sugar;
-
-  @IsNumber()
-  @IsOptional()
-  salt;
-
-  @IsString()
-  @IsOptional()
-  allergens;
-
-  @IsString()
-  @IsOptional()
-  ingredients;
-}
-
-class TranslationDto {
-  @IsString()
-  locale;
+  @IsNotEmpty()
+  locale!: string;
 
   @IsString()
   @IsNotEmpty()
-  name;
+  name!: string;
 
-  @IsString()
   @IsOptional()
-  description;
+  @IsString()
+  description?: string;
 
-  @IsString()
   @IsOptional()
-  ingredients;
+  @IsString()
+  ingredients?: string;
+}
+
+export class ProductPriceDto {
+  @IsUUID()
+  currencyId!: string;
+
+  @IsNumber()
+  price!: number;
+
+  @IsOptional()
+  @IsNumber()
+  discountedPrice?: number;
+}
+
+export class ProductNutritionDto {
+  @IsOptional() @IsNumber() calories?: number;
+  @IsOptional() @IsNumber() protein?: number;
+  @IsOptional() @IsNumber() carbohydrate?: number;
+  @IsOptional() @IsNumber() fat?: number;
+  @IsOptional() @IsNumber() sugar?: number;
+  @IsOptional() @IsNumber() salt?: number;
+  @IsOptional() @IsString() allergens?: string;
+  @IsOptional() @IsString() ingredients?: string;
 }
 
 export class CreateProductDto {
+  @IsOptional()
+  @IsUUID()
+  tenantId?: string;
+
+  @IsUUID()
+  categoryId!: string;
+
+  @IsOptional()
+  @IsUUID()
+  subCategoryId?: string;
+
   @IsString()
   @IsNotEmpty()
-  categoryId;
+  @Length(1, 255)
+  name!: string;
 
-  @IsString()
   @IsOptional()
-  subCategoryId;
-
   @IsString()
-  @IsNotEmpty()
-  name;
+  @Length(1, 150)
+  @Matches(/^[a-z0-9-]+$/)
+  slug?: string;
 
-  @IsString()
   @IsOptional()
-  slug;
-
   @IsString()
-  @IsOptional()
-  description;
+  description?: string;
 
+  @IsOptional()
   @IsString()
-  @IsOptional()
-  image;
+  image?: string;
 
+  @IsOptional()
   @IsBoolean()
-  @IsOptional()
-  isActive;
+  isActive?: boolean;
 
+  @IsOptional()
   @IsBoolean()
-  @IsOptional()
-  isFeatured;
+  isFeatured?: boolean;
 
+  @IsOptional()
   @IsInt()
-  @IsOptional()
-  sortOrder;
+  sortOrder?: number;
 
+  @IsOptional()
   @IsArray()
   @ValidateNested({ each: true })
-  @Type(() => PriceDto)
-  @IsOptional()
-  prices;
+  @Type(() => ProductPriceDto)
+  prices?: ProductPriceDto[];
 
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => ProductTranslationDto)
+  translations?: ProductTranslationDto[];
+
+  @IsOptional()
   @ValidateNested()
-  @Type(() => NutritionDto)
-  @IsOptional()
-  nutrition;
-
-  @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => TranslationDto)
-  @IsOptional()
-  translations;
+  @Type(() => ProductNutritionDto)
+  nutrition?: ProductNutritionDto;
 }

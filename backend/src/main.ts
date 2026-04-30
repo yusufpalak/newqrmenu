@@ -1,24 +1,22 @@
-﻿import { NestFactory } from '@nestjs/core';
-import { NestExpressApplication } from '@nestjs/platform-express';
-import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { ValidationPipe, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app.module';
-import { join } from 'path';
 
-async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule);
-
-  // Serve uploaded files statically at /uploads/*
-  app.useStaticAssets(join(process.cwd(), 'uploads'), { prefix: '/uploads' });
+async function bootstrap(): Promise<void> {
+  const app = await NestFactory.create(AppModule);
 
   const configService = app.get(ConfigService);
-  const port = configService.get('PORT') || 3001;
+  const port = parseInt(configService.get<string>('PORT', '3001'), 10);
 
-  // Enable CORS
-  const corsOriginRaw = configService.get('CORS_ORIGIN') || 'http://localhost:3000';
+  const corsOriginRaw = configService.get<string>(
+    'CORS_ORIGIN',
+    'http://localhost:3000',
+  );
   const corsOrigin = corsOriginRaw.includes(',')
-    ? corsOriginRaw.split(',').map((o: string) => o.trim())
+    ? corsOriginRaw.split(',').map((o) => o.trim())
     : corsOriginRaw;
+
   app.enableCors({
     origin: corsOrigin,
     credentials: true,
@@ -26,20 +24,19 @@ async function bootstrap() {
     allowedHeaders: 'Content-Type,Authorization',
   });
 
-  // Global validation pipe
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
       forbidNonWhitelisted: true,
       transform: true,
-    })
+      transformOptions: { enableImplicitConversion: true },
+    }),
   );
 
-  // Global prefix for API routes
   app.setGlobalPrefix('api');
 
   await app.listen(port);
-  console.log(`Backend running on http://localhost:${port}`);
+  Logger.log(`Backend running on http://localhost:${port}/api`, 'Bootstrap');
 }
 
-bootstrap();
+void bootstrap();

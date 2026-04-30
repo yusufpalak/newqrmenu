@@ -9,7 +9,7 @@
         <div class="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
       </div>
 
-      <div class="relative z-10 max-w-5xl mx-auto px-5 pt-10 pb-8">
+      <div class="relative z-10 max-w-5xl mx-auto px-5 pt-10 pb-10">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <div class="flex items-center gap-2 mb-3">
@@ -49,15 +49,25 @@
           </div>
         </div>
 
-        <!-- Category Pills -->
-        <div class="mt-8 -mx-5 px-5 overflow-x-auto scrollbar-hide">
-          <div class="flex gap-2 pb-1" style="width: max-content;">
+      </div>
+    </header>
+
+    <!-- Sticky Category Nav -->
+    <nav v-if="menuData?.categories?.length" class="sticky top-0 z-50 bg-stone-900/95 backdrop-blur-md border-b border-white/5 shadow-lg">
+      <div class="max-w-5xl mx-auto relative">
+
+        <!-- Pills scroll container -->
+        <div ref="pillsContainerRef" class="overflow-x-auto scrollbar-hide py-3 px-4" @scroll="updatePillArrows">
+          <div class="flex gap-2" style="width: max-content;">
             <button
               v-for="cat in menuData?.categories"
               :key="cat.id"
+              type="button"
+              :data-cat-id="cat.id"
+              :aria-current="activeCategory === cat.id ? 'true' : undefined"
               @click="scrollToCategory(cat.id)"
               :class="[
-                'flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
+                'flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200',
                 activeCategory === cat.id
                   ? 'bg-amber-400 text-stone-900 shadow-lg shadow-amber-400/25'
                   : 'bg-white/10 text-stone-300 hover:bg-white/20 hover:text-white'
@@ -67,8 +77,41 @@
             </button>
           </div>
         </div>
+
+        <!-- Left gradient + arrow (clickable overlay) -->
+        <Transition name="fade-arrow">
+          <button
+            v-show="showLeftArrow"
+            @click="scrollPills(-1)"
+            aria-label="Geri"
+            class="absolute left-0 top-0 h-full w-14 flex items-center justify-start pl-2
+                   bg-gradient-to-r from-stone-900 via-stone-900/80 to-transparent
+                   text-white/50 hover:text-white/90 transition-colors duration-200"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+        </Transition>
+
+        <!-- Right gradient + arrow (clickable overlay) -->
+        <Transition name="fade-arrow">
+          <button
+            v-show="showRightArrow"
+            @click="scrollPills(1)"
+            aria-label="İleri"
+            class="absolute right-0 top-0 h-full w-14 flex items-center justify-end pr-2
+                   bg-gradient-to-l from-stone-900 via-stone-900/80 to-transparent
+                   text-white/50 hover:text-white/90 transition-colors duration-200"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </Transition>
+
       </div>
-    </header>
+    </nav>
 
     <!-- Loading State -->
     <div v-if="loading" class="flex flex-col items-center justify-center py-24 gap-4">
@@ -95,7 +138,7 @@
           <!-- Subcategories -->
           <template v-for="sub in cat.subCategories" :key="sub.id">
             <div class="mb-8">
-              <p class="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-4">{{ sub.name }}</p>
+              <h3 class="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-4">{{ sub.name }}</h3>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <ProductCard
                   v-for="p in sub.products"
@@ -220,17 +263,18 @@
 </template>
 
 <!-- Product Card Component -->
-<script>
+<script lang="ts">
 const ProductCard = defineComponent({
   props: { product: Object, formatImageUrl: Function, featuredLabel: String },
   emits: ['click'],
   setup(props, { emit }) {
-    const formatPrice = (amount, symbol) => {
+    const formatPrice = (amount: string | number | null | undefined, symbol: string | null | undefined): string => {
       if (!amount) return '';
-      return `${symbol || ''} ${parseFloat(amount).toFixed(2)}`;
+      return `${symbol || ''} ${parseFloat(String(amount)).toFixed(2)}`;
     };
     return () => {
-      const p = props.product;
+      const p = props.product as IPublicProduct | undefined;
+      if (!p) return h('div', {});
       return h('button', {
         class: 'group w-full text-left flex gap-4 p-4 bg-white rounded-xl border border-stone-100 hover:border-stone-200 hover:shadow-md active:scale-[0.99] transition-all duration-200 cursor-pointer',
         onClick: () => emit('click', p),
@@ -249,7 +293,7 @@ const ProductCard = defineComponent({
         p.image
           ? h('div', { class: 'flex-shrink-0' }, [
               h('img', {
-                src: props.formatImageUrl(p.image),
+                src: (props.formatImageUrl as (s: string | null) => string)(p.image ?? null),
                 alt: p.name,
                 class: 'w-20 h-20 object-cover rounded-xl group-hover:scale-105 transition-transform duration-300',
               }),
@@ -265,21 +309,40 @@ const ProductCard = defineComponent({
 });
 </script>
 
-<script setup>
+<script setup lang="ts">
+import type { IPublicMenuResponse, IPublicProduct } from '~/types';
 definePageMeta({ layout: false });
 
 const route = useRoute();
 const config = useRuntimeConfig();
 
-const menuData = ref(null);
-const selectedLocale = ref('tr');
-const selectedCurrency = ref('TRY');
-const activeCategory = ref(null);
-const selectedProduct = ref(null);
-const loading = ref(false);
-const error = ref(false);
+const menuData = ref<IPublicMenuResponse | null>(null);
+const selectedLocale = ref<string>('tr');
+const selectedCurrency = ref<string>('TRY');
+const activeCategory = ref<string | null>(null);
+const selectedProduct = ref<IPublicProduct | null>(null);
+const loading = ref<boolean>(false);
+const error = ref<boolean>(false);
 
-const uiTranslations = {
+const pillsContainerRef = ref<HTMLElement | null>(null);
+const showLeftArrow = ref(false);
+const showRightArrow = ref(false);
+
+const updatePillArrows = () => {
+  const el = pillsContainerRef.value;
+  if (!el) return;
+  showLeftArrow.value = el.scrollLeft > 8;
+  showRightArrow.value = el.scrollLeft < el.scrollWidth - el.clientWidth - 8;
+};
+
+const scrollPills = (dir: number) => {
+  const el = pillsContainerRef.value;
+  if (!el) return;
+  el.scrollBy({ left: dir * 160, behavior: 'smooth' });
+  setTimeout(updatePillArrows, 350);
+};
+
+const uiTranslations: Record<string, Record<string, string>> = {
   tr: {
     digitalMenu: 'Dijital Menü',
     loading: 'Menü yükleniyor...',
@@ -351,26 +414,43 @@ const uiTranslations = {
   },
 };
 
-const t = (key) => uiTranslations[selectedLocale.value]?.[key] ?? uiTranslations.tr[key] ?? key;
+const t = (key: string): string => uiTranslations[selectedLocale.value]?.[key] ?? uiTranslations['tr']?.[key] ?? key;
 
-const formatPrice = (amount, symbol) => {
+const formatPrice = (amount: string | number | null | undefined, symbol: string | null | undefined): string => {
   if (!amount) return '';
-  return `${symbol || ''} ${parseFloat(amount).toFixed(2)}`;
+  return `${symbol || ''} ${parseFloat(String(amount)).toFixed(2)}`;
 };
 
-const formatImageUrl = (path) => {
+const formatImageUrl = (path: string | null | undefined): string => {
   if (!path) return '';
   if (path.startsWith('http')) return path;
   return `${config.public.apiBase}${path}`;
 };
 
-const openProduct = (p) => { selectedProduct.value = p; };
+const openProduct = (p: IPublicProduct): void => { selectedProduct.value = p; };
 
-const scrollToCategory = (id) => {
+const scrollActivePill = (id: string) => {
+  const container = pillsContainerRef.value;
+  if (!container) return;
+  const btn = container.querySelector<HTMLElement>(`[data-cat-id="${id}"]`);
+  if (!btn) return;
+  const containerLeft = container.getBoundingClientRect().left;
+  const btnLeft = btn.getBoundingClientRect().left;
+  const offset = btnLeft - containerLeft - 16; // 16px left breathing room
+  container.scrollBy({ left: offset, behavior: 'smooth' });
+  setTimeout(updatePillArrows, 350);
+};
+
+const scrollToCategory = (id: string) => {
   activeCategory.value = id;
+  scrollActivePill(id);
   const el = document.getElementById(`cat-${id}`);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
+
+watch(activeCategory, (id) => {
+  if (id) scrollActivePill(id);
+});
 
 // Auto-update activeCategory on scroll
 const setupScrollSpy = () => {
@@ -396,7 +476,7 @@ const fetchMenu = async () => {
   loading.value = true;
   error.value = false;
   try {
-    const res = await $fetch(`${config.public.apiBase}/api/public/menu/${route.params.tenantSlug}`, {
+    const res = await $fetch<IPublicMenuResponse>(`${config.public.apiBase}/api/public/menu/${route.params.tenantSlug}`, {
       query: { locale: selectedLocale.value, currency: selectedCurrency.value },
     });
     menuData.value = res;
@@ -413,7 +493,7 @@ const fetchMenu = async () => {
 // SSR fetch
 if (process.server) {
   try {
-    const res = await $fetch(`${config.apiBase}/api/public/menu/${route.params.tenantSlug}`, {
+    const res = await $fetch<IPublicMenuResponse>(`${config.apiBase}/api/public/menu/${route.params.tenantSlug}`, {
       query: { locale: selectedLocale.value, currency: selectedCurrency.value },
     });
     menuData.value = res;
@@ -426,17 +506,127 @@ if (process.server) {
 onMounted(async () => {
   const supportedLocales = ['tr', 'en', 'de', 'ar'];
   const browserLang = navigator.language?.slice(0, 2).toLowerCase();
+  const needsRefetch = supportedLocales.includes(browserLang) && browserLang !== selectedLocale.value;
   if (supportedLocales.includes(browserLang)) {
     selectedLocale.value = browserLang;
   }
-  if (!menuData.value) await fetchMenu();
-  nextTick(setupScrollSpy);
+  if (!menuData.value || needsRefetch) await fetchMenu();
+  nextTick(() => {
+    setupScrollSpy();
+    updatePillArrows();
+  });
 });
+
+// ─── SEO ──────────────────────────────────────────────────────────────────────
+const tenantName = computed<string>(() => menuData.value?.tenant?.name || 'Restoran');
+const tenantDesc = computed<string>(() => menuData.value?.tenant?.description || '');
+const pageTitle = computed<string>(() => `${tenantName.value} — ${t('digitalMenu')}`);
+const pageDescription = computed<string>(() => {
+  if (tenantDesc.value) return tenantDesc.value;
+  const cats = (menuData.value?.categories || []).map((c) => c.name).filter(Boolean).slice(0, 6).join(', ');
+  return cats
+    ? `${tenantName.value} ${t('digitalMenu').toLowerCase()}: ${cats}.`
+    : `${tenantName.value} ${t('digitalMenu').toLowerCase()}.`;
+});
+const isRtl = computed<boolean>(() => selectedLocale.value === 'ar');
+const canonicalUrl = computed<string>(() => {
+  const base = (config.public.siteUrl as string | undefined) || '';
+  const slug = String(route.params.tenantSlug || '');
+  return base ? `${base.replace(/\/$/, '')}/${slug}` : '';
+});
+const ogImage = computed<string | undefined>(() => {
+  const logo = menuData.value?.tenant?.logo;
+  return logo ? formatImageUrl(logo) : undefined;
+});
+
+useHead(() => ({
+  htmlAttrs: {
+    lang: selectedLocale.value,
+    dir: isRtl.value ? 'rtl' : 'ltr',
+  },
+  link: canonicalUrl.value ? [{ rel: 'canonical', href: canonicalUrl.value }] : [],
+}));
+
+useSeoMeta({
+  title: () => pageTitle.value,
+  description: () => pageDescription.value,
+  ogTitle: () => pageTitle.value,
+  ogDescription: () => pageDescription.value,
+  ogType: 'website',
+  ogLocale: () => selectedLocale.value,
+  ogUrl: () => canonicalUrl.value || undefined,
+  ogImage: () => ogImage.value,
+  ogSiteName: () => tenantName.value,
+  twitterCard: 'summary_large_image',
+  twitterTitle: () => pageTitle.value,
+  twitterDescription: () => pageDescription.value,
+  twitterImage: () => ogImage.value,
+  robots: 'index,follow',
+});
+
+// JSON-LD: Restaurant + Menu structured data
+const jsonLd = computed<string>(() => {
+  if (!menuData.value) return '';
+  const sections = (menuData.value.categories || []).map((cat) => {
+    const items: Record<string, unknown>[] = [];
+    const pushItem = (p: IPublicProduct): void => {
+      items.push({
+        '@type': 'MenuItem',
+        name: p.name,
+        description: p.description || undefined,
+        image: p.image ? formatImageUrl(p.image) : undefined,
+        offers: p.price
+          ? {
+              '@type': 'Offer',
+              price: p.price.discountedPrice || p.price.amount,
+              priceCurrency: p.price.currency?.code,
+            }
+          : undefined,
+      });
+    };
+    for (const sub of cat.subCategories || []) for (const p of sub.products || []) pushItem(p);
+    for (const p of cat.products || []) pushItem(p);
+    return {
+      '@type': 'MenuSection',
+      name: cat.name,
+      description: cat.description || undefined,
+      hasMenuItem: items,
+    };
+  });
+
+  const data: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Restaurant',
+    name: tenantName.value,
+    description: tenantDesc.value || undefined,
+    image: ogImage.value,
+    url: canonicalUrl.value || undefined,
+    inLanguage: selectedLocale.value,
+    hasMenu: {
+      '@type': 'Menu',
+      name: t('digitalMenu'),
+      inLanguage: selectedLocale.value,
+      hasMenuSection: sections,
+    },
+  };
+  return JSON.stringify(data);
+});
+
+useHead(() => ({
+  script: jsonLd.value
+    ? [{ type: 'application/ld+json', innerHTML: jsonLd.value }]
+    : [],
+}));
 </script>
 
 <style scoped>
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+.fade-arrow-enter-active,
+.fade-arrow-leave-active { transition: opacity 0.2s ease; }
+.fade-arrow-enter-from,
+.fade-arrow-leave-to { opacity: 0; }
 
 .drawer-enter-active,
 .drawer-leave-active { transition: opacity 0.25s ease; }

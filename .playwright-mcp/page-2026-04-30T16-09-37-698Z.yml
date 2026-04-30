@@ -1,0 +1,54 @@
+- generic [ref=e4]:
+  - generic [ref=e9]:
+    - generic [ref=e10]:
+      - paragraph [ref=e11]: Hoşgeldin
+      - heading "Super" [level=1] [ref=e12]
+      - paragraph [ref=e13]:
+        - text: Anatolia Kebap & Izgara ·
+        - generic [ref=e14]: SUPERADMIN
+    - button "Çıkış Yap" [ref=e16] [cursor=pointer]
+  - generic [ref=e17]:
+    - generic [ref=e18]:
+      - paragraph [ref=e19]: Kategoriler
+      - paragraph [ref=e20]: "27"
+    - generic [ref=e21]:
+      - paragraph [ref=e22]: Ürünler
+      - paragraph [ref=e23]: "169"
+    - generic [ref=e24]:
+      - paragraph [ref=e25]: Kullanıcılar
+      - paragraph [ref=e26]: "6"
+    - generic [ref=e27]:
+      - paragraph [ref=e28]: Menü Önizleme
+      - link "Menüyü Aç →" [ref=e29] [cursor=pointer]:
+        - /url: /anatolia-kebap
+  - generic [ref=e30]:
+    - heading "Hızlı Erişim" [level=2] [ref=e31]
+    - generic [ref=e32]:
+      - link "Ürünler" [ref=e33] [cursor=pointer]:
+        - /url: /admin/products
+        - img [ref=e35]
+        - generic [ref=e37]: Ürünler
+      - link "Kategoriler" [ref=e38] [cursor=pointer]:
+        - /url: /admin/categories
+        - img [ref=e40]
+        - generic [ref=e42]: Kategoriler
+      - link "Alt Kategoriler" [ref=e43] [cursor=pointer]:
+        - /url: /admin/sub-categories
+        - img [ref=e45]
+        - generic [ref=e47]: Alt Kategoriler
+      - link "Para Birimleri" [ref=e48] [cursor=pointer]:
+        - /url: /admin/currencies
+        - img [ref=e50]
+        - generic [ref=e52]: Para Birimleri
+      - link "Kullanıcılar" [ref=e53] [cursor=pointer]:
+        - /url: /admin/users
+        - img [ref=e55]
+        - generic [ref=e57]: Kullanıcılar
+      - link "QR Kod" [ref=e58] [cursor=pointer]:
+        - /url: /admin/qr-code
+        - img [ref=e60]
+        - generic [ref=e62]: QR Kod
+      - link "Tenantlar" [ref=e63] [cursor=pointer]:
+        - /url: /admin/tenants
+        - img [ref=e65]
+        - generic [ref=e67]: Tenantlar

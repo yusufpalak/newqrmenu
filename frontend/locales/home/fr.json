@@ -1,0 +1,36 @@
+{
+  "htmlLang": "fr",
+  "ogLocale": "fr_FR",
+  "metaTitle": "QR Menu — Menu numérique intelligent pour restaurant",
+  "metaDescription": "Un menu numérique intelligent pour votre restaurant. Servez le menu aux tables instantanément via un QR code. Prise en charge multilingue et multidevise.",
+  "brand": "QR Menu",
+  "nav": { "login": "Se connecter", "about": "À propos", "contact": "Contact", "blog": "Blog" },
+  "languageLabel": "Langue",
+  "hero": {
+    "eyebrow": "Solution de menu numérique",
+    "titleLine1": "Un menu numérique intelligent",
+    "titleLine2": "pour votre restaurant.",
+    "subtitle": "Gérez produits, catégories et prix en toute simplicité. Servez le menu aux tables en un instant grâce au QR code.",
+    "primary": "Aller à l'admin",
+    "secondary": "Voir le menu démo"
+  },
+  "features": {
+    "title": "Tout au même endroit",
+    "subtitle": "Tous les outils dont vous avez besoin pour gérer votre restaurant.",
+    "items": [
+      { "title": "Gestion simple", "desc": "Ajoutez, modifiez ou masquez produits, catégories et prix instantanément. Tri par glisser-déposer." },
+      { "title": "Multilingue", "desc": "Touchez une clientèle internationale en turc, anglais, espagnol, russe, allemand, français et italien." },
+      { "title": "QR Code", "desc": "Générez un QR code unique pour chaque table. Les clients accèdent au menu via leur caméra." },
+      { "title": "Multidevise", "desc": "Définissez les prix en TRY, USD, EUR et plus encore. Le menu se met à jour automatiquement." },
+      { "title": "Valeurs nutritionnelles", "desc": "Ajoutez calories, protéines, glucides et allergènes aux produits. Idéal pour les clients soucieux de leur santé." },
+      { "title": "Multi-restaurants", "desc": "Gérez plusieurs établissements depuis un seul compte. Menu et paramètres dédiés par établissement." }
+    ]
+  },
+  "cta": {
+    "title": "Commencez maintenant",
+    "subtitle": "Découvrez le système avec le compte de démo ou configurez-le immédiatement pour votre restaurant.",
+    "primary": "Aller à l'admin",
+    "secondary": "Voir le menu démo"
+  },
+  "footer": { "rights": "Tous droits réservés." }
+}

@@ -1,0 +1,238 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e10]:
+      - generic [ref=e12]:
+        - paragraph [ref=e15]: Digital Menu
+        - heading "Bella Napoli Pizzeria" [level=1] [ref=e16]
+        - paragraph [ref=e17]: Otantik Napoli mutfağı — odun fırınında pizza ve el yapımı makarna
+      - generic [ref=e19]:
+        - button "Antipasti" [ref=e20] [cursor=pointer]
+        - button "Pizzalar" [ref=e21] [cursor=pointer]
+        - button "Makarnalar" [ref=e22] [cursor=pointer]
+        - button "Risottolar" [ref=e23] [cursor=pointer]
+        - button "Tatlılar" [ref=e24] [cursor=pointer]
+        - button "İçecekler" [ref=e25] [cursor=pointer]
+  - main [ref=e26]:
+    - generic [ref=e27]:
+      - heading "Antipasti" [level=2] [ref=e29]
+      - generic [ref=e31]:
+        - button "Bruschetta al Pomodoro Taze domates, fesleğen, zeytinyağı ve sarımsak" [ref=e32] [cursor=pointer]:
+          - generic [ref=e33]:
+            - heading "Bruschetta al Pomodoro" [level=4] [ref=e35]
+            - paragraph [ref=e36]: Taze domates, fesleğen, zeytinyağı ve sarımsak
+          - img [ref=e39]
+        - button "Burrata con Prosciutto Taze burrata peyniri ve Parma jambonu" [ref=e41] [cursor=pointer]:
+          - generic [ref=e42]:
+            - heading "Burrata con Prosciutto" [level=4] [ref=e44]
+            - paragraph [ref=e45]: Taze burrata peyniri ve Parma jambonu
+          - img [ref=e48]
+        - button "Caprese Salatası Buffalo mozzarella, domates, taze fesleğen" [ref=e50] [cursor=pointer]:
+          - generic [ref=e51]:
+            - heading "Caprese Salatası" [level=4] [ref=e53]
+            - paragraph [ref=e54]: Buffalo mozzarella, domates, taze fesleğen
+          - img [ref=e57]
+        - button "Funghi Trifolati Sarımsaklı sotelenmiş mantar, maydanoz" [ref=e59] [cursor=pointer]:
+          - generic [ref=e60]:
+            - heading "Funghi Trifolati" [level=4] [ref=e62]
+            - paragraph [ref=e63]: Sarımsaklı sotelenmiş mantar, maydanoz
+          - img [ref=e66]
+        - button "Calamari Fritti Kızarmış taze kalamar, limone sos" [ref=e68] [cursor=pointer]:
+          - generic [ref=e69]:
+            - heading "Calamari Fritti" [level=4] [ref=e71]
+            - paragraph [ref=e72]: Kızarmış taze kalamar, limone sos
+          - img [ref=e75]
+        - button "Antipasto Misto Karışık İtalyan soğuk et ve peynir tabağı" [ref=e77] [cursor=pointer]:
+          - generic [ref=e78]:
+            - heading "Antipasto Misto" [level=4] [ref=e80]
+            - paragraph [ref=e81]: Karışık İtalyan soğuk et ve peynir tabağı
+          - img [ref=e84]
+    - generic [ref=e86]:
+      - heading "Pizzalar" [level=2] [ref=e88]
+      - generic [ref=e90]:
+        - button "Margherita San Marzano domates, fior di latte, taze fesleğen" [ref=e91] [cursor=pointer]:
+          - generic [ref=e92]:
+            - heading "Margherita" [level=4] [ref=e94]
+            - paragraph [ref=e95]: San Marzano domates, fior di latte, taze fesleğen
+          - img [ref=e98]
+        - button "Quattro Formaggi Mozzarella, gorgonzola, parmesan, ricotta" [ref=e100] [cursor=pointer]:
+          - generic [ref=e101]:
+            - heading "Quattro Formaggi" [level=4] [ref=e103]
+            - paragraph [ref=e104]: Mozzarella, gorgonzola, parmesan, ricotta
+          - img [ref=e107]
+        - button "Diavola Acılı salsiccia, mozzarella, pul biber" [ref=e109] [cursor=pointer]:
+          - generic [ref=e110]:
+            - heading "Diavola" [level=4] [ref=e112]
+            - paragraph [ref=e113]: Acılı salsiccia, mozzarella, pul biber
+          - img [ref=e116]
+        - button "Pepperoni Bol pepperoni dilimi ve mozzarella" [ref=e118] [cursor=pointer]:
+          - generic [ref=e119]:
+            - heading "Pepperoni" [level=4] [ref=e121]
+            - paragraph [ref=e122]: Bol pepperoni dilimi ve mozzarella
+          - img [ref=e125]
+        - button "Funghi e Tartufo Porcini mantar, mozzarella ve trüf yağı" [ref=e127] [cursor=pointer]:
+          - generic [ref=e128]:
+            - heading "Funghi e Tartufo" [level=4] [ref=e130]
+            - paragraph [ref=e131]: Porcini mantar, mozzarella ve trüf yağı
+          - img [ref=e134]
+        - button "Prosciutto e Rucola Parma jambonu, taze roka, parmesan" [ref=e136] [cursor=pointer]:
+          - generic [ref=e137]:
+            - heading "Prosciutto e Rucola" [level=4] [ref=e139]
+            - paragraph [ref=e140]: Parma jambonu, taze roka, parmesan
+          - img [ref=e143]
+        - button "Salmone Füme somon, kapari, kırmızı soğan, dereotu" [ref=e145] [cursor=pointer]:
+          - generic [ref=e146]:
+            - heading "Salmone" [level=4] [ref=e148]
+            - paragraph [ref=e149]: Füme somon, kapari, kırmızı soğan, dereotu
+          - img [ref=e152]
+        - button "Vegetariana Mevsim sebzeleri, zeytin, mozzarella" [ref=e154] [cursor=pointer]:
+          - generic [ref=e155]:
+            - heading "Vegetariana" [level=4] [ref=e157]
+            - paragraph [ref=e158]: Mevsim sebzeleri, zeytin, mozzarella
+          - img [ref=e161]
+        - button "Calzone Kapalı pizza — ricotta, salami, mozzarella" [ref=e163] [cursor=pointer]:
+          - generic [ref=e164]:
+            - heading "Calzone" [level=4] [ref=e166]
+            - paragraph [ref=e167]: Kapalı pizza — ricotta, salami, mozzarella
+          - img [ref=e170]
+        - button "Tonno e Cipolla Ton balığı, kırmızı soğan, kapari" [ref=e172] [cursor=pointer]:
+          - generic [ref=e173]:
+            - heading "Tonno e Cipolla" [level=4] [ref=e175]
+            - paragraph [ref=e176]: Ton balığı, kırmızı soğan, kapari
+          - img [ref=e179]
+        - button "BBQ Pollo Tavuk, BBQ sos, kırmızı soğan, mozzarella" [ref=e181] [cursor=pointer]:
+          - generic [ref=e182]:
+            - heading "BBQ Pollo" [level=4] [ref=e184]
+            - paragraph [ref=e185]: Tavuk, BBQ sos, kırmızı soğan, mozzarella
+          - img [ref=e188]
+        - button "Quattro Stagioni Mantar, jambon, enginar, siyah zeytin" [ref=e190] [cursor=pointer]:
+          - generic [ref=e191]:
+            - heading "Quattro Stagioni" [level=4] [ref=e193]
+            - paragraph [ref=e194]: Mantar, jambon, enginar, siyah zeytin
+          - img [ref=e197]
+    - generic [ref=e199]:
+      - heading "Makarnalar" [level=2] [ref=e201]
+      - generic [ref=e203]:
+        - button "Spaghetti Bolognese Geleneksel 4 saatlik et sosu" [ref=e204] [cursor=pointer]:
+          - generic [ref=e205]:
+            - heading "Spaghetti Bolognese" [level=4] [ref=e207]
+            - paragraph [ref=e208]: Geleneksel 4 saatlik et sosu
+          - img [ref=e211]
+        - button "Spaghetti Carbonara Guanciale, yumurta sarısı, pecorino romano" [ref=e213] [cursor=pointer]:
+          - generic [ref=e214]:
+            - heading "Spaghetti Carbonara" [level=4] [ref=e216]
+            - paragraph [ref=e217]: Guanciale, yumurta sarısı, pecorino romano
+          - img [ref=e220]
+        - button "Penne all'Arrabbiata Acılı domates sos, sarımsak ve fesleğen" [ref=e222] [cursor=pointer]:
+          - generic [ref=e223]:
+            - heading "Penne all'Arrabbiata" [level=4] [ref=e225]
+            - paragraph [ref=e226]: Acılı domates sos, sarımsak ve fesleğen
+          - img [ref=e229]
+        - button "Fettuccine Alfredo Tereyağı, parmesan ve krema" [ref=e231] [cursor=pointer]:
+          - generic [ref=e232]:
+            - heading "Fettuccine Alfredo" [level=4] [ref=e234]
+            - paragraph [ref=e235]: Tereyağı, parmesan ve krema
+          - img [ref=e238]
+        - button "Tagliatelle al Ragù El açması makarna, yavaş pişirilmiş et sos" [ref=e240] [cursor=pointer]:
+          - generic [ref=e241]:
+            - heading "Tagliatelle al Ragù" [level=4] [ref=e243]
+            - paragraph [ref=e244]: El açması makarna, yavaş pişirilmiş et sos
+          - img [ref=e247]
+        - button "Linguine ai Frutti di Mare Karides, midye, kalamar ve domates sos" [ref=e249] [cursor=pointer]:
+          - generic [ref=e250]:
+            - heading "Linguine ai Frutti di Mare" [level=4] [ref=e252]
+            - paragraph [ref=e253]: Karides, midye, kalamar ve domates sos
+          - img [ref=e256]
+        - button "Gnocchi al Pomodoro El yapımı patates gnocchi, san marzano sos" [ref=e258] [cursor=pointer]:
+          - generic [ref=e259]:
+            - heading "Gnocchi al Pomodoro" [level=4] [ref=e261]
+            - paragraph [ref=e262]: El yapımı patates gnocchi, san marzano sos
+          - img [ref=e265]
+        - button "Ravioli di Ricotta El yapımı ricotta ve ıspanak dolması" [ref=e267] [cursor=pointer]:
+          - generic [ref=e268]:
+            - heading "Ravioli di Ricotta" [level=4] [ref=e270]
+            - paragraph [ref=e271]: El yapımı ricotta ve ıspanak dolması
+          - img [ref=e274]
+        - button "Rigatoni alla Norma Patlıcan, domates, ricotta salata" [ref=e276] [cursor=pointer]:
+          - generic [ref=e277]:
+            - heading "Rigatoni alla Norma" [level=4] [ref=e279]
+            - paragraph [ref=e280]: Patlıcan, domates, ricotta salata
+          - img [ref=e283]
+        - button "Pappardelle al Cinghiale Geniş makarna, yaban domuzu sosu" [ref=e285] [cursor=pointer]:
+          - generic [ref=e286]:
+            - heading "Pappardelle al Cinghiale" [level=4] [ref=e288]
+            - paragraph [ref=e289]: Geniş makarna, yaban domuzu sosu
+          - img [ref=e292]
+    - generic [ref=e294]:
+      - heading "Risottolar" [level=2] [ref=e296]
+      - generic [ref=e298]:
+        - button "Risotto ai Funghi Porcini Porcini mantar, parmesan, tereyağı" [ref=e299] [cursor=pointer]:
+          - generic [ref=e300]:
+            - heading "Risotto ai Funghi Porcini" [level=4] [ref=e302]
+            - paragraph [ref=e303]: Porcini mantar, parmesan, tereyağı
+          - img [ref=e306]
+        - button "Risotto alla Marinara Karides, midye, kalamar ve beyaz şarap" [ref=e308] [cursor=pointer]:
+          - generic [ref=e309]:
+            - heading "Risotto alla Marinara" [level=4] [ref=e311]
+            - paragraph [ref=e312]: Karides, midye, kalamar ve beyaz şarap
+          - img [ref=e315]
+        - button "Risotto al Tartufo Siyah trüf ve parmesan — şef önerisi" [ref=e317] [cursor=pointer]:
+          - generic [ref=e318]:
+            - heading "Risotto al Tartufo" [level=4] [ref=e320]
+            - paragraph [ref=e321]: Siyah trüf ve parmesan — şef önerisi
+          - img [ref=e324]
+        - button "Risotto al Limone Limon kabuğu, karides ve kremali sos" [ref=e326] [cursor=pointer]:
+          - generic [ref=e327]:
+            - heading "Risotto al Limone" [level=4] [ref=e329]
+            - paragraph [ref=e330]: Limon kabuğu, karides ve kremali sos
+          - img [ref=e333]
+    - generic [ref=e335]:
+      - heading "Tatlılar" [level=2] [ref=e337]
+      - generic [ref=e339]:
+        - button "Tiramisù Geleneksel tarif, mascarpone ve espresso" [ref=e340] [cursor=pointer]:
+          - generic [ref=e341]:
+            - heading "Tiramisù" [level=4] [ref=e343]
+            - paragraph [ref=e344]: Geleneksel tarif, mascarpone ve espresso
+          - img [ref=e347]
+        - button "Panna Cotta Vanilyalı, taze çilek sosu ile" [ref=e349] [cursor=pointer]:
+          - generic [ref=e350]:
+            - heading "Panna Cotta" [level=4] [ref=e352]
+            - paragraph [ref=e353]: Vanilyalı, taze çilek sosu ile
+          - img [ref=e356]
+        - button "Cannoli Siciliani Fıstıklı ve limonlu ricotta dolgusu" [ref=e358] [cursor=pointer]:
+          - generic [ref=e359]:
+            - heading "Cannoli Siciliani" [level=4] [ref=e361]
+            - paragraph [ref=e362]: Fıstıklı ve limonlu ricotta dolgusu
+          - img [ref=e365]
+        - button "Gelato (2 Top) Günlük İtalyan dondurma, mevsimsel tatlar" [ref=e367] [cursor=pointer]:
+          - generic [ref=e368]:
+            - heading "Gelato (2 Top)" [level=4] [ref=e370]
+            - paragraph [ref=e371]: Günlük İtalyan dondurma, mevsimsel tatlar
+          - img [ref=e374]
+    - generic [ref=e376]:
+      - heading "İçecekler" [level=2] [ref=e378]
+      - generic [ref=e380]:
+        - button "Limonata Taze sıkılmış, nane ve fesleğen" [ref=e381] [cursor=pointer]:
+          - generic [ref=e382]:
+            - heading "Limonata" [level=4] [ref=e384]
+            - paragraph [ref=e385]: Taze sıkılmış, nane ve fesleğen
+          - img [ref=e388]
+        - button "San Pellegrino 500ml İtalyan maden suyu" [ref=e390] [cursor=pointer]:
+          - generic [ref=e391]:
+            - heading "San Pellegrino" [level=4] [ref=e393]
+            - paragraph [ref=e394]: 500ml İtalyan maden suyu
+          - img [ref=e397]
+        - button "Prosecco (Kadeh) İtalyan köpüklü şarap" [ref=e399] [cursor=pointer]:
+          - generic [ref=e400]:
+            - heading "Prosecco (Kadeh)" [level=4] [ref=e402]
+            - paragraph [ref=e403]: İtalyan köpüklü şarap
+          - img [ref=e406]
+        - button "Caffè Espresso Napoli usulü çift espresso" [ref=e408] [cursor=pointer]:
+          - generic [ref=e409]:
+            - heading "Caffè Espresso" [level=4] [ref=e411]
+            - paragraph [ref=e412]: Napoli usulü çift espresso
+          - img [ref=e415]
+        - button "Cappuccino Kremali İtalyan cappuccino" [ref=e417] [cursor=pointer]:
+          - generic [ref=e418]:
+            - heading "Cappuccino" [level=4] [ref=e420]
+            - paragraph [ref=e421]: Kremali İtalyan cappuccino
+          - img [ref=e424]

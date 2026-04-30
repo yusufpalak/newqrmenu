@@ -91,7 +91,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
   modelValue: {
     type: Array,

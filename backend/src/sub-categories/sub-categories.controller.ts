@@ -1,43 +1,66 @@
-﻿import {  Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request  } from '@nestjs/common';
-import {  SubCategoriesService  } from './sub-categories.service';
-import {  CreateSubCategoryDto  } from './dto/create-subcategory.dto';
-import {  UpdateSubCategoryDto  } from './dto/update-subcategory.dto';
-import {  JwtAuthGuard  } from '../auth/guards/jwt-auth.guard';
-import {  RolesGuard  } from '../auth/guards/roles.guard';
-import {  Roles  } from '../common/decorators/roles.decorator';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Patch,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
+import { SubCategoriesService } from './sub-categories.service';
+import { CreateSubCategoryDto } from './dto/create-sub-category.dto';
+import { UpdateSubCategoryDto } from './dto/update-sub-category.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
+import { Roles } from '../common/decorators/roles.decorator';
+import { Role } from '../common/enums/role.enum';
+import { CurrentUser } from '../common/decorators/current-user.decorator';
+import { IAuthenticatedUser } from '../common/interfaces/jwt-payload.interface';
+import { SubCategory } from './entities/sub-category.entity';
 
 @Controller('sub-categories')
 @UseGuards(JwtAuthGuard, RolesGuard)
+@Roles(Role.SUPERADMIN, Role.ADMIN)
 export class SubCategoriesController {
-  constructor(private subCategoriesService: SubCategoriesService) {}
+  constructor(private readonly service: SubCategoriesService) {}
 
   @Get()
-  @Roles('SUPERADMIN', 'ADMIN', 'USER')
-  findAll(@Request() req) {
-    return this.subCategoriesService.findAll(req.user.tenantId, req.user.role);
+  findAll(@CurrentUser() user: IAuthenticatedUser): Promise<SubCategory[]> {
+    return this.service.findAll(user);
   }
 
   @Get(':id')
-  @Roles('SUPERADMIN', 'ADMIN', 'USER')
-  findOne(@Param('id') id, @Request() req) {
-    return this.subCategoriesService.findOne(id, req.user.tenantId, req.user.role);
+  findOne(
+    @Param('id', ParseUUIDPipe) id: string,
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<SubCategory> {
+    return this.service.findOne(id, user);
   }
 
   @Post()
-  @Roles('SUPERADMIN', 'ADMIN')
-  create(@Body() createSubCategoryDto: CreateSubCategoryDto, @Request() req) {
-    return this.subCategoriesService.create(createSubCategoryDto, req.user.tenantId, req.user.role);
+  create(
+    @Body() dto: CreateSubCategoryDto,
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<SubCategory> {
+    return this.service.create(dto, user);
   }
 
   @Patch(':id')
-  @Roles('SUPERADMIN', 'ADMIN')
-  update(@Param('id') id, @Body() updateSubCategoryDto: UpdateSubCategoryDto, @Request() req) {
-    return this.subCategoriesService.update(id, updateSubCategoryDto, req.user.tenantId, req.user.role);
+  update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() dto: UpdateSubCategoryDto,
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<SubCategory> {
+    return this.service.update(id, dto, user);
   }
 
   @Delete(':id')
-  @Roles('SUPERADMIN', 'ADMIN')
-  remove(@Param('id') id, @Request() req) {
-    return this.subCategoriesService.remove(id, req.user.tenantId, req.user.role);
+  remove(
+    @Param('id', ParseUUIDPipe) id: string,
+    @CurrentUser() user: IAuthenticatedUser,
+  ): Promise<{ success: true }> {
+    return this.service.remove(id, user);
   }
 }

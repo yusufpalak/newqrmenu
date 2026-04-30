@@ -1,0 +1,36 @@
+{
+  "htmlLang": "de",
+  "ogLocale": "de_DE",
+  "metaTitle": "QR Menu — Intelligente digitale Speisekarte",
+  "metaDescription": "Eine intelligente digitale Speisekarte für Ihr Restaurant. Bringen Sie das Menü per QR-Code sofort an die Tische. Mehrsprachig und mit mehreren Währungen.",
+  "brand": "QR Menu",
+  "nav": { "login": "Anmelden", "about": "Über uns", "contact": "Kontakt", "blog": "Blog" },
+  "languageLabel": "Sprache",
+  "hero": {
+    "eyebrow": "Digitale Speisekarte",
+    "titleLine1": "Eine smarte digitale Speisekarte",
+    "titleLine2": "für Ihr Restaurant.",
+    "subtitle": "Verwalten Sie Produkte, Kategorien und Preise mühelos. Bringen Sie die Speisekarte per QR-Code sofort an die Tische.",
+    "primary": "Zum Admin-Panel",
+    "secondary": "Demo-Speisekarte ansehen"
+  },
+  "features": {
+    "title": "Alles an einem Ort",
+    "subtitle": "Alle Werkzeuge, die Sie zum Führen Ihres Restaurants brauchen.",
+    "items": [
+      { "title": "Einfache Verwaltung", "desc": "Produkte, Kategorien und Preise sofort hinzufügen, bearbeiten oder ausblenden. Drag-and-Drop-Sortierung." },
+      { "title": "Mehrsprachigkeit", "desc": "Erreichen Sie internationale Gäste auf Türkisch, Englisch, Spanisch, Russisch, Deutsch, Französisch und Italienisch." },
+      { "title": "QR-Code", "desc": "Erzeugen Sie einen eigenen QR-Code für jeden Tisch. Gäste rufen die Karte sofort mit der Handy-Kamera auf." },
+      { "title": "Mehrere Währungen", "desc": "Preise in TRY, USD, EUR und weiteren Währungen. Die Karte aktualisiert sich automatisch." },
+      { "title": "Nährwerte", "desc": "Fügen Sie Kalorien, Eiweiß, Kohlenhydrate und Allergene zu Produkten hinzu. Ideal für gesundheitsbewusste Gäste." },
+      { "title": "Mehrere Restaurants", "desc": "Verwalten Sie mehrere Filialen aus einem Konto. Eigene Karte und Einstellungen pro Filiale." }
+    ]
+  },
+  "cta": {
+    "title": "Jetzt loslegen",
+    "subtitle": "Erkunden Sie das System mit dem Demo-Konto oder richten Sie es direkt für Ihr Restaurant ein.",
+    "primary": "Zum Admin-Panel",
+    "secondary": "Demo-Speisekarte ansehen"
+  },
+  "footer": { "rights": "Alle Rechte vorbehalten." }
+}

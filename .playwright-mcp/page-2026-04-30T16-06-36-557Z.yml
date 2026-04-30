@@ -1,0 +1,353 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - button "Geri dön" [ref=e7] [cursor=pointer]:
+        - img [ref=e8]
+      - generic [ref=e10]:
+        - heading "Kategoriler" [level=1] [ref=e11]
+        - paragraph [ref=e12]: Menü kategorilerini ekle, düzenle veya sil.
+    - button "Kategori Ekle" [active] [ref=e14] [cursor=pointer]:
+      - img [ref=e15]
+      - text: Kategori Ekle
+  - generic [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - heading "Kahvaltı Tabakları" [level=3] [ref=e21]
+          - paragraph [ref=e22]: kahvalti-tabaklari
+        - generic [ref=e23]: Aktif
+      - paragraph [ref=e24]: Açıklama yok
+      - generic [ref=e25]:
+        - generic [ref=e26]: 0 ürün
+        - generic [ref=e27]:
+          - button "Düzenle" [ref=e28] [cursor=pointer]
+          - button "Sil" [ref=e29] [cursor=pointer]
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - heading "Antipasti" [level=3] [ref=e33]
+          - paragraph [ref=e34]: antipasti
+        - generic [ref=e35]: Aktif
+      - paragraph [ref=e36]: Açıklama yok
+      - generic [ref=e37]:
+        - generic [ref=e38]: 0 ürün
+        - generic [ref=e39]:
+          - button "Düzenle" [ref=e40] [cursor=pointer]
+          - button "Sil" [ref=e41] [cursor=pointer]
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - heading "Çorbalar" [level=3] [ref=e45]
+          - paragraph [ref=e46]: corbalar
+        - generic [ref=e47]: Aktif
+      - paragraph [ref=e48]: Açıklama yok
+      - generic [ref=e49]:
+        - generic [ref=e50]: 0 ürün
+        - generic [ref=e51]:
+          - button "Düzenle" [ref=e52] [cursor=pointer]
+          - button "Sil" [ref=e53] [cursor=pointer]
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - heading "Mezeler" [level=3] [ref=e57]
+          - paragraph [ref=e58]: mezeler
+        - generic [ref=e59]: Aktif
+      - paragraph [ref=e60]: Açıklama yok
+      - generic [ref=e61]:
+        - generic [ref=e62]: 0 ürün
+        - generic [ref=e63]:
+          - button "Düzenle" [ref=e64] [cursor=pointer]
+          - button "Sil" [ref=e65] [cursor=pointer]
+    - generic [ref=e66]:
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - heading "Başlangıçlar" [level=3] [ref=e69]
+          - paragraph [ref=e70]: baslangiclar
+        - generic [ref=e71]: Aktif
+      - paragraph [ref=e72]: Açıklama yok
+      - generic [ref=e73]:
+        - generic [ref=e74]: 0 ürün
+        - generic [ref=e75]:
+          - button "Düzenle" [ref=e76] [cursor=pointer]
+          - button "Sil" [ref=e77] [cursor=pointer]
+    - generic [ref=e78]:
+      - generic [ref=e79]:
+        - generic [ref=e80]:
+          - heading "Sıcak İçecekler" [level=3] [ref=e81]
+          - paragraph [ref=e82]: sicak-icecekler
+        - generic [ref=e83]: Aktif
+      - paragraph [ref=e84]: Açıklama yok
+      - generic [ref=e85]:
+        - generic [ref=e86]: 0 ürün
+        - generic [ref=e87]:
+          - button "Düzenle" [ref=e88] [cursor=pointer]
+          - button "Sil" [ref=e89] [cursor=pointer]
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - heading "Pizzalar" [level=3] [ref=e93]
+          - paragraph [ref=e94]: pizzalar
+        - generic [ref=e95]: Aktif
+      - paragraph [ref=e96]: Açıklama yok
+      - generic [ref=e97]:
+        - generic [ref=e98]: 0 ürün
+        - generic [ref=e99]:
+          - button "Düzenle" [ref=e100] [cursor=pointer]
+          - button "Sil" [ref=e101] [cursor=pointer]
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - generic [ref=e104]:
+          - heading "Başlangıçlar" [level=3] [ref=e105]
+          - paragraph [ref=e106]: baslangiclar
+        - generic [ref=e107]: Aktif
+      - paragraph [ref=e108]: Açıklama yok
+      - generic [ref=e109]:
+        - generic [ref=e110]: 0 ürün
+        - generic [ref=e111]:
+          - button "Düzenle" [ref=e112] [cursor=pointer]
+          - button "Sil" [ref=e113] [cursor=pointer]
+    - generic [ref=e114]:
+      - generic [ref=e115]:
+        - generic [ref=e116]:
+          - heading "Çorbalar" [level=3] [ref=e117]
+          - paragraph [ref=e118]: corbalar
+        - generic [ref=e119]: Aktif
+      - paragraph [ref=e120]: Açıklama yok
+      - generic [ref=e121]:
+        - generic [ref=e122]: 0 ürün
+        - generic [ref=e123]:
+          - button "Düzenle" [ref=e124] [cursor=pointer]
+          - button "Sil" [ref=e125] [cursor=pointer]
+    - generic [ref=e126]:
+      - generic [ref=e127]:
+        - generic [ref=e128]:
+          - heading "Soğuk İçecekler" [level=3] [ref=e129]
+          - paragraph [ref=e130]: soguk-icecekler
+        - generic [ref=e131]: Aktif
+      - paragraph [ref=e132]: Açıklama yok
+      - generic [ref=e133]:
+        - generic [ref=e134]: 0 ürün
+        - generic [ref=e135]:
+          - button "Düzenle" [ref=e136] [cursor=pointer]
+          - button "Sil" [ref=e137] [cursor=pointer]
+    - generic [ref=e138]:
+      - generic [ref=e139]:
+        - generic [ref=e140]:
+          - heading "Makarnalar" [level=3] [ref=e141]
+          - paragraph [ref=e142]: makarnalar
+        - generic [ref=e143]: Aktif
+      - paragraph [ref=e144]: Açıklama yok
+      - generic [ref=e145]:
+        - generic [ref=e146]: 0 ürün
+        - generic [ref=e147]:
+          - button "Düzenle" [ref=e148] [cursor=pointer]
+          - button "Sil" [ref=e149] [cursor=pointer]
+    - generic [ref=e150]:
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - heading "Kebaplar" [level=3] [ref=e153]
+          - paragraph [ref=e154]: kebaplar
+        - generic [ref=e155]: Aktif
+      - paragraph [ref=e156]: Açıklama yok
+      - generic [ref=e157]:
+        - generic [ref=e158]: 0 ürün
+        - generic [ref=e159]:
+          - button "Düzenle" [ref=e160] [cursor=pointer]
+          - button "Sil" [ref=e161] [cursor=pointer]
+    - generic [ref=e162]:
+      - generic [ref=e163]:
+        - generic [ref=e164]:
+          - heading "Balık & Deniz Ürünleri" [level=3] [ref=e165]
+          - paragraph [ref=e166]: balik-deniz-urunleri
+        - generic [ref=e167]: Aktif
+      - paragraph [ref=e168]: Açıklama yok
+      - generic [ref=e169]:
+        - generic [ref=e170]: 0 ürün
+        - generic [ref=e171]:
+          - button "Düzenle" [ref=e172] [cursor=pointer]
+          - button "Sil" [ref=e173] [cursor=pointer]
+    - generic [ref=e174]:
+      - generic [ref=e175]:
+        - generic [ref=e176]:
+          - heading "Sandviç & Tostlar" [level=3] [ref=e177]
+          - paragraph [ref=e178]: sandvic-tostlar
+        - generic [ref=e179]: Aktif
+      - paragraph [ref=e180]: Açıklama yok
+      - generic [ref=e181]:
+        - generic [ref=e182]: 0 ürün
+        - generic [ref=e183]:
+          - button "Düzenle" [ref=e184] [cursor=pointer]
+          - button "Sil" [ref=e185] [cursor=pointer]
+    - generic [ref=e186]:
+      - generic [ref=e187]:
+        - generic [ref=e188]:
+          - heading "Risottolar" [level=3] [ref=e189]
+          - paragraph [ref=e190]: risottolar
+        - generic [ref=e191]: Aktif
+      - paragraph [ref=e192]: Açıklama yok
+      - generic [ref=e193]:
+        - generic [ref=e194]: 0 ürün
+        - generic [ref=e195]:
+          - button "Düzenle" [ref=e196] [cursor=pointer]
+          - button "Sil" [ref=e197] [cursor=pointer]
+    - generic [ref=e198]:
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - heading "Izgara" [level=3] [ref=e201]
+          - paragraph [ref=e202]: izgara
+        - generic [ref=e203]: Aktif
+      - paragraph [ref=e204]: Açıklama yok
+      - generic [ref=e205]:
+        - generic [ref=e206]: 0 ürün
+        - generic [ref=e207]:
+          - button "Düzenle" [ref=e208] [cursor=pointer]
+          - button "Sil" [ref=e209] [cursor=pointer]
+    - generic [ref=e210]:
+      - generic [ref=e211]:
+        - generic [ref=e212]:
+          - heading "Salatalar" [level=3] [ref=e213]
+          - paragraph [ref=e214]: salatalar
+        - generic [ref=e215]: Aktif
+      - paragraph [ref=e216]: Açıklama yok
+      - generic [ref=e217]:
+        - generic [ref=e218]: 0 ürün
+        - generic [ref=e219]:
+          - button "Düzenle" [ref=e220] [cursor=pointer]
+          - button "Sil" [ref=e221] [cursor=pointer]
+    - generic [ref=e222]:
+      - generic [ref=e223]:
+        - generic [ref=e224]:
+          - heading "Pastalar & Kekler" [level=3] [ref=e225]
+          - paragraph [ref=e226]: pastalar-kekler
+        - generic [ref=e227]: Aktif
+      - paragraph [ref=e228]: Açıklama yok
+      - generic [ref=e229]:
+        - generic [ref=e230]: 0 ürün
+        - generic [ref=e231]:
+          - button "Düzenle" [ref=e232] [cursor=pointer]
+          - button "Sil" [ref=e233] [cursor=pointer]
+    - generic [ref=e234]:
+      - generic [ref=e235]:
+        - generic [ref=e236]:
+          - heading "Tatlılar" [level=3] [ref=e237]
+          - paragraph [ref=e238]: tatlilar
+        - generic [ref=e239]: Aktif
+      - paragraph [ref=e240]: Açıklama yok
+      - generic [ref=e241]:
+        - generic [ref=e242]: 0 ürün
+        - generic [ref=e243]:
+          - button "Düzenle" [ref=e244] [cursor=pointer]
+          - button "Sil" [ref=e245] [cursor=pointer]
+    - generic [ref=e246]:
+      - generic [ref=e247]:
+        - generic [ref=e248]:
+          - heading "Pide & Lahmacun" [level=3] [ref=e249]
+          - paragraph [ref=e250]: pide-lahmacun
+        - generic [ref=e251]: Aktif
+      - paragraph [ref=e252]: Açıklama yok
+      - generic [ref=e253]:
+        - generic [ref=e254]: 0 ürün
+        - generic [ref=e255]:
+          - button "Düzenle" [ref=e256] [cursor=pointer]
+          - button "Sil" [ref=e257] [cursor=pointer]
+    - generic [ref=e258]:
+      - generic [ref=e259]:
+        - generic [ref=e260]:
+          - heading "Tatlılar" [level=3] [ref=e261]
+          - paragraph [ref=e262]: tatlilar
+        - generic [ref=e263]: Aktif
+      - paragraph [ref=e264]: Açıklama yok
+      - generic [ref=e265]:
+        - generic [ref=e266]: 0 ürün
+        - generic [ref=e267]:
+          - button "Düzenle" [ref=e268] [cursor=pointer]
+          - button "Sil" [ref=e269] [cursor=pointer]
+    - generic [ref=e270]:
+      - generic [ref=e271]:
+        - generic [ref=e272]:
+          - heading "Atıştırmalıklar & Bowl" [level=3] [ref=e273]
+          - paragraph [ref=e274]: atistirmaliklar
+        - generic [ref=e275]: Aktif
+      - paragraph [ref=e276]: Açıklama yok
+      - generic [ref=e277]:
+        - generic [ref=e278]: 0 ürün
+        - generic [ref=e279]:
+          - button "Düzenle" [ref=e280] [cursor=pointer]
+          - button "Sil" [ref=e281] [cursor=pointer]
+    - generic [ref=e282]:
+      - generic [ref=e283]:
+        - generic [ref=e284]:
+          - heading "İçecekler" [level=3] [ref=e285]
+          - paragraph [ref=e286]: icecekler
+        - generic [ref=e287]: Aktif
+      - paragraph [ref=e288]: Açıklama yok
+      - generic [ref=e289]:
+        - generic [ref=e290]: 0 ürün
+        - generic [ref=e291]:
+          - button "Düzenle" [ref=e292] [cursor=pointer]
+          - button "Sil" [ref=e293] [cursor=pointer]
+    - generic [ref=e294]:
+      - generic [ref=e295]:
+        - generic [ref=e296]:
+          - heading "Tatlılar" [level=3] [ref=e297]
+          - paragraph [ref=e298]: tatlilar
+        - generic [ref=e299]: Aktif
+      - paragraph [ref=e300]: Açıklama yok
+      - generic [ref=e301]:
+        - generic [ref=e302]: 0 ürün
+        - generic [ref=e303]:
+          - button "Düzenle" [ref=e304] [cursor=pointer]
+          - button "Sil" [ref=e305] [cursor=pointer]
+    - generic [ref=e306]:
+      - generic [ref=e307]:
+        - generic [ref=e308]:
+          - heading "İçecekler" [level=3] [ref=e309]
+          - paragraph [ref=e310]: icecekler
+        - generic [ref=e311]: Aktif
+      - paragraph [ref=e312]: Açıklama yok
+      - generic [ref=e313]:
+        - generic [ref=e314]: 0 ürün
+        - generic [ref=e315]:
+          - button "Düzenle" [ref=e316] [cursor=pointer]
+          - button "Sil" [ref=e317] [cursor=pointer]
+    - generic [ref=e318]:
+      - generic [ref=e319]:
+        - generic [ref=e320]:
+          - heading "İçecekler" [level=3] [ref=e321]
+          - paragraph [ref=e322]: icecekler
+        - generic [ref=e323]: Aktif
+      - paragraph [ref=e324]: Açıklama yok
+      - generic [ref=e325]:
+        - generic [ref=e326]: 0 ürün
+        - generic [ref=e327]:
+          - button "Düzenle" [ref=e328] [cursor=pointer]
+          - button "Sil" [ref=e329] [cursor=pointer]
+  - generic [ref=e331]:
+    - generic [ref=e332]:
+      - generic [ref=e333]:
+        - heading "Kategori Ekle" [level=3] [ref=e334]
+        - paragraph [ref=e335]: Yeni menü kategorisi oluştur
+      - button [ref=e336] [cursor=pointer]:
+        - img [ref=e337]
+    - generic [ref=e339]:
+      - generic [ref=e340]:
+        - generic [ref=e341]:
+          - generic [ref=e342]: Kategori Adı * (Türkçe)
+          - textbox "ör. Ana Yemekler, Tatlılar" [ref=e343]
+        - generic [ref=e344]:
+          - generic [ref=e345]: Açıklama (Türkçe)
+          - textbox "Bu kategorinin kısa açıklaması" [ref=e346]
+        - button "Çeviriler (opsiyonel)" [ref=e348] [cursor=pointer]:
+          - generic [ref=e349]:
+            - img [ref=e350]
+            - generic [ref=e352]: Çeviriler
+            - generic [ref=e353]: (opsiyonel)
+          - img [ref=e354]
+        - generic [ref=e356]:
+          - generic [ref=e357]:
+            - paragraph [ref=e358]: Aktif
+            - paragraph [ref=e359]: Menüde göster
+          - button [ref=e360] [cursor=pointer]
+      - generic [ref=e362]:
+        - button "İptal" [ref=e363] [cursor=pointer]
+        - button "Kaydet" [ref=e364] [cursor=pointer]

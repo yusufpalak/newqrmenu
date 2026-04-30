@@ -1,0 +1,36 @@
+{
+  "htmlLang": "es",
+  "ogLocale": "es_ES",
+  "metaTitle": "QR Menu — Menú digital inteligente para restaurantes",
+  "metaDescription": "Un menú digital inteligente para tu restaurante. Sirve el menú al instante en las mesas mediante códigos QR. Soporte multiidioma y multidivisa.",
+  "brand": "QR Menu",
+  "nav": { "login": "Iniciar sesión", "about": "Sobre nosotros", "contact": "Contacto", "blog": "Blog" },
+  "languageLabel": "Idioma",
+  "hero": {
+    "eyebrow": "Solución de Menú Digital",
+    "titleLine1": "Un menú digital inteligente",
+    "titleLine2": "para tu restaurante.",
+    "subtitle": "Gestiona productos, categorías y precios con facilidad. Lleva el menú a las mesas al instante con un código QR.",
+    "primary": "Ir al panel de administración",
+    "secondary": "Ver menú demo"
+  },
+  "features": {
+    "title": "Todo en un solo lugar",
+    "subtitle": "Todas las herramientas que necesitas para gestionar tu restaurante.",
+    "items": [
+      { "title": "Gestión sencilla", "desc": "Añade, edita u oculta productos, categorías y precios al instante. Reordenación con arrastrar y soltar." },
+      { "title": "Multiidioma", "desc": "Llega a clientes internacionales en turco, inglés, español, ruso, alemán, francés e italiano." },
+      { "title": "Código QR", "desc": "Genera un código QR único para cada mesa. Los clientes acceden al menú al instante con la cámara del móvil." },
+      { "title": "Multidivisa", "desc": "Define precios en TRY, USD, EUR y más. El menú se actualiza automáticamente según la divisa elegida." },
+      { "title": "Información nutricional", "desc": "Añade calorías, proteínas, carbohidratos y alérgenos a los productos. Ideal para clientes preocupados por la salud." },
+      { "title": "Multirrestaurante", "desc": "Gestiona varias sucursales desde una sola cuenta. Menú y ajustes personalizados por sucursal." }
+    ]
+  },
+  "cta": {
+    "title": "Empieza ahora",
+    "subtitle": "Explora el sistema con la cuenta demo o configúralo de inmediato para tu propio restaurante.",
+    "primary": "Ir al panel de administración",
+    "secondary": "Ver menú demo"
+  },
+  "footer": { "rights": "Todos los derechos reservados." }
+}

@@ -1,114 +1,136 @@
-﻿import {  Injectable, NotFoundException, ForbiddenException  } from '@nestjs/common';
-import {  PrismaService  } from '../database/prisma.service';
+import {
+  Injectable,
+  NotFoundException,
+  ForbiddenException,
+  BadRequestException,
+} from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { DataSource, Repository } from 'typeorm';
+import { Category } from './entities/category.entity';
+import { CategoryTranslation } from './entities/category-translation.entity';
+import { CreateCategoryDto } from './dto/create-category.dto';
+import { UpdateCategoryDto } from './dto/update-category.dto';
+import { Role } from '../common/enums/role.enum';
+import { IAuthenticatedUser } from '../common/interfaces/jwt-payload.interface';
+import { uniqueSlug } from '../common/utils/slug.util';
 
-@Injectable()export class CategoriesService {
-  constructor(private prisma: PrismaService) {}
+@Injectable()
+export class CategoriesService {
+  constructor(
+    @InjectRepository(Category)
+    private readonly categoryRepo: Repository<Category>,
+    @InjectRepository(CategoryTranslation)
+    private readonly translationRepo: Repository<CategoryTranslation>,
+    private readonly dataSource: DataSource,
+  ) {}
 
-  async findAll(tenantId, userRole) {
-    const where = userRole === 'SUPERADMIN' ? {} : { tenantId };
-
-    return this.prisma.category.findMany({
-      where,
-      include: {
-        translations: true,
-        _count: {
-          select: {
-            subCategories: true,
-            products: true,
-          },
-        },
-      },
-      orderBy: { sortOrder: 'asc' },
-    });
+  findAll(user: IAuthenticatedUser): Promise<Category[]> {
+    const qb = this.categoryRepo
+      .createQueryBuilder('c')
+      .leftJoinAndSelect('c.translations', 't')
+      .orderBy('c.sortOrder', 'ASC')
+      .addOrderBy('c.createdAt', 'DESC');
+    if (user.role !== Role.SUPERADMIN) {
+      qb.andWhere('c.tenantId = :tenantId', { tenantId: user.tenantId });
+    }
+    return qb.getMany();
   }
 
-  async findOne(id, tenantId, userRole) {
-    const category = await this.prisma.category.findUnique({
+  async findOne(id: string, user: IAuthenticatedUser): Promise<Category> {
+    const c = await this.categoryRepo.findOne({
       where: { id },
-      include: {
-        translations: true,
-      },
+      relations: { translations: true },
     });
-
-    if (!category) {
-      throw new NotFoundException('Category not found');
-    }
-
-    if (userRole !== 'SUPERADMIN' && category.tenantId !== tenantId) {
+    if (!c) throw new NotFoundException('Category not found');
+    if (user.role !== Role.SUPERADMIN && c.tenantId !== user.tenantId) {
       throw new ForbiddenException('Access denied');
     }
-
-    return category;
+    return c;
   }
 
-  async create(createCategoryDto, tenantId) {
-    const { translations, ...categoryData } = createCategoryDto;
+  async create(
+    dto: CreateCategoryDto,
+    user: IAuthenticatedUser,
+  ): Promise<Category> {
+    const tenantId =
+      user.role === Role.SUPERADMIN ? dto.tenantId : user.tenantId;
+    if (!tenantId) throw new BadRequestException('tenantId required');
 
-    return this.prisma.$transaction(async (prisma) => {
-      const category = await prisma.category.create({
-        data: {
-          ...categoryData,
-          tenantId,
-        },
+    const slug = dto.slug || uniqueSlug(dto.name);
+    return this.dataSource.transaction(async (manager) => {
+      const cat = manager.getRepository(Category).create({
+        tenantId,
+        name: dto.name,
+        slug,
+        description: dto.description ?? null,
+        image: dto.image ?? null,
+        sortOrder: dto.sortOrder ?? 0,
+        isActive: dto.isActive ?? true,
       });
-
-      if (translations && translations.length > 0) {
-        await prisma.categoryTranslation.createMany({
-          data: translations.map(t => ({
-            categoryId: category.id,
-            ...t,
-          })),
-        });
+      const saved = await manager.getRepository(Category).save(cat);
+      if (dto.translations?.length) {
+        const trs = dto.translations.map((t) =>
+          manager.getRepository(CategoryTranslation).create({
+            categoryId: saved.id,
+            locale: t.locale,
+            name: t.name,
+            description: t.description ?? null,
+          }),
+        );
+        await manager.getRepository(CategoryTranslation).save(trs);
       }
-
-      return prisma.category.findUnique({
-        where: { id: category.id },
-        include: { translations: true },
+      return manager.getRepository(Category).findOneOrFail({
+        where: { id: saved.id },
+        relations: { translations: true },
       });
     });
   }
 
-  async update(id, updateCategoryDto, tenantId, userRole) {
-    await this.findOne(id, tenantId, userRole);
-
-    const { translations, ...categoryData } = updateCategoryDto;
-
-    return this.prisma.$transaction(async (prisma) => {
-      const category = await prisma.category.update({
-        where: { id },
-        data: categoryData,
+  async update(
+    id: string,
+    dto: UpdateCategoryDto,
+    user: IAuthenticatedUser,
+  ): Promise<Category> {
+    const cat = await this.findOne(id, user);
+    return this.dataSource.transaction(async (manager) => {
+      Object.assign(cat, {
+        name: dto.name ?? cat.name,
+        slug: dto.slug ?? cat.slug,
+        description: dto.description ?? cat.description,
+        image: dto.image ?? cat.image,
+        sortOrder: dto.sortOrder ?? cat.sortOrder,
+        isActive: dto.isActive ?? cat.isActive,
       });
-
-      if (translations && translations.length > 0) {
-        for (const t of translations) {
-          await prisma.categoryTranslation.upsert({
-            where: {
-              categoryId_locale: {
-                categoryId: id,
-                locale: t.locale,
-              },
-            },
-            update: t,
-            create: {
-              categoryId: id,
-              ...t,
-            },
-          });
+      await manager.getRepository(Category).save(cat);
+      if (dto.translations) {
+        await manager
+          .getRepository(CategoryTranslation)
+          .delete({ categoryId: cat.id });
+        if (dto.translations.length) {
+          const trs = dto.translations.map((t) =>
+            manager.getRepository(CategoryTranslation).create({
+              categoryId: cat.id,
+              locale: t.locale,
+              name: t.name,
+              description: t.description ?? null,
+            }),
+          );
+          await manager.getRepository(CategoryTranslation).save(trs);
         }
       }
-
-      return prisma.category.findUnique({
-        where: { id },
-        include: { translations: true },
+      return manager.getRepository(Category).findOneOrFail({
+        where: { id: cat.id },
+        relations: { translations: true },
       });
     });
   }
 
-  async remove(id, tenantId, userRole) {
-    await this.findOne(id, tenantId, userRole);
-
-    return this.prisma.category.delete({
-      where: { id },
-    });
+  async remove(
+    id: string,
+    user: IAuthenticatedUser,
+  ): Promise<{ success: true }> {
+    const cat = await this.findOne(id, user);
+    await this.categoryRepo.delete(cat.id);
+    return { success: true };
   }
 }

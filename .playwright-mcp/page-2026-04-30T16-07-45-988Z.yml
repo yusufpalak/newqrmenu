@@ -1,0 +1,10 @@
+- generic [ref=e5]:
+  - generic [ref=e6]:
+    - button "Geri dön" [ref=e7] [cursor=pointer]:
+      - img [ref=e8]
+    - generic [ref=e10]:
+      - heading "Ürünler" [level=1] [ref=e11]
+      - paragraph [ref=e12]: Menü ürünlerini ekle, düzenle veya sil.
+  - button "Ürün Ekle" [ref=e14] [cursor=pointer]:
+    - img [ref=e15]
+    - text: Ürün Ekle

@@ -1,16 +1,22 @@
-﻿import {  Controller, Get, Param, Query, Res, Header  } from '@nestjs/common';
-import {  PublicService  } from './public.service';
+import { Controller, Get, Param, Query } from '@nestjs/common';
+import { PublicService, IPublicMenuQuery } from './public.service';
+import { Public } from '../common/decorators/public.decorator';
 
-@Controller('public')export class PublicController {
-  constructor(private publicService: PublicService) {}
+@Controller('public')
+@Public()
+export class PublicController {
+  constructor(private readonly service: PublicService) {}
 
-  @Get('menu/:tenantSlug')
-  @Header('Cache-Control', 'public, max-age=300')
-  async getMenu(
-    @Param('tenantSlug') tenantSlug,
-    @Query('locale') locale,
-    @Query('currency') currency,
+  @Get('tenants/:slug')
+  getTenant(@Param('slug') slug: string) {
+    return this.service.getTenantBySlug(slug);
+  }
+
+  @Get('menu/:slug')
+  getMenu(
+    @Param('slug') slug: string,
+    @Query() query: IPublicMenuQuery,
   ) {
-    return this.publicService.getMenu(tenantSlug, locale, currency);
+    return this.service.getMenu(slug, query);
   }
 }

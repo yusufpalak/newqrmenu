@@ -1,0 +1,36 @@
+{
+  "htmlLang": "en",
+  "ogLocale": "en_US",
+  "metaTitle": "QR Menu — Smart digital restaurant menu",
+  "metaDescription": "A smart digital menu for your restaurant. Serve menus instantly to tables via QR codes. Multi-language and multi-currency support.",
+  "brand": "QR Menu",
+  "nav": { "login": "Sign In", "about": "About", "contact": "Contact", "blog": "Blog" },
+  "languageLabel": "Language",
+  "hero": {
+    "eyebrow": "Digital Menu Solution",
+    "titleLine1": "A smart digital menu",
+    "titleLine2": "for your restaurant.",
+    "subtitle": "Manage products, categories and prices with ease. Serve menus to tables instantly via QR code.",
+    "primary": "Go to Admin Panel",
+    "secondary": "See Demo Menu"
+  },
+  "features": {
+    "title": "Everything in one place",
+    "subtitle": "All the tools you need to run your restaurant.",
+    "items": [
+      { "title": "Easy Management", "desc": "Add, edit or hide products, categories and prices instantly. Drag-and-drop ordering supported." },
+      { "title": "Multi-Language", "desc": "Reach international customers in Turkish, English, Spanish, Russian, German, French and Italian." },
+      { "title": "QR Code", "desc": "Generate a unique QR code for each table. Customers reach the menu instantly with their phone camera." },
+      { "title": "Multi-Currency", "desc": "Define prices in TRY, USD, EUR and more. Menu updates automatically based on the chosen currency." },
+      { "title": "Nutrition Facts", "desc": "Add calorie, protein, carb and allergen info to products. Ideal for health-conscious customers." },
+      { "title": "Multi-Restaurant", "desc": "Manage multiple branches from a single account. Custom menu and settings per branch." }
+    ]
+  },
+  "cta": {
+    "title": "Get started now",
+    "subtitle": "Explore the system with the demo account or set it up for your own restaurant right away.",
+    "primary": "Go to Admin Panel",
+    "secondary": "View Demo Menu"
+  },
+  "footer": { "rights": "All rights reserved." }
+}

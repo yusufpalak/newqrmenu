@@ -1,41 +1,83 @@
-﻿import {  Injectable, UnauthorizedException, ConflictException  } from '@nestjs/common';
-import {  JwtService  } from '@nestjs/jwt';
-import {  PrismaService  } from '../database/prisma.service';
+import {
+  Injectable,
+  UnauthorizedException,
+  ConflictException,
+} from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
+import { User } from '../users/entities/user.entity';
+import { LoginDto } from './dto/login.dto';
+import { RegisterDto } from './dto/register.dto';
+import { Role } from '../common/enums/role.enum';
+import { IJwtPayload } from '../common/interfaces/jwt-payload.interface';
 
-@Injectable()export class AuthService {
+export interface IAuthResult {
+  accessToken: string;
+  user: {
+    id: string;
+    email: string;
+    name: string;
+    role: Role;
+    tenantId: string | null;
+  };
+}
+
+@Injectable()
+export class AuthService {
   constructor(
-    private prisma: PrismaService,
-    private jwtService: JwtService,
+    @InjectRepository(User) private readonly userRepo: Repository<User>,
+    private readonly jwtService: JwtService,
   ) {}
 
-  async validateUser(email, password) {
-    const user = await this.prisma.user.findUnique({
-      where: { email },
-    });
-
+  async login(dto: LoginDto): Promise<IAuthResult> {
+    const user = await this.userRepo.findOne({ where: { email: dto.email } });
     if (!user || !user.isActive) {
       throw new UnauthorizedException('Invalid credentials');
     }
-
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
-      throw new UnauthorizedException('Invalid credentials');
-    }
-
-    return user;
+    const ok = await bcrypt.compare(dto.password, user.password);
+    if (!ok) throw new UnauthorizedException('Invalid credentials');
+    return this.buildAuth(user);
   }
 
-  async login(user) {
-    const payload = {
+  async register(dto: RegisterDto): Promise<IAuthResult> {
+    const existing = await this.userRepo.findOne({ where: { email: dto.email } });
+    if (existing) throw new ConflictException('Email already in use');
+    const hash = await bcrypt.hash(dto.password, 10);
+    const user = this.userRepo.create({
+      email: dto.email,
+      password: hash,
+      name: dto.name,
+      role: dto.role ?? Role.USER,
+      tenantId: dto.tenantId ?? null,
+      isActive: true,
+    });
+    const saved = await this.userRepo.save(user);
+    return this.buildAuth(saved);
+  }
+
+  async getMe(userId: string): Promise<Omit<User, 'password'>> {
+    const user = await this.userRepo.findOne({
+      where: { id: userId },
+      relations: { tenant: true },
+    });
+    if (!user) throw new UnauthorizedException('User not found');
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _pw, ...safeUser } = user;
+    return safeUser as Omit<User, 'password'>;
+  }
+
+  private buildAuth(user: User): IAuthResult {
+    const payload: IJwtPayload = {
       sub: user.id,
       email: user.email,
       role: user.role,
       tenantId: user.tenantId,
     };
-
+    const accessToken = this.jwtService.sign(payload);
     return {
-      accessToken: this.jwtService.sign(payload),
+      accessToken,
       user: {
         id: user.id,
         email: user.email,
@@ -44,59 +86,5 @@ import * as bcrypt from 'bcryptjs';
         tenantId: user.tenantId,
       },
     };
-  }
-
-  async register(registerDto) {
-    const existingUser = await this.prisma.user.findUnique({
-      where: { email: registerDto.email },
-    });
-
-    if (existingUser) {
-      throw new ConflictException('Email already registered');
-    }
-
-    const hashedPassword = await bcrypt.hash(registerDto.password, 10);
-
-    const user = await this.prisma.user.create({
-      data: {
-        email: registerDto.email,
-        password: hashedPassword,
-        name: registerDto.name,
-        role: registerDto.role || 'USER',
-        tenantId: registerDto.tenantId || null,
-      },
-    });
-
-    return this.login(user);
-  }
-
-  async getProfile(userId) {
-    const user = await this.prisma.user.findUnique({
-      where: { id: userId },
-      select: {
-        id: true,
-        email: true,
-        name: true,
-        role: true,
-        tenantId: true,
-        isActive: true,
-        createdAt: true,
-        updatedAt: true,
-        tenant: {
-          select: {
-            id: true,
-            name: true,
-            slug: true,
-            logo: true,
-          },
-        },
-      },
-    });
-
-    if (!user) {
-      throw new UnauthorizedException('User not found');
-    }
-
-    return user;
   }
 }

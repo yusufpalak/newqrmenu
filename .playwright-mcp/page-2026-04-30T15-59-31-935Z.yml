@@ -1,0 +1,54 @@
+- generic [ref=e77]:
+  - generic [ref=e82]:
+    - generic [ref=e83]:
+      - paragraph [ref=e84]: Hoşgeldin
+      - heading "Super" [level=1] [ref=e85]
+      - paragraph [ref=e86]:
+        - text: Körfez Balık Evi ·
+        - generic [ref=e87]: SUPERADMIN
+    - button "Çıkış Yap" [ref=e89] [cursor=pointer]
+  - generic [ref=e90]:
+    - generic [ref=e91]:
+      - paragraph [ref=e92]: Kategoriler
+      - paragraph [ref=e93]: "26"
+    - generic [ref=e94]:
+      - paragraph [ref=e95]: Ürünler
+      - paragraph [ref=e96]: "168"
+    - generic [ref=e97]:
+      - paragraph [ref=e98]: Kullanıcılar
+      - paragraph [ref=e99]: "6"
+    - generic [ref=e100]:
+      - paragraph [ref=e101]: Menü Önizleme
+      - link "Menüyü Aç →" [ref=e102] [cursor=pointer]:
+        - /url: /korfez-balik
+  - generic [ref=e103]:
+    - heading "Hızlı Erişim" [level=2] [ref=e104]
+    - generic [ref=e105]:
+      - link "Ürünler" [ref=e106] [cursor=pointer]:
+        - /url: /admin/products
+        - img [ref=e108]
+        - generic [ref=e110]: Ürünler
+      - link "Kategoriler" [ref=e111] [cursor=pointer]:
+        - /url: /admin/categories
+        - img [ref=e113]
+        - generic [ref=e115]: Kategoriler
+      - link "Alt Kategoriler" [ref=e116] [cursor=pointer]:
+        - /url: /admin/sub-categories
+        - img [ref=e118]
+        - generic [ref=e120]: Alt Kategoriler
+      - link "Para Birimleri" [ref=e121] [cursor=pointer]:
+        - /url: /admin/currencies
+        - img [ref=e123]
+        - generic [ref=e125]: Para Birimleri
+      - link "Kullanıcılar" [ref=e126] [cursor=pointer]:
+        - /url: /admin/users
+        - img [ref=e128]
+        - generic [ref=e130]: Kullanıcılar
+      - link "QR Kod" [ref=e131] [cursor=pointer]:
+        - /url: /admin/qr-code
+        - img [ref=e133]
+        - generic [ref=e135]: QR Kod
+      - link "Tenantlar" [ref=e136] [cursor=pointer]:
+        - /url: /admin/tenants
+        - img [ref=e138]
+        - generic [ref=e140]: Tenantlar

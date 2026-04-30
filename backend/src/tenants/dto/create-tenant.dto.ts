@@ -1,31 +1,42 @@
-﻿import {  IsString, IsNotEmpty, IsOptional, IsBoolean  } from 'class-validator';
+import {
+  IsBoolean,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  IsUUID,
+  Length,
+  Matches,
+} from 'class-validator';
 
 export class CreateTenantDto {
   @IsString()
   @IsNotEmpty()
-  name;
+  @Length(2, 255)
+  name!: string;
 
   @IsString()
   @IsNotEmpty()
-  slug;
+  @Length(2, 100)
+  @Matches(/^[a-z0-9-]+$/, { message: 'slug must be lowercase alphanumeric with dashes' })
+  slug!: string;
 
-  @IsString()
   @IsOptional()
-  logo;
-
   @IsString()
-  @IsOptional()
-  description;
+  logo?: string;
 
+  @IsOptional()
   @IsString()
-  @IsOptional()
-  defaultLocale;
+  description?: string;
 
+  @IsOptional()
   @IsString()
-  @IsOptional()
-  defaultCurrencyId;
+  defaultLocale?: string;
 
+  @IsOptional()
+  @IsUUID()
+  defaultCurrencyId?: string;
+
+  @IsOptional()
   @IsBoolean()
-  @IsOptional()
-  isActive;
+  isActive?: boolean;
 }

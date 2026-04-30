@@ -1,0 +1,36 @@
+{
+  "htmlLang": "it",
+  "ogLocale": "it_IT",
+  "metaTitle": "QR Menu — Menu digitale intelligente per ristoranti",
+  "metaDescription": "Un menu digitale intelligente per il tuo ristorante. Porta il menu ai tavoli in un attimo tramite QR code. Supporto multilingua e multivaluta.",
+  "brand": "QR Menu",
+  "nav": { "login": "Accedi", "about": "Chi siamo", "contact": "Contatti", "blog": "Blog" },
+  "languageLabel": "Lingua",
+  "hero": {
+    "eyebrow": "Soluzione Menu Digitale",
+    "titleLine1": "Un menu digitale intelligente",
+    "titleLine2": "per il tuo ristorante.",
+    "subtitle": "Gestisci prodotti, categorie e prezzi con facilità. Porta il menu ai tavoli in un attimo con il QR code.",
+    "primary": "Vai al pannello admin",
+    "secondary": "Vedi menu demo"
+  },
+  "features": {
+    "title": "Tutto in un unico posto",
+    "subtitle": "Tutti gli strumenti che ti servono per gestire il tuo ristorante.",
+    "items": [
+      { "title": "Gestione semplice", "desc": "Aggiungi, modifica o nascondi prodotti, categorie e prezzi al volo. Riordino con drag-and-drop." },
+      { "title": "Multilingua", "desc": "Raggiungi clienti internazionali in turco, inglese, spagnolo, russo, tedesco, francese e italiano." },
+      { "title": "QR Code", "desc": "Genera un QR code unico per ogni tavolo. I clienti accedono al menu con la fotocamera del telefono." },
+      { "title": "Multivaluta", "desc": "Imposta prezzi in TRY, USD, EUR e altre valute. Il menu si aggiorna automaticamente." },
+      { "title": "Valori nutrizionali", "desc": "Aggiungi calorie, proteine, carboidrati e allergeni ai prodotti. Ideale per clienti attenti alla salute." },
+      { "title": "Multi-ristorante", "desc": "Gestisci più filiali da un unico account. Menu e impostazioni dedicate per ogni filiale." }
+    ]
+  },
+  "cta": {
+    "title": "Inizia ora",
+    "subtitle": "Esplora il sistema con l\u2019account demo o configuralo subito per il tuo ristorante.",
+    "primary": "Vai al pannello admin",
+    "secondary": "Apri menu demo"
+  },
+  "footer": { "rights": "Tutti i diritti riservati." }
+}
