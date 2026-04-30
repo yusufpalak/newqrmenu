@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: qrmenu_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-password}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-qrmenu}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - qrmenu_network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: qrmenu_backend
+    ports:
+      - "3002:3001"
+    environment:
+      DATABASE_URL: mysql://root:${MYSQL_ROOT_PASSWORD:-password}@mysql:3306/${MYSQL_DATABASE:-qrmenu}
+      JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-key-change-this}
+      PORT: 3001
+      CORS_ORIGIN: http://localhost:3003,http://localhost:3000,http://localhost:3001
+    volumes:
+      - ./backend/uploads:/app/uploads
+    depends_on:
+      - mysql
+    networks:
+      - qrmenu_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: qrmenu_frontend
+    ports:
+      - "3003:3000"
+    environment:
+      NUXT_PUBLIC_API_BASE: http://localhost:3002
+      NUXT_PRIVATE_API_BASE: http://backend:3001
+    depends_on:
+      - backend
+    networks:
+      - qrmenu_network
+
+volumes:
+  mysql_data:
+
+networks:
+  qrmenu_network:
+    driver: bridge
