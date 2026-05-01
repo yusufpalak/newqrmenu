@@ -138,7 +138,12 @@
           <!-- Subcategories -->
           <template v-for="sub in cat.subCategories" :key="sub.id">
             <div class="mb-8">
-              <h3 class="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-4">{{ sub.name }}</h3>
+              <h3 class="text-base font-bold text-stone-800 mb-4 flex items-center gap-2">
+                <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                {{ sub.name }}
+              </h3>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <ProductCard
                   v-for="p in sub.products"
@@ -221,27 +226,27 @@
             <div v-if="selectedProduct.nutrition" class="border-t border-stone-100 pt-5">
               <p class="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-4">{{ t('nutrition') }}</p>
               <div class="grid grid-cols-3 gap-3">
-                <div v-if="selectedProduct.nutrition.calories" class="bg-orange-50 rounded-xl p-3 text-center">
+                <div v-if="selectedProduct.nutrition.calories != null" class="bg-orange-50 rounded-xl p-3 text-center">
                   <p class="text-lg font-bold text-orange-600">{{ selectedProduct.nutrition.calories }}</p>
                   <p class="text-xs text-orange-500 mt-0.5">kcal</p>
                 </div>
-                <div v-if="selectedProduct.nutrition.protein" class="bg-blue-50 rounded-xl p-3 text-center">
+                <div v-if="selectedProduct.nutrition.protein != null" class="bg-blue-50 rounded-xl p-3 text-center">
                   <p class="text-lg font-bold text-blue-600">{{ selectedProduct.nutrition.protein }}g</p>
                   <p class="text-xs text-blue-500 mt-0.5">{{ t('protein') }}</p>
                 </div>
-                <div v-if="selectedProduct.nutrition.carbohydrate" class="bg-yellow-50 rounded-xl p-3 text-center">
+                <div v-if="selectedProduct.nutrition.carbohydrate != null" class="bg-yellow-50 rounded-xl p-3 text-center">
                   <p class="text-lg font-bold text-yellow-600">{{ selectedProduct.nutrition.carbohydrate }}g</p>
                   <p class="text-xs text-yellow-500 mt-0.5">{{ t('carbs') }}</p>
                 </div>
-                <div v-if="selectedProduct.nutrition.fat" class="bg-red-50 rounded-xl p-3 text-center">
+                <div v-if="selectedProduct.nutrition.fat != null" class="bg-red-50 rounded-xl p-3 text-center">
                   <p class="text-lg font-bold text-red-600">{{ selectedProduct.nutrition.fat }}g</p>
                   <p class="text-xs text-red-500 mt-0.5">{{ t('fat') }}</p>
                 </div>
-                <div v-if="selectedProduct.nutrition.sugar" class="bg-pink-50 rounded-xl p-3 text-center">
+                <div v-if="selectedProduct.nutrition.sugar != null" class="bg-pink-50 rounded-xl p-3 text-center">
                   <p class="text-lg font-bold text-pink-600">{{ selectedProduct.nutrition.sugar }}g</p>
                   <p class="text-xs text-pink-500 mt-0.5">{{ t('sugar') }}</p>
                 </div>
-                <div v-if="selectedProduct.nutrition.salt" class="bg-stone-50 rounded-xl p-3 text-center">
+                <div v-if="selectedProduct.nutrition.salt != null" class="bg-stone-50 rounded-xl p-3 text-center">
                   <p class="text-lg font-bold text-stone-600">{{ selectedProduct.nutrition.salt }}g</p>
                   <p class="text-xs text-stone-500 mt-0.5">{{ t('salt') }}</p>
                 </div>

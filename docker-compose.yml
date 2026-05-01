@@ -1,25 +1,6 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres:16-alpine
-    container_name: qrmenu_postgres
-    environment:
-      POSTGRES_USER: ${DB_USER:-postgres}
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
-      POSTGRES_DB: ${DB_NAME:-qrmenu}
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres}"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-    networks:
-      - qrmenu_network
-
   minio:
     image: minio/minio:latest
     container_name: qrmenu_minio
@@ -64,15 +45,15 @@ services:
     ports:
       - "3002:3001"
     environment:
-      DB_HOST: postgres
+      DB_HOST: yusufpalak-postgres
       DB_PORT: 5432
-      DB_USER: ${DB_USER:-postgres}
-      DB_PASSWORD: ${DB_PASSWORD:-postgres}
-      DB_NAME: ${DB_NAME:-qrmenu}
-      DB_SYNC: ${DB_SYNC:-true}
-      DB_LOGGING: ${DB_LOGGING:-false}
-      JWT_SECRET: ${JWT_SECRET:-change-this-to-a-strong-secret}
-      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-7d}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_SYNC: ${DB_SYNC}
+      DB_LOGGING: ${DB_LOGGING}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN}
       PORT: 3001
       CORS_ORIGIN: http://localhost:3003,http://localhost:3000
       S3_ENDPOINT: http://minio:9000
@@ -84,12 +65,10 @@ services:
       S3_FORCE_PATH_STYLE: 'true'
       S3_USE_PRESIGNED: 'false'
     depends_on:
-      postgres:
-        condition: service_healthy
       minio:
         condition: service_healthy
     networks:
-      - qrmenu_network
+      - app_net
 
   frontend:
     build:
@@ -104,12 +83,11 @@ services:
     depends_on:
       - backend
     networks:
-      - qrmenu_network
+      - app_net
 
 volumes:
-  postgres_data:
   minio_data:
 
 networks:
-  qrmenu_network:
-    driver: bridge
+  app_net:
+    external: true

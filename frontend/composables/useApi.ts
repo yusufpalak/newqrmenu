@@ -14,8 +14,12 @@ export function useApi(): IApiClient {
 
   const baseUrl = (): string => `${config.public.apiBase}/api`;
 
-  const headers = (): Record<string, string> =>
-    authStore.token ? { Authorization: `Bearer ${authStore.token}` } : {};
+  const headers = (): Record<string, string> => {
+    const h: Record<string, string> = {};
+    if (authStore.token) h['Authorization'] = `Bearer ${authStore.token}`;
+    if (authStore.currentTenant) h['x-tenant-id'] = authStore.currentTenant.id;
+    return h;
+  };
 
   return {
     get<T = unknown>(url: string): Promise<T> {

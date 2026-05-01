@@ -217,32 +217,32 @@
             <div class="grid grid-cols-2 gap-3">
               <div>
                 <label class="block text-xs font-medium text-slate-500 mb-1">Kalori (kcal)</label>
-                <input v-model.number="formData.nutrition.calories" type="number" placeholder="0"
+                <input v-model.number="formData.nutrition.calories" type="number" placeholder=""
                   class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400" />
               </div>
               <div>
                 <label class="block text-xs font-medium text-slate-500 mb-1">Protein (g)</label>
-                <input v-model.number="formData.nutrition.protein" type="number" step="0.1" placeholder="0"
+                <input v-model.number="formData.nutrition.protein" type="number" step="0.1" placeholder=""
                   class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400" />
               </div>
               <div>
                 <label class="block text-xs font-medium text-slate-500 mb-1">Karbonhidrat (g)</label>
-                <input v-model.number="formData.nutrition.carbohydrate" type="number" step="0.1" placeholder="0"
+                <input v-model.number="formData.nutrition.carbohydrate" type="number" step="0.1" placeholder=""
                   class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400" />
               </div>
               <div>
                 <label class="block text-xs font-medium text-slate-500 mb-1">Yağ (g)</label>
-                <input v-model.number="formData.nutrition.fat" type="number" step="0.1" placeholder="0"
+                <input v-model.number="formData.nutrition.fat" type="number" step="0.1" placeholder=""
                   class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400" />
               </div>
               <div>
                 <label class="block text-xs font-medium text-slate-500 mb-1">Şeker (g)</label>
-                <input v-model.number="formData.nutrition.sugar" type="number" step="0.1" placeholder="0"
+                <input v-model.number="formData.nutrition.sugar" type="number" step="0.1" placeholder=""
                   class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400" />
               </div>
               <div>
                 <label class="block text-xs font-medium text-slate-500 mb-1">Tuz (g)</label>
-                <input v-model.number="formData.nutrition.salt" type="number" step="0.1" placeholder="0"
+                <input v-model.number="formData.nutrition.salt" type="number" step="0.1" placeholder=""
                   class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-indigo-400" />
               </div>
             </div>
@@ -444,9 +444,9 @@ const editProduct = (product: IProduct): void => {
     prices, isActive: product.isActive, image: product.image || '',
     translations: product.translations || [],
     nutrition: {
-      calories: product.nutrition?.calories || null, protein: product.nutrition?.protein || null,
-      carbohydrate: product.nutrition?.carbohydrate || null, fat: product.nutrition?.fat || null,
-      sugar: product.nutrition?.sugar || null, salt: product.nutrition?.salt || null,
+      calories: product.nutrition?.calories ?? null, protein: product.nutrition?.protein ?? null,
+      carbohydrate: product.nutrition?.carbohydrate ?? null, fat: product.nutrition?.fat ?? null,
+      sugar: product.nutrition?.sugar ?? null, salt: product.nutrition?.salt ?? null,
       allergens: product.nutrition?.allergens || '', ingredients: product.nutrition?.ingredients || ''
     }
   };
@@ -462,7 +462,7 @@ const saveProduct = async (): Promise<void> => {
       .filter(([_, price]) => price && price > 0)
       .map(([currencyId, price]) => ({ currencyId, price }));
     const nutritionData = Object.fromEntries(
-      (Object.entries(formData.value.nutrition) as [string, unknown][]).filter(([_, v]) => v !== null && v !== '' && v !== 0)
+      (Object.entries(formData.value.nutrition) as [string, unknown][]).filter(([_, v]) => v !== null && v !== '')
     );
     const productData = {
       name: formData.value.name, description: formData.value.description,
@@ -481,7 +481,7 @@ const saveProduct = async (): Promise<void> => {
           }));
         return t.length ? t : undefined;
       })(),
-      nutrition: Object.keys(nutritionData).length > 0 ? nutritionData : undefined
+      nutrition: Object.keys(nutritionData).length > 0 ? nutritionData : null
     };
     if (isEditing.value) { await api.patch(`/products/${editingId.value}`, productData); }
     else { await api.post('/products', productData); }

@@ -33,7 +33,7 @@ export class SubCategoriesService {
       .leftJoinAndSelect('sc.translations', 't')
       .leftJoinAndSelect('sc.category', 'c')
       .orderBy('sc.sortOrder', 'ASC');
-    if (user.role !== Role.SUPERADMIN) {
+    if (user.tenantId) {
       qb.andWhere('sc.tenantId = :tenantId', { tenantId: user.tenantId });
     }
     return qb.getMany();
@@ -45,7 +45,7 @@ export class SubCategoriesService {
       relations: { translations: true, category: true },
     });
     if (!sc) throw new NotFoundException('SubCategory not found');
-    if (user.role !== Role.SUPERADMIN && sc.tenantId !== user.tenantId) {
+    if (user.tenantId && sc.tenantId !== user.tenantId) {
       throw new ForbiddenException('Access denied');
     }
     return sc;

@@ -30,7 +30,7 @@ export class CategoriesService {
       .leftJoinAndSelect('c.translations', 't')
       .orderBy('c.sortOrder', 'ASC')
       .addOrderBy('c.createdAt', 'DESC');
-    if (user.role !== Role.SUPERADMIN) {
+    if (user.tenantId) {
       qb.andWhere('c.tenantId = :tenantId', { tenantId: user.tenantId });
     }
     return qb.getMany();
@@ -42,7 +42,7 @@ export class CategoriesService {
       relations: { translations: true },
     });
     if (!c) throw new NotFoundException('Category not found');
-    if (user.role !== Role.SUPERADMIN && c.tenantId !== user.tenantId) {
+    if (user.tenantId && c.tenantId !== user.tenantId) {
       throw new ForbiddenException('Access denied');
     }
     return c;

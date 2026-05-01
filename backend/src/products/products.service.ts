@@ -46,7 +46,7 @@ export class ProductsService {
       .leftJoinAndSelect('p.subCategory', 'sc')
       .orderBy('p.sortOrder', 'ASC')
       .addOrderBy('p.createdAt', 'DESC');
-    if (user.role !== Role.SUPERADMIN) {
+    if (user.tenantId) {
       qb.andWhere('p.tenantId = :tenantId', { tenantId: user.tenantId });
     }
     return qb.getMany();
@@ -64,7 +64,7 @@ export class ProductsService {
       },
     });
     if (!p) throw new NotFoundException('Product not found');
-    if (user.role !== Role.SUPERADMIN && p.tenantId !== user.tenantId) {
+    if (user.tenantId && p.tenantId !== user.tenantId) {
       throw new ForbiddenException('Access denied');
     }
     return p;
@@ -124,6 +124,10 @@ export class ProductsService {
   ): Promise<Product> {
     const product = await this.findOne(id, user);
     return this.dataSource.transaction(async (manager) => {
+      // Remove relations so TypeORM doesn't override FK columns with stale objects
+      if (dto.categoryId !== undefined) delete product.category;
+      if (dto.subCategoryId !== undefined) delete product.subCategory;
+
       Object.assign(product, {
         name: dto.name ?? product.name,
         slug: dto.slug ?? product.slug,

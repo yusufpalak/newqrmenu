@@ -16,17 +16,25 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
       secretOrKey: secret,
+      passReqToCallback: true,
     };
     super(opts);
   }
 
-  validate(payload: IJwtPayload): IAuthenticatedUser {
+  validate(req: any, payload: IJwtPayload): IAuthenticatedUser {
     if (!payload?.sub) throw new UnauthorizedException('Invalid token');
+    let tenantId = payload.tenantId;
+    if (payload.role === 'SUPERADMIN') {
+      const headerTenantId = req.headers['x-tenant-id'] as string;
+      if (headerTenantId) {
+        tenantId = headerTenantId;
+      }
+    }
     return {
       userId: payload.sub,
       email: payload.email,
       role: payload.role,
-      tenantId: payload.tenantId,
+      tenantId: tenantId,
     };
   }
 }

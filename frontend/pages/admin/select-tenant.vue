@@ -91,8 +91,9 @@ const loadTenants = async () => {
   loading.value = true;
   try {
     tenants.value = await api.get('/tenants');
-  } catch {
+  } catch (e) {
     tenants.value = [];
+    authError.value = String(e);
   } finally {
     loading.value = false;
   }

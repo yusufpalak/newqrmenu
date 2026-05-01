@@ -20,15 +20,9 @@ export class UsersService {
   ) {}
 
   findAll(user: IAuthenticatedUser): Promise<User[]> {
-    if (user.role === Role.SUPERADMIN) {
-      return this.userRepo.find({
-        relations: { tenant: true },
-        order: { createdAt: 'DESC' },
-      });
-    }
-    if (!user.tenantId) return Promise.resolve([]);
+    const where = user.tenantId ? { tenantId: user.tenantId } : {};
     return this.userRepo.find({
-      where: { tenantId: user.tenantId },
+      where,
       relations: { tenant: true },
       order: { createdAt: 'DESC' },
     });
@@ -40,7 +34,7 @@ export class UsersService {
       relations: { tenant: true },
     });
     if (!u) throw new NotFoundException('User not found');
-    if (user.role !== Role.SUPERADMIN && u.tenantId !== user.tenantId) {
+    if (user.tenantId && u.tenantId !== user.tenantId) {
       throw new ForbiddenException('Access denied');
     }
     return u;

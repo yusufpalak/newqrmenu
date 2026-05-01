@@ -49,8 +49,9 @@
           {{ new Date(t.createdAt).toLocaleDateString('tr-TR') }} tarihinde oluşturuldu
         </p>
         <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <button @click="editTenant(t)" class="flex-1 px-3 py-1.5 text-indigo-600 text-sm font-medium rounded-lg hover:bg-indigo-50 transition">Düzenle</button>
-          <button @click="removeTenant(t.id)" class="flex-1 px-3 py-1.5 text-red-500 text-sm font-medium rounded-lg hover:bg-red-50 transition">Sil</button>
+          <button @click="selectAndManage(t)" class="flex-1 px-3 py-1.5 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition">Yönet</button>
+          <button @click="editTenant(t)" class="px-3 py-1.5 text-indigo-600 text-sm font-medium rounded-lg hover:bg-indigo-50 transition border border-indigo-100">Düzenle</button>
+          <button @click="removeTenant(t.id)" class="px-3 py-1.5 text-red-500 text-sm font-medium rounded-lg hover:bg-red-50 transition border border-red-100">Sil</button>
         </div>
       </div>
 
@@ -165,6 +166,11 @@ const editTenant = (t) => {
 };
 
 const closeModal = () => { showModal.value = false; saving.value = false; };
+
+const selectAndManage = (t) => {
+  auth.setTenant(t);
+  navigateTo('/admin/dashboard');
+};
 
 const saveTenant = async () => {
   saving.value = true;

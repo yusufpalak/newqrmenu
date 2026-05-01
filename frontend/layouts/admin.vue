@@ -164,7 +164,7 @@
               </svg>
               Menüyü Aç
             </NuxtLink>
-            <NuxtLink to="/admin/select-tenant" class="px-3 py-1.5 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition text-xs font-medium border border-slate-200">
+            <NuxtLink to="/admin/select-tenant" class="px-4 py-1.5 bg-slate-800 text-white hover:bg-slate-700 shadow-sm rounded-lg transition text-xs font-medium">
               Restoran Değiştir
             </NuxtLink>
           </div>
