@@ -108,4 +108,5 @@ networks:
   qrmenu_network:
     driver: bridge
   app_net:
+    name: yusufpalakcomtr_app_net
     external: true
