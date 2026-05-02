@@ -8,4 +8,3 @@ uploads/*
 !uploads/.gitkeep
 .nuxt
 .output
-nginx/conf.d/qrmenu.conf
