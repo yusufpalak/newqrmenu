@@ -158,7 +158,12 @@ const handleLogin = async () => {
       navigateTo('/admin/dashboard');
     }
   } catch (err) {
-    error.value = err.data?.message || 'Giriş başarısız. Bilgilerini kontrol et.';
+    const msg = err?.data?.message;
+    if (msg === 'SUBSCRIPTION_EXPIRED' || (Array.isArray(msg) && msg.includes('SUBSCRIPTION_EXPIRED'))) {
+      error.value = '⚠️ Abonelik süreniz dolmuştur. Lütfen yöneticinizle iletişime geçin.';
+    } else {
+      error.value = 'Giriş başarısız. E-posta veya şifre hatalı.';
+    }
   } finally {
     loading.value = false;
   }

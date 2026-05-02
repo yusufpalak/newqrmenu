@@ -45,6 +45,12 @@ export class Tenant {
   @Column({ type: 'boolean', default: true })
   isActive!: boolean;
 
+  @Column({ type: 'varchar', length: 50, nullable: true })
+  subscriptionPlan!: 'DAILY' | 'WEEKLY' | 'MONTHLY' | 'YEARLY' | null;
+
+  @Column({ type: 'timestamptz', nullable: true })
+  subscriptionExpiresAt!: Date | null;
+
   @CreateDateColumn({ type: 'timestamptz' })
   createdAt!: Date;
 

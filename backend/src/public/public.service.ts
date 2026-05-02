@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Tenant } from '../tenants/entities/tenant.entity';
@@ -27,6 +27,13 @@ export class PublicService {
       relations: { defaultCurrency: true },
     });
     if (!t) throw new NotFoundException('Restaurant not found');
+
+    // Subscription check — block if no subscription OR expired
+    const exp = t.subscriptionExpiresAt;
+    if (!exp || new Date() > new Date(exp)) {
+      throw new ForbiddenException('SUBSCRIPTION_EXPIRED');
+    }
+
     return t;
   }
 

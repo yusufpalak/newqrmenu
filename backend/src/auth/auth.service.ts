@@ -32,12 +32,24 @@ export class AuthService {
   ) {}
 
   async login(dto: LoginDto): Promise<IAuthResult> {
-    const user = await this.userRepo.findOne({ where: { email: dto.email } });
+    const user = await this.userRepo.findOne({
+      where: { email: dto.email },
+      relations: { tenant: true },
+    });
     if (!user || !user.isActive) {
       throw new UnauthorizedException('Invalid credentials');
     }
     const ok = await bcrypt.compare(dto.password, user.password);
     if (!ok) throw new UnauthorizedException('Invalid credentials');
+
+    // Subscription check (skip for SUPERADMIN)
+    if (user.role !== Role.SUPERADMIN && user.tenant) {
+      const exp = user.tenant.subscriptionExpiresAt;
+      if (!exp || new Date() > new Date(exp)) {
+        throw new UnauthorizedException('SUBSCRIPTION_EXPIRED');
+      }
+    }
+
     return this.buildAuth(user);
   }
 

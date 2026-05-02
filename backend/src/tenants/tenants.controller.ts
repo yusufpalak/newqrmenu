@@ -9,6 +9,7 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
+import { IsDateString, IsEnum, IsOptional } from 'class-validator';
 import { TenantsService } from './tenants.service';
 import { CreateTenantDto } from './dto/create-tenant.dto';
 import { UpdateTenantDto } from './dto/update-tenant.dto';
@@ -19,6 +20,15 @@ import { Role } from '../common/enums/role.enum';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 import { IAuthenticatedUser } from '../common/interfaces/jwt-payload.interface';
 import { Tenant } from './entities/tenant.entity';
+
+class AssignSubscriptionDto {
+  @IsEnum(['DAILY', 'WEEKLY', 'MONTHLY', 'YEARLY'])
+  plan!: 'DAILY' | 'WEEKLY' | 'MONTHLY' | 'YEARLY';
+
+  @IsOptional()
+  @IsDateString()
+  expiresAt?: string;
+}
 
 @Controller('tenants')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -52,6 +62,19 @@ export class TenantsController {
     @CurrentUser() user: IAuthenticatedUser,
   ): Promise<Tenant> {
     return this.service.update(id, dto, user);
+  }
+
+  @Patch(':id/subscription')
+  @Roles(Role.SUPERADMIN)
+  assignSubscription(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() dto: AssignSubscriptionDto,
+  ): Promise<Tenant> {
+    return this.service.assignSubscription(
+      id,
+      dto.plan,
+      dto.expiresAt ? new Date(dto.expiresAt) : undefined,
+    );
   }
 
   @Delete(':id')

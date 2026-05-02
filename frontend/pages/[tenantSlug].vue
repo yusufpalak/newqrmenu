@@ -124,6 +124,17 @@
       <p class="text-stone-500 text-lg">{{ t('notFound') }}</p>
     </div>
 
+    <!-- Subscription Expired State -->
+    <div v-else-if="subscriptionExpired" class="flex flex-col items-center justify-center py-32 px-6 text-center">
+      <div class="w-20 h-20 bg-amber-50 rounded-full flex items-center justify-center mb-6">
+        <svg class="w-10 h-10 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m0 0v2m0-2h2m-2 0H10m2-6V7m0 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <h2 class="text-2xl font-bold text-stone-800 mb-3">Menü Şu An Kullanılamıyor</h2>
+      <p class="text-stone-500 text-base max-w-sm leading-relaxed">Bu restoranın dijital menüsü geçici olarak askıya alınmıştır. Daha fazla bilgi için restoranla iletişime geçin.</p>
+    </div>
+
     <!-- Menu Content -->
     <main v-else-if="menuData" class="max-w-5xl mx-auto px-5 py-10">
       <template v-for="cat in menuData.categories" :key="cat.id">
@@ -342,6 +353,7 @@ const activeCategory = ref<string | null>(null);
 const selectedProduct = ref<IPublicProduct | null>(null);
 const loading = ref<boolean>(false);
 const error = ref<boolean>(false);
+const subscriptionExpired = ref<boolean>(false);
 
 const pillsContainerRef = ref<HTMLElement | null>(null);
 const showLeftArrow = ref(false);
@@ -503,6 +515,7 @@ const setupScrollSpy = () => {
 const fetchMenu = async () => {
   loading.value = true;
   error.value = false;
+  subscriptionExpired.value = false;
   try {
     const res = await $fetch<IPublicMenuResponse>(`${config.public.apiBase}/api/public/menu/${route.params.tenantSlug}`, {
       query: { locale: selectedLocale.value, currency: selectedCurrency.value },
@@ -511,8 +524,12 @@ const fetchMenu = async () => {
     if (!activeCategory.value && res.categories?.length) {
       activeCategory.value = res.categories[0].id;
     }
-  } catch {
-    error.value = true;
+  } catch (e: any) {
+    if (e?.statusCode === 403 || e?.status === 403) {
+      subscriptionExpired.value = true;
+    } else {
+      error.value = true;
+    }
   } finally {
     loading.value = false;
   }
@@ -526,8 +543,13 @@ if (process.server) {
     });
     menuData.value = res;
     if (res.categories?.length) activeCategory.value = res.categories[0].id;
-  } catch {
-    throw showError({ statusCode: 404, message: 'Restoran bulunamadı' });
+  } catch (e: any) {
+    const status = e?.statusCode ?? e?.status ?? e?.response?.status;
+    if (status === 403) {
+      subscriptionExpired.value = true;
+    } else {
+      throw showError({ statusCode: 404, message: 'Restoran bulunamadı' });
+    }
   }
 }
 

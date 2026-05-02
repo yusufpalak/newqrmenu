@@ -71,4 +71,35 @@ export class TenantsService {
     await this.tenantRepo.delete(id);
     return { success: true };
   }
+
+  async assignSubscription(
+    id: string,
+    plan: 'DAILY' | 'WEEKLY' | 'MONTHLY' | 'YEARLY',
+    expiresAt?: Date,
+  ): Promise<Tenant> {
+    const t = await this.tenantRepo.findOne({ where: { id } });
+    if (!t) throw new NotFoundException('Tenant not found');
+
+    const now = new Date();
+    // If expiresAt not provided, calculate from plan
+    if (!expiresAt) {
+      const planDays: Record<string, number> = {
+        DAILY: 1,
+        WEEKLY: 7,
+        MONTHLY: 30,
+        YEARLY: 365,
+      };
+      expiresAt = new Date(now.getTime() + planDays[plan] * 24 * 60 * 60 * 1000);
+    }
+
+    t.subscriptionPlan = plan;
+    t.subscriptionExpiresAt = expiresAt;
+    t.isActive = true;
+    return this.tenantRepo.save(t);
+  }
+
+  isSubscriptionActive(tenant: Tenant): boolean {
+    if (!tenant.subscriptionExpiresAt) return false;
+    return new Date() < new Date(tenant.subscriptionExpiresAt);
+  }
 }
