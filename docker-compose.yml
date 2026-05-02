@@ -91,7 +91,7 @@ services:
     image: nginx:alpine
     container_name: qrmenu_nginx
     ports:
-      - "8004:80"
+      - "8084:80"
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
     depends_on:
