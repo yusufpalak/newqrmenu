@@ -24,7 +24,7 @@
               class="flex items-center gap-1.5 px-3 py-2 border border-white/20 text-slate-300 hover:text-white hover:border-white/40 rounded-lg text-sm font-medium transition"
               :aria-label="t.languageLabel"
               :aria-expanded="langOpen"
-              @click="langOpen = !langOpen"
+              @click.stop="langOpen = !langOpen"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
@@ -46,7 +46,7 @@
                 class="flex items-center justify-between px-4 py-2.5 text-sm transition"
                 :class="code === lang ? 'bg-indigo-500/20 text-white' : 'text-slate-300 hover:bg-white/5 hover:text-white'"
                 role="menuitem"
-                @click="langOpen = false"
+                @click.stop="langOpen = false"
               >
                 <span>{{ t.languageNames[code] }}</span>
                 <span class="text-xs uppercase opacity-60">{{ code }}</span>
