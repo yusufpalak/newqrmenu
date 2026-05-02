@@ -264,6 +264,20 @@
         </div>
       </div>
     </Transition>
+
+    <!-- Scroll to Top Button -->
+    <Transition name="scroll-top">
+      <button
+        v-if="showScrollTop"
+        @click="scrollToTop"
+        aria-label="Yukarı çık"
+        class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-stone-900 hover:bg-amber-500 text-white rounded-full shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+      </button>
+    </Transition>
   </div>
 </template>
 
@@ -332,6 +346,15 @@ const error = ref<boolean>(false);
 const pillsContainerRef = ref<HTMLElement | null>(null);
 const showLeftArrow = ref(false);
 const showRightArrow = ref(false);
+const showScrollTop = ref(false);
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+const handleWindowScroll = () => {
+  showScrollTop.value = window.scrollY > 400;
+};
 
 const updatePillArrows = () => {
   const el = pillsContainerRef.value;
@@ -520,6 +543,11 @@ onMounted(async () => {
     setupScrollSpy();
     updatePillArrows();
   });
+  window.addEventListener('scroll', handleWindowScroll, { passive: true });
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleWindowScroll);
 });
 
 // ─── SEO ──────────────────────────────────────────────────────────────────────
@@ -626,6 +654,11 @@ useHead(() => ({
 
 <style scoped>
 .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+.scroll-top-enter-active,
+.scroll-top-leave-active { transition: opacity 0.25s ease, transform 0.25s ease; }
+.scroll-top-enter-from,
+.scroll-top-leave-to { opacity: 0; transform: translateY(12px); }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
 .fade-arrow-enter-active,
