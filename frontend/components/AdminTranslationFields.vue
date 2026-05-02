@@ -149,15 +149,15 @@ watch(
 
 function emitValue() {
   const result = languages
-    .filter(l => localData.value[l.code]?.name?.trim())
+    .filter(l => localData.value[l.code]?.name)
     .map(l => {
-      const entry = {
+      const entry: any = {
         locale: l.code,
-        name: localData.value[l.code].name.trim(),
-        description: localData.value[l.code].description?.trim() || undefined,
+        name: localData.value[l.code].name,
+        description: localData.value[l.code].description || undefined,
       };
-      if (props.withIngredients && localData.value[l.code].ingredients?.trim()) {
-        entry.ingredients = localData.value[l.code].ingredients.trim();
+      if (props.withIngredients && localData.value[l.code].ingredients) {
+        entry.ingredients = localData.value[l.code].ingredients;
       }
       return entry;
     });
