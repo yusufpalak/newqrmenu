@@ -199,7 +199,11 @@ const saveSubCategory = async () => {
     const translations = (formData.value.translations || [])
       .filter(t => t.locale && t.name?.trim())
       .map(({ locale, name, description }) => ({ locale, name: name.trim(), description: description?.trim() || undefined }));
-    const payload = { ...formData.value, translations: translations.length ? translations : undefined };
+    const payload = { 
+      ...formData.value, 
+      translations: translations.length ? translations : undefined,
+      ...(auth.currentTenant ? { tenantId: auth.currentTenant.id } : {})
+    };
     if (isEditing.value) { await api.patch(`/sub-categories/${editingId.value}`, payload); }
     else { await api.post('/sub-categories', payload); }
     closeModal();

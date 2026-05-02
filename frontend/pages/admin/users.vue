@@ -138,13 +138,13 @@ const api = useApi();
 const auth = useAuthStore();
 const authError = ref(null);
 const users = ref([]);
-const roles = ref(['admin', 'manager', 'user']);
+const roles = ref(['SUPERADMIN', 'ADMIN', 'USER']);
 const loading = ref(false);
 const showModal = ref(false);
 const isEditing = ref(false);
 const saving = ref(false);
 const editingId = ref(null);
-const formData = ref({ name: '', email: '', role: 'user', password: '', isActive: true });
+const formData = ref({ name: '', email: '', role: 'USER', password: '', isActive: true });
 
 const retryAuth = async () => {
   authError.value = null;
@@ -163,14 +163,14 @@ const loadUsers = async () => {
 const openCreateModal = () => {
   isEditing.value = false;
   editingId.value = null;
-  formData.value = { name: '', email: '', role: 'user', password: '', isActive: true };
+  formData.value = { name: '', email: '', role: 'USER', password: '', isActive: true };
   showModal.value = true;
 };
 
 const editUser = (user) => {
   isEditing.value = true;
   editingId.value = user.id;
-  formData.value = { name: user.name || '', email: user.email || '', role: user.role || 'user', password: '', isActive: user.isActive === undefined ? true : !!user.isActive };
+  formData.value = { name: user.name || '', email: user.email || '', role: user.role || 'USER', password: '', isActive: user.isActive === undefined ? true : !!user.isActive };
   showModal.value = true;
 };
 
