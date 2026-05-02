@@ -179,7 +179,13 @@ const closeModal = () => { showModal.value = false; isEditing.value = false; edi
 const saveUser = async () => {
   saving.value = true;
   try {
-    const payload = { name: formData.value.name, email: formData.value.email, role: formData.value.role, isActive: !!formData.value.isActive };
+    const payload: Record<string, any> = { 
+      name: formData.value.name, 
+      email: formData.value.email, 
+      role: formData.value.role, 
+      isActive: !!formData.value.isActive,
+      ...(auth.currentTenant && formData.value.role !== 'SUPERADMIN' ? { tenantId: auth.currentTenant.id } : {})
+    };
     if (formData.value.password) payload.password = formData.value.password;
     if (isEditing.value) { await api.patch(`/users/${editingId.value}`, payload); }
     else { await api.post('/users', payload); }

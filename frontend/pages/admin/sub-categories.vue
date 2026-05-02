@@ -140,6 +140,7 @@
 definePageMeta({ layout: 'admin' });
 
 const api = useApi();
+const auth = useAuthStore();
 const subCategories = ref([]);
 const categories = ref([]);
 const loading = ref(false);
