@@ -75,7 +75,7 @@ definePageMeta({ layout: 'admin' });
 const authStore = useAuthStore();
 const qrUrl = computed(() => {
   if (process.client) {
-    return `${window.location.origin}/${authStore.currentTenant?.slug || authStore.user?.tenant?.slug || 'restoran1'}`;
+    return `${window.location.origin}/${authStore.currentTenant?.slug || authStore.user?.tenant?.slug || 'korfez-balik'}`;
   }
   return '';
 });

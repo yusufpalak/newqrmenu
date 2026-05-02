@@ -6,7 +6,7 @@
       <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-500/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none"></div>
       <div class="absolute bottom-0 left-0 w-80 h-80 bg-indigo-600/10 rounded-full translate-y-1/2 -translate-x-1/3 blur-3xl pointer-events-none"></div>
 
-      <div class="relative z-10 max-w-6xl mx-auto px-6 py-6 flex items-center justify-between gap-4">
+      <div class="relative z-50 max-w-6xl mx-auto px-6 py-6 flex items-center justify-between gap-4">
         <div class="flex items-center gap-3">
           <div class="w-9 h-9 bg-indigo-500 rounded-xl flex items-center justify-center">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,7 +86,7 @@
           <NuxtLink to="/admin/login" class="px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl font-medium text-sm transition shadow-lg shadow-indigo-500/25">
             {{ t.hero.primary }}
           </NuxtLink>
-          <a href="/restoran1" class="px-6 py-3 bg-white/10 hover:bg-white/15 text-white border border-white/15 rounded-xl font-medium text-sm transition">
+          <a href="/korfez-balik" class="px-6 py-3 bg-white/10 hover:bg-white/15 text-white border border-white/15 rounded-xl font-medium text-sm transition">
             {{ t.hero.secondary }}
           </a>
         </div>
@@ -130,7 +130,7 @@
           <NuxtLink to="/admin/login" class="px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl font-medium text-sm transition shadow-lg shadow-indigo-500/25">
             {{ t.cta.primary }}
           </NuxtLink>
-          <a href="/restoran1" class="px-6 py-3 bg-white/10 hover:bg-white/15 text-white border border-white/15 rounded-xl font-medium text-sm transition">
+          <a href="/korfez-balik" class="px-6 py-3 bg-white/10 hover:bg-white/15 text-white border border-white/15 rounded-xl font-medium text-sm transition">
             {{ t.cta.secondary }}
           </a>
         </div>
