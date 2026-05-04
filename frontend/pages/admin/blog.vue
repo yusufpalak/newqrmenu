@@ -99,7 +99,7 @@
             </label>
             <label class="flex items-center gap-2 text-sm">
               <input v-model="autoTranslate" type="checkbox" class="rounded" />
-              Eksik dilleri DeepL ile otomatik çevir
+              Eksik dilleri Google Translate ile otomatik çevir
             </label>
           </div>
 

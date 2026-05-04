@@ -21,30 +21,32 @@ export const SUPPORTED_LOCALES: SupportedLocale[] = [
   'it',
 ];
 
-/** Map our locale code to a DeepL target language code. */
-const DEEPL_TARGET_MAP: Record<SupportedLocale, string> = {
-  tr: 'TR',
-  en: 'EN-US',
-  es: 'ES',
-  ru: 'RU',
-  de: 'DE',
-  fr: 'FR',
-  it: 'IT',
+/** Map our locale code to a Google Translate target language code. */
+const GOOGLE_TARGET_MAP: Record<SupportedLocale, string> = {
+  tr: 'tr',
+  en: 'en',
+  es: 'es',
+  ru: 'ru',
+  de: 'de',
+  fr: 'fr',
+  it: 'it',
 };
 
-/** Map our locale code to a DeepL source language code. */
-const DEEPL_SOURCE_MAP: Record<SupportedLocale, string> = {
-  tr: 'TR',
-  en: 'EN',
-  es: 'ES',
-  ru: 'RU',
-  de: 'DE',
-  fr: 'FR',
-  it: 'IT',
+/** Map our locale code to a Google Translate source language code. */
+const GOOGLE_SOURCE_MAP: Record<SupportedLocale, string> = {
+  tr: 'tr',
+  en: 'en',
+  es: 'es',
+  ru: 'ru',
+  de: 'de',
+  fr: 'fr',
+  it: 'it',
 };
 
-export interface IDeepLResponse {
-  translations: { detected_source_language: string; text: string }[];
+export interface IGoogleTranslateResponse {
+  data: {
+    translations: { translatedText: string }[];
+  };
 }
 
 @Injectable()
@@ -52,11 +54,11 @@ export class TranslateService {
   private readonly logger = new Logger(TranslateService.name);
 
   private get apiUrl(): string {
-    return process.env.DEEPL_API_URL || 'https://api-free.deepl.com/v2/translate';
+    return process.env.GOOGLE_TRANSLATE_API_URL || 'https://translation.googleapis.com/language/translate/v2';
   }
 
   private get apiKey(): string | undefined {
-    return process.env.DEEPL_API_KEY;
+    return process.env.GOOGLE_TRANSLATE_API_KEY;
   }
 
   isConfigured(): boolean {
@@ -64,7 +66,7 @@ export class TranslateService {
   }
 
   /**
-   * Translate a single string from `source` locale to `target` locale via DeepL.
+   * Translate a single string from `source` locale to `target` locale via Google Translate.
    * Returns the original text if the API key is missing (graceful degradation).
    */
   async translateText(
@@ -75,38 +77,38 @@ export class TranslateService {
     if (!text || !text.trim()) return text;
     if (source === target) return text;
     if (!this.apiKey) {
-      this.logger.warn('DEEPL_API_KEY missing — returning source text as-is.');
+      this.logger.warn('GOOGLE_TRANSLATE_API_KEY missing — returning source text as-is.');
       return text;
     }
 
-    const body = new URLSearchParams();
-    body.append('text', text);
-    body.append('source_lang', DEEPL_SOURCE_MAP[source]);
-    body.append('target_lang', DEEPL_TARGET_MAP[target]);
-    body.append('preserve_formatting', '1');
-    body.append('tag_handling', 'html');
+    const url = `${this.apiUrl}?key=${this.apiKey}`;
+    const body = {
+      q: text,
+      source: GOOGLE_SOURCE_MAP[source],
+      target: GOOGLE_TARGET_MAP[target],
+      format: 'text',
+    };
 
     try {
-      const res = await fetch(this.apiUrl, {
+      const res = await fetch(url, {
         method: 'POST',
         headers: {
-          Authorization: `DeepL-Auth-Key ${this.apiKey}`,
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
         },
-        body: body.toString(),
+        body: JSON.stringify(body),
       });
       if (!res.ok) {
         const detail = await res.text().catch(() => '');
-        this.logger.error(`DeepL ${res.status}: ${detail}`);
+        this.logger.error(`Google Translate ${res.status}: ${detail}`);
         throw new InternalServerErrorException(
           `Translation failed (${res.status})`,
         );
       }
-      const data = (await res.json()) as IDeepLResponse;
-      return data.translations?.[0]?.text ?? text;
+      const data = (await res.json()) as IGoogleTranslateResponse;
+      return data.data.translations?.[0]?.translatedText ?? text;
     } catch (err) {
       if (err instanceof InternalServerErrorException) throw err;
-      this.logger.error('DeepL request failed', err as Error);
+      this.logger.error('Google Translate request failed', err as Error);
       throw new InternalServerErrorException('Translation API unreachable');
     }
   }
