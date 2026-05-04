@@ -173,6 +173,12 @@ export interface IApiError {
   error?: string;
 }
 
+export interface IContactSettings {
+  contactEmail: string;
+  contactPhone: string;
+  contactAddress: string;
+}
+
 export interface IPublicPrice {
   amount: string;
   discountedPrice?: string | null;

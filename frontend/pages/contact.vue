@@ -77,15 +77,15 @@
           <ul class="space-y-5 text-sm">
             <li>
               <div class="text-slate-400 text-xs uppercase tracking-wider mb-1">{{ t.infoEmail }}</div>
-              <a :href="`mailto:${t.emailValue}`" class="text-white hover:text-indigo-300">{{ t.emailValue }}</a>
+              <a :href="`mailto:${displayedEmail}`" class="text-white hover:text-indigo-300">{{ displayedEmail }}</a>
             </li>
             <li>
               <div class="text-slate-400 text-xs uppercase tracking-wider mb-1">{{ t.infoPhone }}</div>
-              <a :href="`tel:${t.phoneValue.replace(/\s/g,'')}`" class="text-white hover:text-indigo-300">{{ t.phoneValue }}</a>
+              <a :href="`tel:${displayedPhone.replace(/\s/g,'')}`" class="text-white hover:text-indigo-300">{{ displayedPhone }}</a>
             </li>
             <li>
               <div class="text-slate-400 text-xs uppercase tracking-wider mb-1">{{ t.infoAddress }}</div>
-              <div class="text-white">{{ t.addressValue }}</div>
+              <div class="text-white">{{ displayedAddress }}</div>
             </li>
           </ul>
         </aside>
@@ -105,7 +105,7 @@ import {
   buildCanonical,
   buildHreflangAlternates,
 } from '~/composables/usePageLocale';
-import type { ICreateContactMessage, IApiError } from '~/types';
+import type { ICreateContactMessage, IApiError, IContactSettings } from '~/types';
 
 const { lang } = usePageLocale();
 const t = computed(() => useContactI18n(lang.value));
@@ -113,6 +113,7 @@ const home = computed(() => useHomeI18n(lang.value));
 const year = new Date().getFullYear();
 
 const api = useApi();
+const contactSettings = ref<IContactSettings | null>(null);
 
 const form = ref<ICreateContactMessage>({
   name: '',
@@ -145,6 +146,22 @@ async function submit(): Promise<void> {
     status.value = 'error';
   }
 }
+
+const displayedEmail = computed(() => contactSettings.value?.contactEmail || t.value.emailValue);
+const displayedPhone = computed(() => contactSettings.value?.contactPhone || t.value.phoneValue);
+const displayedAddress = computed(() => contactSettings.value?.contactAddress || t.value.addressValue);
+
+const loadContactSettings = async (): Promise<void> => {
+  try {
+    contactSettings.value = await $fetch<IContactSettings>(`${useRuntimeConfig().public.apiBase}/api/public/settings/contact`);
+  } catch {
+    contactSettings.value = null;
+  }
+};
+
+onMounted(() => {
+  void loadContactSettings();
+});
 
 useSeoMeta({
   title: () => t.value.metaTitle,

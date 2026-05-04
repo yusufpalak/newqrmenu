@@ -138,6 +138,56 @@
             </div>
           </div>
 
+          <!-- Contact Page Settings -->
+          <div class="bg-white rounded-xl border border-slate-100 shadow-sm p-6">
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <h3 class="font-semibold text-slate-700">İletişim Sayfası Bilgileri</h3>
+              <span v-if="loadingContactSettings" class="text-xs text-slate-400">Yükleniyor...</span>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1.5">İletişim E-postası</label>
+                <input
+                  v-model="globalContactSettings.contactEmail"
+                  type="email"
+                  placeholder="support@alanadiniz.com"
+                  class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition outline-none text-sm"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1.5">İletişim Telefonu</label>
+                <input
+                  v-model="globalContactSettings.contactPhone"
+                  type="text"
+                  placeholder="+90 5xx xxx xx xx"
+                  class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition outline-none text-sm"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1.5">İletişim Adresi</label>
+                <input
+                  v-model="globalContactSettings.contactAddress"
+                  type="text"
+                  placeholder="İstanbul, Türkiye"
+                  class="w-full px-3 py-2 border border-slate-200 rounded-lg focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition outline-none text-sm"
+                />
+              </div>
+            </div>
+            <div class="flex justify-end mt-5">
+              <button
+                @click="saveGlobalContactSettings"
+                :disabled="savingGlobalContactSettings || loadingContactSettings"
+                class="flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white rounded-lg text-sm font-medium hover:bg-slate-700 transition disabled:opacity-50"
+              >
+                <svg v-if="savingGlobalContactSettings" class="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                </svg>
+                İletişim Bilgilerini Kaydet
+              </button>
+            </div>
+          </div>
+
           <!-- Quick Actions -->
           <div class="bg-white rounded-xl border border-slate-100 shadow-sm p-6">
             <h3 class="font-semibold text-slate-700 mb-4">Yönetim Sayfaları</h3>
@@ -219,6 +269,8 @@
 </template>
 
 <script setup lang="ts">
+import type { IContactSettings } from '~/types';
+
 definePageMeta({ layout: 'admin' });
 
 const authStore = useAuthStore();
@@ -226,10 +278,18 @@ const api = useApi();
 const saving = ref(false);
 const totalTenants = ref(0);
 const totalUsers = ref(0);
+const loadingContactSettings = ref(false);
+const savingGlobalContactSettings = ref(false);
 
 const settings = ref({
   restaurantName: '',
   showPriceUpdateDate: true,
+});
+
+const globalContactSettings = ref<IContactSettings>({
+  contactEmail: 'support@qrmenu.com',
+  contactPhone: '+90 (555) 555 55 55',
+  contactAddress: 'Istanbul, Türkiye',
 });
 
 const saveSettings = async () => {
@@ -260,6 +320,33 @@ const loadGlobalStats = async () => {
   }
 };
 
+const loadGlobalContactSettings = async () => {
+  loadingContactSettings.value = true;
+  try {
+    const data = await api.get<IContactSettings>('/settings/contact');
+    globalContactSettings.value = data;
+  } catch (e) {
+    console.error('İletişim ayarları yüklenemedi', e);
+  } finally {
+    loadingContactSettings.value = false;
+  }
+};
+
+const saveGlobalContactSettings = async () => {
+  savingGlobalContactSettings.value = true;
+  try {
+    globalContactSettings.value = await api.patch<IContactSettings, IContactSettings>(
+      '/settings/contact',
+      globalContactSettings.value,
+    );
+    alert('İletişim bilgileri kaydedildi.');
+  } catch (e) {
+    alert('İletişim bilgileri kaydedilemedi.');
+  } finally {
+    savingGlobalContactSettings.value = false;
+  }
+};
+
 onMounted(() => {
   const t = authStore.currentTenant;
   if (t) {
@@ -269,6 +356,7 @@ onMounted(() => {
 
   if (authStore.isSuperAdmin && !authStore.currentTenant) {
     loadGlobalStats();
+    loadGlobalContactSettings();
   }
 });
 </script>

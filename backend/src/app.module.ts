@@ -18,6 +18,7 @@ import { MediaModule } from './media/media.module';
 import { BlogModule } from './blog/blog.module';
 import { ContactModule } from './contact/contact.module';
 import { TranslateModule } from './translate/translate.module';
+import { SettingsModule } from './settings/settings.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { TranslateModule } from './translate/translate.module';
     TranslateModule,
     BlogModule,
     ContactModule,
+    SettingsModule,
   ],
   providers: [
     {

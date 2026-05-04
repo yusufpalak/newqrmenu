@@ -19,6 +19,9 @@ import { Media } from '../media/entities/media.entity';
 import { BlogPost } from '../blog/entities/blog-post.entity';
 import { BlogTranslation } from '../blog/entities/blog-translation.entity';
 import { ContactMessage } from '../contact/entities/contact-message.entity';
+import { QrScan } from '../public/entities/qr-scan.entity';
+import { Banner } from '../public/entities/banner.entity';
+import { SiteSetting } from '../settings/entities/site-setting.entity';
 
 export const ALL_ENTITIES = [
   Tenant,
@@ -37,6 +40,9 @@ export const ALL_ENTITIES = [
   BlogPost,
   BlogTranslation,
   ContactMessage,
+  QrScan,
+  Banner,
+  SiteSetting,
 ];
 
 export const dataSourceOptions: DataSourceOptions = {
