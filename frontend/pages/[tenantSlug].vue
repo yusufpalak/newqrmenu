@@ -137,15 +137,66 @@
 
     <!-- Menu Content -->
     <main v-else-if="menuData" class="max-w-5xl mx-auto px-5 py-10">
+
+      <!-- Campaign Banner -->
+      <div
+        v-if="menuData.banner"
+        :style="{ backgroundColor: menuData.banner.bgColor, color: menuData.banner.textColor }"
+        class="rounded-2xl p-5 mb-8 flex items-center gap-4 shadow-lg relative overflow-hidden"
+      >
+        <div class="absolute right-0 top-0 w-48 h-48 opacity-10 rounded-full -translate-y-1/4 translate-x-1/4"
+          :style="{ backgroundColor: menuData.banner.textColor }"></div>
+        <div class="flex-1 relative z-10">
+          <p class="text-xs font-semibold tracking-widest uppercase opacity-70 mb-1">Kampanya</p>
+          <h3 class="text-xl font-bold leading-tight">{{ menuData.banner.title }}</h3>
+          <p v-if="menuData.banner.subtitle" class="text-sm mt-1 opacity-80">{{ menuData.banner.subtitle }}</p>
+        </div>
+        <img v-if="menuData.banner.imageUrl" :src="formatImageUrl(menuData.banner.imageUrl)"
+          class="w-20 h-20 object-cover rounded-xl flex-shrink-0 relative z-10" />
+        <div v-else class="w-14 h-14 rounded-full opacity-20 flex-shrink-0 relative z-10"
+          :style="{ backgroundColor: menuData.banner.textColor }"></div>
+      </div>
+
+      <!-- Popular Products -->
+      <div v-if="menuData.popularProducts?.length" class="mb-10">
+        <div class="flex items-center gap-4 mb-5">
+          <h2 class="text-lg font-bold text-stone-900 flex items-center gap-2">
+            <span class="text-amber-500">★</span> {{ t('popular') }}
+          </h2>
+          <div class="flex-1 h-px bg-stone-200"></div>
+        </div>
+        <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+          <button
+            v-for="p in menuData.popularProducts"
+            :key="p.id"
+            @click="openProduct(p)"
+            class="flex-shrink-0 w-36 bg-white rounded-xl border border-stone-100 hover:border-stone-200 hover:shadow-md transition-all duration-200 overflow-hidden text-left active:scale-95"
+          >
+            <div class="h-24 bg-stone-50 overflow-hidden">
+              <img v-if="p.image" :src="formatImageUrl(p.image)" :alt="p.name" class="w-full h-full object-cover" />
+              <div v-else class="w-full h-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-stone-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01" />
+                </svg>
+              </div>
+            </div>
+            <div class="p-2.5">
+              <p class="text-xs font-semibold text-stone-800 line-clamp-2 leading-snug">{{ p.name }}</p>
+              <p v-if="p.price" class="text-xs text-amber-600 font-bold mt-1">
+                {{ p.price.currency?.symbol }}{{ parseFloat(String(p.price.discountedPrice || p.price.amount)).toFixed(2) }}
+              </p>
+            </div>
+          </button>
+        </div>
+      </div>
+
       <template v-for="cat in menuData.categories" :key="cat.id">
         <section :id="`cat-${cat.id}`" class="mb-14 scroll-mt-6">
-
           <!-- Category Header -->
           <div class="flex items-center gap-4 mb-7">
             <h2 class="text-xl font-bold text-stone-900">{{ cat.name }}</h2>
             <div class="flex-1 h-px bg-stone-200"></div>
           </div>
-
           <!-- Subcategories -->
           <template v-for="sub in cat.subCategories" :key="sub.id">
             <div class="mb-8">
@@ -181,6 +232,13 @@
           </div>
         </section>
       </template>
+
+      <!-- Price Update Info -->
+      <div v-if="menuData.showPriceUpdateDate && menuData.pricesUpdatedAt" class="mt-8 mb-4 text-center">
+        <p class="text-[11px] text-stone-400 italic">
+          Fiyatlar en son {{ new Date(menuData.pricesUpdatedAt).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' }) }} tarihinde güncellenmiştir.
+        </p>
+      </div>
     </main>
 
     <!-- Product Detail Drawer (bottom sheet on mobile) -->
@@ -388,6 +446,7 @@ const uiTranslations: Record<string, Record<string, string>> = {
     loading: 'Menü yükleniyor...',
     notFound: 'Menü bulunamadı.',
     featured: 'Öne Çıkan',
+    popular: 'Popüler Ürünler',
     nutrition: 'Besin Değerleri',
     protein: 'Protein',
     carbs: 'Karbonhidrat',
@@ -406,6 +465,7 @@ const uiTranslations: Record<string, Record<string, string>> = {
     loading: 'Loading menu...',
     notFound: 'Menu not found.',
     featured: 'Featured',
+    popular: 'Popular Items',
     nutrition: 'Nutrition',
     protein: 'Protein',
     carbs: 'Carbs',
@@ -467,7 +527,11 @@ const formatImageUrl = (path: string | null | undefined): string => {
   return `${config.public.apiBase}${path}`;
 };
 
-const openProduct = (p: IPublicProduct): void => { selectedProduct.value = p; };
+const openProduct = (p: IPublicProduct): void => {
+  selectedProduct.value = p;
+  // Record view (fire-and-forget)
+  $fetch(`${config.public.apiBase}/api/public/products/${p.id}/view`, { method: 'POST' }).catch(() => {});
+};
 
 const scrollActivePill = (id: string) => {
   const container = pillsContainerRef.value;

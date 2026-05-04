@@ -39,4 +39,8 @@ export class CreateTenantDto {
   @IsOptional()
   @IsBoolean()
   isActive?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
+  showPriceUpdateDate?: boolean;
 }

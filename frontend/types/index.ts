@@ -29,6 +29,8 @@ export interface ITenant {
   defaultCurrencyId: string | null;
   defaultCurrency?: ICurrency | null;
   isActive: boolean;
+  showPriceUpdateDate?: boolean;
+  pricesUpdatedAt?: string | null;
   createdAt?: string;
   updatedAt?: string;
 }
@@ -190,6 +192,18 @@ export interface IPublicCategory extends Omit<ICategory, 'products' | 'subCatego
   products?: IPublicProduct[];
 }
 
+export interface IPublicMenuBanner {
+  id: string;
+  title: string;
+  subtitle?: string | null;
+  bgColor: string;
+  textColor: string;
+  imageUrl?: string | null;
+  isActive?: boolean;
+  startsAt?: string | null;
+  endsAt?: string | null;
+}
+
 export interface IPublicMenuResponse {
   tenant: ITenant;
   locale: string;
@@ -197,6 +211,10 @@ export interface IPublicMenuResponse {
   categories: IPublicCategory[];
   availableLocales: string[];
   availableCurrencies: ICurrency[];
+  banner?: IPublicMenuBanner | null;
+  popularProducts?: IPublicProduct[];
+  showPriceUpdateDate?: boolean;
+  pricesUpdatedAt?: string | null;
 }
 
 // ----- Blog -----

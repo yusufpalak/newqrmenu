@@ -113,6 +113,23 @@
           </div>
           <p class="text-sm font-medium text-slate-700">Tenantlar</p>
         </NuxtLink>
+        <NuxtLink to="/admin/settings" class="p-4 bg-white border border-slate-200 rounded-xl hover:border-indigo-300 hover:shadow-sm transition text-center group">
+          <div class="w-10 h-10 bg-slate-50 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-slate-100 transition">
+            <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c-.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543-.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543-.826-3.31 2.37-2.37z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <p class="text-sm font-medium text-slate-700">Ayarlar</p>
+        </NuxtLink>
+        <NuxtLink to="/admin/messages" class="p-4 bg-white border border-slate-200 rounded-xl hover:border-indigo-300 hover:shadow-sm transition text-center group">
+          <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:bg-blue-100 transition">
+            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.251-.949L3 20l1.397-3.749C4.071 14.556 4.539 13.836 5 13.06V7a9.777 9.777 0 01-.865-.865L9.586 3H9a9.586 9.586 0 00-.865-.865L3 3v4l2.777-.777C4.539 6.444 5.259 6.912 6 .8c-.741-.988-1.46-.988-2 .8z" />
+            </svg>
+          </div>
+          <p class="text-sm font-medium text-slate-700">Mesajlar</p>
+        </NuxtLink>
       </div>
     </template>
 
@@ -196,6 +213,15 @@
             </div>
             <span class="text-sm font-medium text-slate-700">QR Kod</span>
           </NuxtLink>
+          <NuxtLink to="/admin/settings" class="flex items-center gap-3 p-3 rounded-lg border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50 transition group">
+            <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-200 transition">
+              <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <span class="text-sm font-medium text-slate-700">Ayarlar</span>
+          </NuxtLink>
           <NuxtLink v-if="authStore.isSuperAdmin" to="/admin/tenants" class="flex items-center gap-3 p-3 rounded-lg border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50 transition group">
             <div class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-amber-200 transition">
               <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -203,6 +229,22 @@
               </svg>
             </div>
             <span class="text-sm font-medium text-slate-700">Tenantlar</span>
+          </NuxtLink>
+          <NuxtLink to="/admin/analytics" class="flex items-center gap-3 p-3 rounded-lg border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50 transition group">
+            <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-green-200 transition">
+              <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-5.447-2.724A1 1 0 015 15.382V5a1 1 0 011.447-.894l5.447 2.724a1 1 0 001.106 0l5.447-2.724A1 1 0 0119 5v10.382a1 1 0 01-.553.894L13 19a1 1 0 01-.447.074z" />
+              </svg>
+            </div>
+            <span class="text-sm font-medium text-slate-700">Analizler</span>
+          </NuxtLink>
+          <NuxtLink to="/admin/banners" class="flex items-center gap-3 p-3 rounded-lg border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50 transition group">
+            <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 transition">
+              <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L20 16M4 20h16m-8-8v8m-4-8h8m16 0a2 2 0 11-4 0m4 0a2 2 0 11-4 0" />
+              </svg>
+            </div>
+            <span class="text-sm font-medium text-slate-700">Afişler</span>
           </NuxtLink>
         </div>
       </div>

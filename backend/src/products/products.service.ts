@@ -96,11 +96,16 @@ export class ProductsService {
         image: dto.image ?? null,
         isActive: dto.isActive ?? true,
         isFeatured: dto.isFeatured ?? false,
+        isPopular: dto.isPopular ?? false,
         sortOrder: dto.sortOrder ?? 0,
       });
       const saved = await manager.getRepository(Product).save(product);
 
       await this.savePrices(manager, saved.id, dto.prices);
+      // Update tenant's pricesUpdatedAt
+      if (dto.prices?.length) {
+        await manager.getRepository('Tenant').update(tenantId, { pricesUpdatedAt: new Date() });
+      }
       await this.saveTranslations(manager, saved.id, dto.translations);
       await this.saveNutrition(manager, saved.id, dto.nutrition);
 
@@ -135,6 +140,7 @@ export class ProductsService {
         image: dto.image ?? product.image,
         isActive: dto.isActive ?? product.isActive,
         isFeatured: dto.isFeatured ?? product.isFeatured,
+        isPopular: dto.isPopular ?? product.isPopular,
         sortOrder: dto.sortOrder ?? product.sortOrder,
         categoryId: dto.categoryId ?? product.categoryId,
         subCategoryId:
@@ -149,6 +155,8 @@ export class ProductsService {
           .getRepository(ProductPrice)
           .delete({ productId: product.id });
         await this.savePrices(manager, product.id, dto.prices);
+        // Update tenant's pricesUpdatedAt
+        await manager.getRepository('Tenant').update(product.tenantId, { pricesUpdatedAt: new Date() });
       }
       if (dto.translations) {
         await manager

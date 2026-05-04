@@ -127,9 +127,6 @@
           </button>
         </form>
 
-        <div class="mt-6 pt-6 border-t border-slate-100">
-          <p class="text-xs text-slate-400 text-center">Demo: admin@restoran1.com / admin123</p>
-        </div>
       </div>
     </div>
 

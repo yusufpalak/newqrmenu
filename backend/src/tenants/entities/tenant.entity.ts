@@ -51,6 +51,12 @@ export class Tenant {
   @Column({ type: 'timestamptz', nullable: true })
   subscriptionExpiresAt!: Date | null;
 
+  @Column({ type: 'boolean', default: true })
+  showPriceUpdateDate!: boolean;
+
+  @Column({ type: 'timestamptz', nullable: true })
+  pricesUpdatedAt!: Date | null;
+
   @CreateDateColumn({ type: 'timestamptz' })
   createdAt!: Date;
 

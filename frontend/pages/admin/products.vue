@@ -197,18 +197,32 @@
             </div>
           </div>
 
-          <!-- Active -->
-          <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-            <div>
-              <p class="text-sm font-medium text-slate-700">Aktif</p>
-              <p class="text-xs text-slate-400">Menüde göster</p>
+          <!-- Toggles -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+              <div>
+                <p class="text-sm font-medium text-slate-700">Aktif</p>
+                <p class="text-xs text-slate-400">Menüde göster</p>
+              </div>
+              <button type="button" @click="formData.isActive = !formData.isActive"
+                :class="formData.isActive ? 'bg-indigo-500' : 'bg-slate-300'"
+                class="relative w-11 h-6 rounded-full transition-colors duration-200">
+                <span :class="formData.isActive ? 'translate-x-5' : 'translate-x-1'"
+                  class="absolute top-0.5 left-0 w-5 h-5 bg-white rounded-full shadow transition-transform duration-200"></span>
+              </button>
             </div>
-            <button type="button" @click="formData.isActive = !formData.isActive"
-              :class="formData.isActive ? 'bg-indigo-500' : 'bg-slate-300'"
-              class="relative w-11 h-6 rounded-full transition-colors duration-200">
-              <span :class="formData.isActive ? 'translate-x-5' : 'translate-x-1'"
-                class="absolute top-0.5 left-0 w-5 h-5 bg-white rounded-full shadow transition-transform duration-200"></span>
-            </button>
+            <div class="flex items-center justify-between p-3 bg-amber-50 rounded-lg border border-amber-100">
+              <div>
+                <p class="text-sm font-medium text-amber-900">Popüler</p>
+                <p class="text-xs text-amber-700/60">En çok satanlar</p>
+              </div>
+              <button type="button" @click="formData.isPopular = !formData.isPopular"
+                :class="formData.isPopular ? 'bg-amber-500' : 'bg-slate-300'"
+                class="relative w-11 h-6 rounded-full transition-colors duration-200">
+                <span :class="formData.isPopular ? 'translate-x-5' : 'translate-x-1'"
+                  class="absolute top-0.5 left-0 w-5 h-5 bg-white rounded-full shadow transition-transform duration-200"></span>
+              </button>
+            </div>
           </div>
 
           <!-- Nutrition -->
@@ -295,7 +309,7 @@ definePageMeta({ layout: 'admin' });
 
 type ProductFormData = {
   name: string; description: string; categoryId: string; subCategoryId: string;
-  prices: Record<string, number>; isActive: boolean; image: string;
+  prices: Record<string, number>; isActive: boolean; isPopular: boolean; image: string;
   translations: ITranslation[];
   nutrition: { calories: number | null; protein: number | null; carbohydrate: number | null; fat: number | null; sugar: number | null; salt: number | null; allergens: string; ingredients: string; };
 };
@@ -319,7 +333,7 @@ const showImageModal = ref<boolean>(false);
 const previewImageUrl = ref<string>('');
 
 const formData = ref<ProductFormData>({
-  name: '', description: '', categoryId: '', subCategoryId: '', prices: {}, isActive: true, image: '',
+  name: '', description: '', categoryId: '', subCategoryId: '', prices: {}, isActive: true, isPopular: false, image: '',
   translations: [],
   nutrition: { calories: null, protein: null, carbohydrate: null, fat: null, sugar: null, salt: null, allergens: '', ingredients: '' }
 });
@@ -420,7 +434,7 @@ const loadCurrencies = async (): Promise<void> => {
 const onCategoryChange = (): void => { formData.value.subCategoryId = ''; };
 
 const emptyForm = (): ProductFormData => ({
-  name: '', description: '', categoryId: '', subCategoryId: '', prices: {}, isActive: true, image: '',
+  name: '', description: '', categoryId: '', subCategoryId: '', prices: {}, isActive: true, isPopular: false, image: '',
   translations: [],
   nutrition: { calories: null, protein: null, carbohydrate: null, fat: null, sugar: null, salt: null, allergens: '', ingredients: '' }
 });
@@ -441,7 +455,7 @@ const editProduct = (product: IProduct): void => {
     name: product.name, description: product.description || '',
     categoryId: product.categoryId || product.category?.id || '',
     subCategoryId: product.subCategoryId || product.subCategory?.id || '',
-    prices, isActive: product.isActive, image: product.image || '',
+    prices, isActive: product.isActive, isPopular: !!product.isPopular, image: product.image || '',
     translations: product.translations || [],
     nutrition: {
       calories: product.nutrition?.calories ?? null, protein: product.nutrition?.protein ?? null,
@@ -467,7 +481,7 @@ const saveProduct = async (): Promise<void> => {
     const productData = {
       name: formData.value.name, description: formData.value.description,
       categoryId: formData.value.categoryId, subCategoryId: formData.value.subCategoryId || null,
-      isActive: formData.value.isActive, prices: pricesArray,
+      isActive: formData.value.isActive, isPopular: formData.value.isPopular, prices: pricesArray,
       image: formData.value.image || null,
       ...(auth.currentTenant ? { tenantId: auth.currentTenant.id } : {}),
       translations: (() => {

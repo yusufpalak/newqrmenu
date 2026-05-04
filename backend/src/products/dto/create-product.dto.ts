@@ -98,6 +98,10 @@ export class CreateProductDto {
   sortOrder?: number;
 
   @IsOptional()
+  @IsBoolean()
+  isPopular?: boolean;
+
+  @IsOptional()
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => ProductPriceDto)

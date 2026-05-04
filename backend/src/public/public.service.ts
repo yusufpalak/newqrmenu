@@ -1,10 +1,14 @@
 import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { Request } from 'express';
 import { Tenant } from '../tenants/entities/tenant.entity';
 import { Category } from '../categories/entities/category.entity';
 import { Currency } from '../currencies/entities/currency.entity';
+import { Product } from '../products/entities/product.entity';
 import { ProductPrice } from '../products/entities/product-price.entity';
+import { QrScan } from './entities/qr-scan.entity';
+import { Banner } from './entities/banner.entity';
 
 export interface IPublicMenuQuery {
   locale?: string;
@@ -15,10 +19,11 @@ export interface IPublicMenuQuery {
 export class PublicService {
   constructor(
     @InjectRepository(Tenant) private readonly tenantRepo: Repository<Tenant>,
-    @InjectRepository(Category)
-    private readonly categoryRepo: Repository<Category>,
-    @InjectRepository(Currency)
-    private readonly currencyRepo: Repository<Currency>,
+    @InjectRepository(Category) private readonly categoryRepo: Repository<Category>,
+    @InjectRepository(Currency) private readonly currencyRepo: Repository<Currency>,
+    @InjectRepository(Product) private readonly productRepo: Repository<Product>,
+    @InjectRepository(QrScan) private readonly qrScanRepo: Repository<QrScan>,
+    @InjectRepository(Banner) private readonly bannerRepo: Repository<Banner>,
   ) {}
 
   async getTenantBySlug(slug: string): Promise<Tenant> {
@@ -42,8 +47,14 @@ export class PublicService {
    * Transforms products with a single price for the selected currency
    * and distributes subcategory products correctly.
    */
-  async getMenu(slug: string, query: IPublicMenuQuery) {
+  async getMenu(slug: string, query: IPublicMenuQuery, req?: Request) {
     const tenant = await this.getTenantBySlug(slug);
+    // Record QR scan asynchronously (fire-and-forget)
+    this.qrScanRepo.save(this.qrScanRepo.create({
+      tenantId: tenant.id,
+      userAgent: req?.headers?.['user-agent']?.slice(0, 512) ?? null,
+      ip: (req?.headers?.['x-forwarded-for'] as string)?.split(',')[0].trim() ?? req?.ip ?? null,
+    })).catch(() => {/* silent */});
     const locale = query.locale || tenant.defaultLocale;
 
     // All active currencies for the switcher
@@ -98,6 +109,8 @@ export class PublicService {
         isActive: p.isActive as boolean,
         isFeatured: p.isFeatured as boolean,
         sortOrder: p.sortOrder as number,
+        viewCount: p.viewCount as number ?? 0,
+        isPopular: p.isPopular as boolean ?? false,
         nutrition: p.nutrition ?? null,
         price: priceEntry
           ? {
@@ -158,6 +171,64 @@ export class PublicService {
       categories: transformedCategories,
       availableLocales: ['tr', 'en'],
       availableCurrencies: allCurrencies,
+      banner: await this.getActiveBanner(tenant.id),
+      popularProducts: transformedCategories
+        .flatMap(c => [...c.products, ...c.subCategories.flatMap((s: any) => s.products)])
+        .filter((p: any) => p.isPopular === true)
+        .sort((a: any, b: any) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0)),
+      showPriceUpdateDate: tenant.showPriceUpdateDate,
+      pricesUpdatedAt: tenant.pricesUpdatedAt,
     };
+  }
+
+  // ── Record product view ──────────────────────────────────────────────────────
+  async recordProductView(productId: string): Promise<void> {
+    await this.productRepo.increment({ id: productId }, 'viewCount', 1);
+  }
+
+  // ── Active banner for tenant ─────────────────────────────────────────────────
+  async getActiveBanner(tenantId: string): Promise<Banner | null> {
+    const now = new Date();
+    const banners = await this.bannerRepo.find({
+      where: { tenantId, isActive: true },
+      order: { createdAt: 'DESC' },
+    });
+    return banners.find(b =>
+      (!b.startsAt || b.startsAt <= now) && (!b.endsAt || b.endsAt >= now),
+    ) ?? null;
+  }
+
+  // ── All banners for admin ────────────────────────────────────────────────────
+  async getBanners(tenantId: string): Promise<Banner[]> {
+    return this.bannerRepo.find({ where: { tenantId }, order: { createdAt: 'DESC' } });
+  }
+
+  // ── QR Scan Analytics ────────────────────────────────────────────────────────
+  async getAnalytics(tenantId: string) {
+    const scans = await this.qrScanRepo
+      .createQueryBuilder('s')
+      .select("DATE_TRUNC('day', s.scannedAt)", 'day')
+      .addSelect('COUNT(*)', 'count')
+      .where('s.tenantId = :tenantId', { tenantId })
+      .andWhere("s.scannedAt >= NOW() - INTERVAL '30 days'")
+      .groupBy("DATE_TRUNC('day', s.scannedAt)")
+      .orderBy('day', 'ASC')
+      .getRawMany();
+
+    const total = await this.qrScanRepo.count({ where: { tenantId } });
+    const today = await this.qrScanRepo
+      .createQueryBuilder('s')
+      .where('s.tenantId = :tenantId', { tenantId })
+      .andWhere("s.scannedAt >= DATE_TRUNC('day', NOW())")
+      .getCount();
+
+    const topProducts = await this.productRepo.find({
+      where: { tenantId, isActive: true },
+      order: { viewCount: 'DESC' },
+      take: 10,
+      select: ['id', 'name', 'viewCount', 'image'],
+    });
+
+    return { daily: scans, total, today, topProducts };
   }
 }

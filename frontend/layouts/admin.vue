@@ -62,6 +62,24 @@
         </NuxtLink>
 
         <div class="pt-3 pb-1 px-3">
+          <p class="text-xs font-semibold text-slate-600 uppercase tracking-wider">Pazarlama</p>
+        </div>
+
+        <NuxtLink to="/admin/banners" :class="isActive('/admin/banners') ? 'bg-white/10 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'" class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition text-sm font-medium">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+          </svg>
+          Kampanya Bannerı
+        </NuxtLink>
+
+        <NuxtLink to="/admin/analytics" :class="isActive('/admin/analytics') ? 'bg-white/10 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'" class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition text-sm font-medium">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+          QR Analitik
+        </NuxtLink>
+
+        <div class="pt-3 pb-1 px-3">
           <p class="text-xs font-semibold text-slate-600 uppercase tracking-wider">Yönetim</p>
         </div>
 
@@ -164,7 +182,7 @@
               </svg>
               Menüyü Aç
             </NuxtLink>
-            <NuxtLink to="/admin/select-tenant" class="px-4 py-1.5 bg-slate-800 text-white hover:bg-slate-700 shadow-sm rounded-lg transition text-xs font-medium">
+            <NuxtLink v-if="authStore.isSuperAdmin" to="/admin/select-tenant" class="px-4 py-1.5 bg-slate-800 text-white hover:bg-slate-700 shadow-sm rounded-lg transition text-xs font-medium">
               Restoran Değiştir
             </NuxtLink>
           </div>
@@ -172,8 +190,10 @@
       </header>
 
       <!-- Content -->
-      <main class="flex-1 p-8">
-        <slot />
+      <main class="flex-1 p-8 flex flex-col">
+        <div class="flex-1">
+          <slot />
+        </div>
       </main>
     </div>
   </div>

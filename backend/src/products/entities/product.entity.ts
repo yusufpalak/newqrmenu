@@ -60,6 +60,12 @@ export class Product {
   @Column({ type: 'int', default: 0 })
   sortOrder!: number;
 
+  @Column({ type: 'int', default: 0 })
+  viewCount!: number;
+
+  @Column({ type: 'boolean', default: false })
+  isPopular!: boolean;
+
   @CreateDateColumn({ type: 'timestamptz' })
   createdAt!: Date;
 

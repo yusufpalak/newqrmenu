@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <NuxtPage />
+  <div class="flex min-h-screen flex-col">
+    <div class="flex min-h-0 flex-1 flex-col">
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </div>
+    <KernelasoftFooter class="mt-auto shrink-0" />
   </div>
 </template>
 
