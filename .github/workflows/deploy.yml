@@ -42,4 +42,4 @@ jobs:
             git fetch origin
             git checkout "${{ env.DEPLOY_BRANCH }}"
             git pull origin "${{ env.DEPLOY_BRANCH }}"
-              docker compose up -d --build
+            docker compose up -d --build
