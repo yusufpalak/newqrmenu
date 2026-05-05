@@ -14,7 +14,7 @@
           <div>
             <div class="flex items-center gap-2 mb-3">
               <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-              <p class="text-amber-400/90 text-xs font-semibold tracking-[0.15em] uppercase">{{ t('digitalMenu') }}</p>
+              <p class="text-amber-400/90 text-xs font-semibold tracking-[0.15em] uppercase">DineX {{ t('digitalMenu') }}</p>
             </div>
             <h1 class="text-4xl md:text-5xl font-bold tracking-tight leading-none">
               {{ menuData?.tenant?.name || 'Restoran' }}
