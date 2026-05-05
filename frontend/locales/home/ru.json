@@ -1,9 +1,9 @@
 {
   "htmlLang": "ru",
   "ogLocale": "ru_RU",
-  "metaTitle": "QR Menu — Умное цифровое меню ресторана",
+  "metaTitle": "DineX — Умное цифровое меню ресторана",
   "metaDescription": "Умное цифровое меню для вашего ресторана. Подавайте меню на столы мгновенно через QR-код. Поддержка нескольких языков и валют.",
-  "brand": "QR Menu",
+  "brand": "DineX",
   "nav": { "login": "Войти", "about": "О нас", "contact": "Контакты", "blog": "Блог" },
   "languageLabel": "Язык",
   "hero": {

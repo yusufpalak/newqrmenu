@@ -1,9 +1,9 @@
 {
   "htmlLang": "fr",
   "ogLocale": "fr_FR",
-  "metaTitle": "QR Menu — Menu numérique intelligent pour restaurant",
+  "metaTitle": "DineX — Menu numérique intelligent pour restaurant",
   "metaDescription": "Un menu numérique intelligent pour votre restaurant. Servez le menu aux tables instantanément via un QR code. Prise en charge multilingue et multidevise.",
-  "brand": "QR Menu",
+  "brand": "DineX",
   "nav": { "login": "Se connecter", "about": "À propos", "contact": "Contact", "blog": "Blog" },
   "languageLabel": "Langue",
   "hero": {

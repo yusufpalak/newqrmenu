@@ -12,7 +12,7 @@
               </svg>
             </div>
             <div>
-              <p class="text-white font-semibold text-sm">QR Menü</p>
+              <p class="text-white font-semibold text-sm">DineX</p>
               <p class="text-slate-400 text-xs">Admin Panel</p>
             </div>
           </div>

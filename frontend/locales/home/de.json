@@ -1,9 +1,9 @@
 {
   "htmlLang": "de",
   "ogLocale": "de_DE",
-  "metaTitle": "QR Menu — Intelligente digitale Speisekarte",
+  "metaTitle": "DineX — Intelligente digitale Speisekarte",
   "metaDescription": "Eine intelligente digitale Speisekarte für Ihr Restaurant. Bringen Sie das Menü per QR-Code sofort an die Tische. Mehrsprachig und mit mehreren Währungen.",
-  "brand": "QR Menu",
+  "brand": "DineX",
   "nav": { "login": "Anmelden", "about": "Über uns", "contact": "Kontakt", "blog": "Blog" },
   "languageLabel": "Sprache",
   "hero": {

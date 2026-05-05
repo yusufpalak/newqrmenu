@@ -1,9 +1,9 @@
 {
   "htmlLang": "tr",
   "ogLocale": "tr_TR",
-  "metaTitle": "QR Menü — Akıllı dijital restoran menüsü",
+  "metaTitle": "DineX — Akıllı dijital restoran menüsü",
   "metaDescription": "Restoranın için akıllı dijital menü. QR kod ile masalara anında menü sun. Çoklu dil ve para birimi desteği.",
-  "brand": "QR Menü",
+  "brand": "DineX",
   "nav": { "login": "Giriş Yap", "about": "Hakkımızda", "contact": "İletişim", "blog": "Blog" },
   "languageLabel": "Dil",
   "hero": {

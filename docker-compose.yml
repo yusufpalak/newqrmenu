@@ -34,17 +34,6 @@ services:
     networks:
       - qrmenu_network
 
-  minio-init:
-    image: minio/mc:latest
-    container_name: qrmenu_minio_init
-    depends_on:
-      minio:
-        condition: service_healthy
-    entrypoint: >
-      /bin/sh -c " mc alias set local http://minio:9000 ${S3_ACCESS_KEY} ${S3_SECRET_KEY}; mc mb -p local/${S3_BUCKET} || true; mc anonymous set download local/${S3_BUCKET}; exit 0; "
-    networks:
-      - qrmenu_network
-
   backend:
     build:
       context: ./backend
